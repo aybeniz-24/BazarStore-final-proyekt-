@@ -1,8 +1,8 @@
-// updateTitleAndFavicon.js
+// update Title And Favicon
 
 export const updateTitleAndFavicon = () => {
   const titles = [
-    "Salam, bir dəqiqə....",
+    "Salam, bir dəqiqə...",
     "Biz hələ də burdayıq."
   ];
   const favicons = [
