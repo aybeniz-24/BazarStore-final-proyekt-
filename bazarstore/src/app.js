@@ -4,11 +4,11 @@ export const updateTitleAndFavicon = () => {
   const titles = [
     "Salam, bir dəqiqə...",
     "Biz hələ də burdayıq."
-  ];
+  ]
   const favicons = [
-    "/heart.ico",
-    "/heart.ico"
-  ];
+    "/greenHeart.ico",
+    "/greenHeart.ico"
+  ]
 
   let titleIndex = 0
   let faviconIndex = 0

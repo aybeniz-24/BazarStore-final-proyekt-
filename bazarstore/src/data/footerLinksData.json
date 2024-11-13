@@ -1,0 +1,42 @@
+{
+    "contact": [
+     { "value": "Bakı şəhəri, Binəqədi rayonu, Dərnəgül qəsəbəsi 108", "url": "https://maps.app.goo.gl/wuQDHczkNUYoJc3c7"},
+     { "value": "info@bazarstore.az", "url": "https://wa.me/552013535" },
+     { "value": "*1900 | 💬 055 201 35 35", "url": "mailto:info@bazarstore.az" }
+    ],
+    "information": [
+      { "name": "FAQ", "url": "/faq" },
+      { "name": "SuperKart", "url": "/superkart" },
+      { "name": "Geri qaytarma şərtləri", "url": "/geri-qaytarma" },
+      { "name": "Məlumat və Qaydalar", "url": "/melumat-qaydalar" },
+      { "name": "Bizimlə əlaqə", "url": "/bizimle-elaqe" },
+      { "name": "Sifariş İzləmə", "url": "/sifaris-izleme" }
+    ],
+    "bazarStore": [
+      { "name": "Karyera", "url": "/karyera" },
+      { "name": "Haqqımızda", "url": "/haqqimizda" },
+      { "name": "ISO Sertifikatlar", "url": "/iso-sertifikatlar" },
+      { "name": "İcarə Yeri Təklifi", "url": "/icare-teklifi" },
+      { "name": "Super Maqazin", "url": "/super-maqazin" },
+      { "name": "Mağazalar", "url": "/magazalar" }
+    ],
+    "popularCategories": [
+      { "name": "Ət, Toyuq, Balıq", "url": "/et-toyuq-baliq" },
+      { "name": "Deterjan & Təmizlik", "url": "/deterjan-temizlik" },
+      { "name": "Meyvə, Tərəvəz", "url": "/meyve-terevez" },
+      { "name": "Süd, Səhər Yeməyi", "url": "/sud-seher-yemeyi" },
+      { "name": "Təməl Qida", "url": "/temel-qida" },
+      { "name": "Firin, Pastane", "url": "/firin-pastane" },
+      { "name": "Atışdırmalıq", "url": "/atistirma" }
+    ],
+    "blog": [
+      { "name": "Bazarcuisine", "url": "/bazarcuisine" },
+      { "name": "İpucları", "url": "/ipuclari" },
+      { "name": "Təmizlik", "url": "/temizlik" },
+      { "name": "Sağlıqlı Yaşam", "url": "/saglam-yasam" },
+      { "name": "Ana və Uşaq", "url": "/ana-ushaq" },
+      { "name": "Gözəllik və Baxım", "url": "/gozellik-baxim" },
+      { "name": "Xəbərlər", "url": "/xeberler" }
+    ]
+  }
+  

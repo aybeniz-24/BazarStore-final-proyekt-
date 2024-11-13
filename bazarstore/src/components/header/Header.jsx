@@ -3,7 +3,7 @@ import React from 'react'
 function Header() {
   return (
     <header>
-      <p>Salam burda barazrstore olacaq</p>
+      Header
     </header>
   )
 }
