@@ -1,0 +1,880 @@
+[
+    {
+        "name": "🍉 Meyvə, Tərəvəz",
+        "product": [
+            {
+                "name": "Meyvə",
+                "subcategories": [
+                    {
+                        "name": "Eqzotik Meyvələr",
+                        "items": []
+                    },
+                    {
+                        "name": "Sitrus Meyvələri",
+                        "items": []
+                    },
+                    {
+                        "name": "Bərk Meyvələr",
+                        "items": []
+                    },
+                    {
+                        "name": "Yumşaq Meyvələr",
+                        "items": []
+                    },
+                    {
+                        "name": "Qarpız-Yemiş",
+                        "items": []
+                    },
+                    {
+                        "name": "Quru Meyvə-Çərəzlər",
+                        "items": []
+                    },
+                    {
+                        "name": "Doğranmış Meyvələr",
+                        "items": []
+                    }
+                ]
+            },
+            {
+                "name": "Tərəvəz",
+                "subcategories": [
+                    {
+                        "name": "Eqzotik Tərəvəzlər",
+                        "items": []
+                    },
+                    {
+                        "name": "Mövsüm Tərəvəzləri",
+                        "items": []
+                    },
+                    {
+                        "name": "Kartof-Soğan-Sarımsaq",
+                        "items": []
+                    },
+                    {
+                        "name": "Soyulmuş Tərəvəzlər",
+                        "items": []
+                    },
+                    {
+                        "name": "Göbələk",
+                        "items": []
+                    }
+                ]
+            },
+            {
+                "name": "Göyərti, Yarpaq",
+                "subcategories": [
+                    {
+                        "name": "Eqzotik Göyərtilər",
+                        "items": []
+                    },
+                    {
+                        "name": "Mövsüm Göyərtiləri",
+                        "items": []
+                    },
+                    {
+                        "name": "Salat Yarpaqları",
+                        "items": []
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "🍗 Ət, Toyuq, Baliq",
+        "product": [
+            {
+                "name": "Qırmızı Ət",
+                "subcategories": [
+                    {
+                        "name": "Dana Əti",
+                        "items": []
+                    }
+                ]
+            },
+            {
+                "name": "İçalat",
+                "subcategories": [
+                    {
+                        "name": "Dana İçalat",
+                        "items": []
+                    },
+                    {
+                        "name": "Quzu İçalat",
+                        "items": []
+                    },
+                    {
+                        "name": "Hindi İçalat",
+                        "items": []
+                    },
+                    {
+                        "name": "Toyuq İçalat",
+                        "items": []
+                    }
+                ]
+            },
+            {
+                "name": "Ağ Ət",
+                "subcategories": [
+                    {
+                        "name": "Bildirçin Əti",
+                        "items": []
+                    },
+                    {
+                        "name": "Təzə Toyuq",
+                        "items": []
+                    },
+                    {
+                        "name": "Hinduşka Əti",
+                        "items": []
+                    },
+                    {
+                        "name": "Ördək Əti",
+                        "items": []
+                    }
+                ]
+            },
+            {
+                "name": "Dondurulmuş Ət",
+                "subcategories": [
+                    {
+                        "name": "Dondurulmuş Ət Məhsulları",
+                        "items": []
+                    },
+                    {
+                        "name": "Dondurulmuş Toyuq",
+                        "items": []
+                    },
+                    {
+                        "name": "Dondurulmuş Ördək, Hinduşka, Bildirçin",
+                        "items": []
+                    },
+                    {
+                        "name": "Ördək Əti",
+                        "items": []
+                    }
+                ]
+            },
+            {
+                "name": "Ət Qastranom",
+                "subcategories": [
+                    {
+                        "name": "Bişmiş Kolbasa",
+                        "items": []
+                    },
+                    {
+                        "name": "Basdirma",
+                        "items": []
+                    },
+                    {
+                        "name": "Hisə verilmiş Kolbasa",
+                        "items": []
+                    },
+                    {
+                        "name": "Sosis",
+                        "items": []
+                    },
+                    {
+                        "name": "Vetçina, Jambon",
+                        "items": []
+                    },
+                    {
+                        "name": "Sucuqlar",
+                        "items": []
+                    },
+                    {
+                        "name": "Hisə Verilmiş Ət",
+                        "items": []
+                    }
+                ]
+            },
+            {
+                "name": "Dəniz Məhsulları",
+                "subcategories": [
+                    {
+                        "name": "Balıq",
+                        "items": []
+                    },
+                    {
+                        "name": "Hisə Verilmiş Balıq",
+                        "items": []
+                    },
+                    {
+                        "name": "Hazır Dəniz Məhsulları",
+                        "items": []
+                    },
+                    {
+                        "name": "Dəniz Məhsulları",
+                        "items": []
+                    },
+                    {
+                        "name": "Dəniz Məzələri",
+                        "items": []
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "🥛 Süd, Səhər Yeməyi",
+        "product": [
+            {
+                "name": "Süd",
+                "subcategories": [
+                    {
+                        "name": "Uzunömürlü Süd",
+                        "items": []
+                    },
+                    {
+                        "name": "Xüsusi Süd",
+                        "items": []
+                    },
+                    {
+                        "name": "Aromalı",
+                        "items": []
+                    }
+                ]
+            },
+            {
+                "name": "Süd Məhsulları",
+                "subcategories": [
+                    {
+                        "name": "Dovğa",
+                        "items": []
+                    },
+                    {
+                        "name": "Ayran",
+                        "items": []
+                    },
+                    {
+                        "name": "Xama",
+                        "items": []
+                    },
+                    {
+                        "name": "Kefir",
+                        "items": []
+                    },
+                    {
+                        "name": "Kəsmik",
+                        "items": []
+                    },
+                    {
+                        "name": "Sirok",
+                        "items": []
+                    },
+                    {
+                        "name": "Şor",
+                        "items": []
+                    },
+                    {
+                        "name": "Qaymaq",
+                        "items": []
+                    },
+                    {
+                        "name": "Krem",
+                        "items": []
+                    },
+                    {
+                        "name": "Süzmə",
+                        "items": []
+                    }
+                ]
+            },
+            {
+                "name": "Səhər Yeməyi",
+                "subcategories": [
+                    {
+                        "name": "Səhər Yeməkləri",
+                        "items": []
+                    },
+                    {
+                        "name": "Cem",
+                        "items": []
+                    },
+                    {
+                        "name": "Bal",
+                        "items": []
+                    },
+                    {
+                        "name": "Halva",
+                        "items": []
+                    },
+                    {
+                        "name": "Bəkməz",
+                        "items": []
+                    },
+                    {
+                        "name": "Tahin",
+                        "items": []
+                    },
+                    {
+                        "name": "Povidlo",
+                        "items": []
+                    },
+                    {
+                        "name": "Qatılaşdırılmş",
+                        "items": []
+                    },
+                    {
+                        "name": "Krem, Əzmələr",
+                        "items": []
+                    }
+                ]
+            },
+            {
+                "name": "Pendir",
+                "subcategories": [
+                    {
+                        "name": "Ağ Pendir Keçi",
+                        "items": []
+                    },
+                    {
+                        "name": "Ağ Pendir Qoyun",
+                        "items": []
+                    },
+                    {
+                        "name": "Digər Ağ Pendirlər",
+                        "items": []
+                    },
+                    {
+                        "name": "Ağ Pendir Ədəd",
+                        "items": []
+                    },
+                    {
+                        "name": "Əridilmiş Pendir",
+                        "items": []
+                    }
+                ]
+            },
+            {
+                "name": "Yoqurt",
+                "subcategories": [
+                    {
+                        "name": "Meyvəli Yoqurt",
+                        "items": []
+                    },
+                    {
+                        "name": "İçməli Yoqurt",
+                        "items": []
+                    }
+                ]
+            },
+            {
+                "name": "Qatıq",
+                "subcategories": [
+                    {
+                        "name": "Camış Qatığı",
+                        "items": []
+                    },
+                    {
+                        "name": "Kənd Qatığı",
+                        "items": []
+                    },
+                    {
+                        "name": "Sadə Qatıq",
+                        "items": []
+                    }
+                ]
+            },
+            {
+                "name": "Kərə Yağı",
+                "subcategories": [
+                    {
+                        "name": "Kərə Yağı (Ədəd)",
+                        "items": []
+                    },
+                    {
+                        "name": "Kərə Yağı (Çəki)",
+                        "items": []
+                    },
+                    {
+                        "name": "Melanj Yağı (Ədəd)",
+                        "items": []
+                    },
+                    {
+                        "name": "Melanj Yağı (Çəki)",
+                        "items": []
+                    }
+                ]
+            },
+            {
+                "name": "Zeytun",
+                "subcategories": [
+                    {
+                        "name": "Zeytun (Ədəd)",
+                        "items": []
+                    },
+                    {
+                        "name": "Zeytun (Çəki)",
+                        "items": []
+                    }
+                ]
+            },
+            {
+                "name": "Marqarin",
+                "subcategories": [
+                    {
+                        "name": "Marqarin (Ədəd)",
+                        "items": []
+                    },
+                    {
+                        "name": "Marqarin (Çəki)",
+                        "items": []
+                    }
+                ]
+            },
+            {
+                "name": "Yumurta",
+                "subcategories": [
+                    {
+                        "name": "Yumurta (Ədəd)",
+                        "items": []
+                    },
+                    {
+                        "name": "Yumurta (Paket)",
+                        "items": []
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "🥣 Təməl Qida",
+        "product": [
+            {
+                "name": "Yağ",
+                "subcategories": [
+                    {
+                        "name": "Duru Yağ (Günəbaxan)",
+                        "items": []
+                    },
+                    {
+                        "name": "Duru Yağ (Qardiğalı)",
+                        "items": []
+                    },
+                    {
+                        "name": "Qarışıq Yağlar",
+                        "items": []
+                    },
+                    {
+                        "name": "Zeytun Yağı ",
+                        "items": []
+                    },
+                    {
+                        "name": "Duru Yağ (Qardiğalı)",
+                        "items": []
+                    },{
+                        "name": "Ghee Yağ",
+                        "items": []
+                    }
+                ]
+            },
+            {
+                "name": "Bakliyyat",
+                "subcategories": [
+                    {
+                        "name": "Lobya",
+                        "items": []
+                    },
+                    {
+                        "name": "Noxud",
+                        "items": []
+                    },
+                    {
+                        "name": "Mərci",
+                        "items": []
+                    },
+                    {
+                        "name": "Qarabaşaq ",
+                        "items": []
+                    },
+                    {
+                        "name": "Buğday",
+                        "items": []
+                    },
+                    {
+                        "name": "Qardığalı",
+                        "items": []
+                    },
+                    {
+                        "name": "Bulğur",
+                        "items": []
+                    },
+                    {
+                        "name": "Düyü",
+                        "items": []
+                    },
+                    {
+                        "name": "Mannı",
+                        "items": []
+                    },
+                    {
+                        "name": "Perlova",
+                        "items": []
+                    },
+                    {
+                        "name": "Darı",
+                        "items": []
+                    },
+                    {
+                        "name": "Kinoa",
+                        "items": []
+                    },
+                    {
+                        "name": "Hazır Bakliyyat",
+                        "items": []
+                    },
+                    {
+                        "name": "Çəkili Bakliyyat",
+                        "items": []
+                    }
+                ]
+            },
+            {
+                "name": "Makaron",
+                "subcategories": [
+                    {
+                        "name": "Normal Makaron",
+                        "items": []
+                    },
+                    {
+                        "name": "Makaron",
+                        "items": []
+                    },
+                    {
+                        "name": "Özəl Makaron",
+                        "items": []
+                    },
+                    {
+                        "name": "Düyülü Makaron",
+                        "items": []
+                    },
+                    {
+                        "name": "Çəkili Makaron",
+                        "items": []
+                    }
+                ]
+            },
+            {
+                "name": "Duz, Ədviyyat, İçliklər",
+                "subcategories": [
+                    {
+                        "name": "Duz",
+                        "items": []
+                    },
+                    {
+                        "name": "Ədviyyat",
+                        "items": []
+                    },
+                    {
+                        "name": "İçliklər",
+                        "items": []
+                    },
+                    {
+                        "name": "Çəkili Ədviyyat",
+                        "items": []
+                    },
+                    {
+                        "name": "Çəkili Makaron",
+                        "items": []
+                    }
+                ]
+            },
+            {
+                "name": "Un",
+                "subcategories": [
+                    {
+                        "name": "Buğda Unu",
+                        "items": []
+                    },
+                    {
+                        "name": "Çovdar Unu",
+                        "items": []
+                    },
+                    {
+                        "name": "Qardığalı Unu",
+                        "items": []
+                    },
+                    {
+                        "name": "Sadə Unu",
+                        "items": []
+                    },
+                    {
+                        "name": "Qaleta Unu",
+                        "items": []
+                    },
+                    {
+                        "name": "Özəl Unu",
+                        "items": []
+                    }
+                ]
+            },
+            {
+                "name": "Soslar",
+                "subcategories": [
+                    {
+                        "name": "Ketçup",
+                        "items": []
+                    },
+                    {
+                        "name": "Mayonez",
+                        "items": []
+                    },
+                    {
+                        "name": "Acika",
+                        "items": []
+                    },
+                    {
+                        "name": "Xardal",
+                        "items": []
+                    },
+                    {
+                        "name": "Makaron Sosları",
+                        "items": []
+                    },
+                    {
+                        "name": "Kabab Sosları",
+                        "items": []
+                    },
+                    {
+                        "name": "Limon Suyu",
+                        "items": []
+                    },
+                    {
+                        "name": "Sirkə",
+                        "items": []
+                    },
+                    {
+                        "name": "Nar Şərab",
+                        "items": []
+                    },
+                    {
+                        "name": "Digər Soslar",
+                        "items": []
+                    }
+                ]
+            },
+            {
+                "name": "Suplar Və Bulyonlar",
+                "subcategories": [
+                    {
+                        "name": " Bulyon",
+                        "items": []
+                    },
+                    {
+                        "name": "Sup",
+                        "items": []
+                    }           
+                ]
+            },
+            {
+                "name": "Çay, Qəhvə, Şəkər",
+                "subcategories": [
+                    {
+                        "name": "Çay",
+                        "items": []
+                    },
+                    {
+                        "name": "Kofe",
+                        "items": []
+                    },
+                    {
+                        "name": "Kofe Kremi, Kakao, Süd Tozu",
+                        "items": []
+                    },
+                    {
+                        "name": "Şəkər Tozu",
+                        "items": []
+                    },
+                    {
+                        "name": "Qənd",
+                        "items": []
+                    },
+                    {
+                        "name": "Pudra Şəkəri",
+                        "items": []
+                    },
+                    {
+                        "name": "Çəkilii Çay, Şəkər, Kofe",
+                        "items": []
+                    }                  
+                ]
+            },
+            {
+                "name": "Suşi Məhsulları",
+                "subcategories": []
+            },
+            {
+                "name": "Sağlıqlı Həyat Tərzi Məhsulları",
+                "subcategories": [
+                    {
+                        "name": "Diyetik Məhsullar",
+                        "items": []
+                    },
+                    {
+                        "name": "Diabetik Məhsullar",
+                        "items": []
+                    },
+                    {
+                        "name": "Qlutensiz",
+                        "items": []
+                    },
+                    {
+                        "name": "Qlutensiz Məhsullar",
+                        "items": []
+                    }                  
+                ]
+            }
+        ]
+        },
+        {
+        "name": "🥐 Tort, Bişmələr, Çörək",
+        "product": [
+            {
+                "name": "Un Məmulatları",
+                "subcategories": [
+                    {
+                        "name": "Bişmələr",
+                        "items": []
+                    }
+                ]
+            },
+            {
+                "name": "Şirniyyatlar",
+                "subcategories": [
+                    {
+                        "name": "Şərbətli Şirniyyat",
+                        "items": []
+                    },
+                    {
+                        "name": "Südlü Şirniyyat",
+                        "items": []
+                    }
+                ]
+            },
+            {
+                "name": "Çörəklər",
+                "subcategories": [
+                    {
+                        "name": "Normal Çörək",
+                        "items": []
+                    },
+                    {
+                        "name": "Diabetik Çörək",
+                        "items": []
+                    },
+                    {
+                        "name": "Xüsusi Çörək",
+                        "items": []
+                    },
+                    {
+                        "name": "Təndir Çörəki",
+                        "items": []
+                    },
+                    {
+                        "name": "Qlutensiz Çörək",
+                        "items": []
+                    },
+                    {
+                        "name": "Zavod Çörəki",
+                        "items": []
+                    },
+                    {
+                        "name": "Form Çörəki",
+                        "items": []
+                    }
+                ]
+            },
+            {
+                "name": "Maya",
+                "subcategories": [
+                    {
+                        "name": "Yaş Maya",
+                        "items": []
+                    }
+                ]
+            },
+            {
+                "name": "Tort-Şirniyyat Aksesuarları",
+                "subcategories": [
+                    {
+                        "name": "Kadayiflər",
+                        "items": []
+                    },
+                    {
+                        "name": "Manna",
+                        "items": []
+                    },
+                    {
+                        "name": "Kekun",
+                        "items": []
+                    },
+                    {
+                        "name": "Krem Və Souslar",
+                        "items": []
+                    },
+                    {
+                        "name": "Krem Şantilər",
+                        "items": []
+                    },
+                    {
+                        "name": "Mayalar",
+                        "items": []
+                    },
+                    {
+                        "name": "Nişastalar",
+                        "items": []
+                    },
+                    {
+                        "name": "Tort Ləvazimatları",
+                        "items": []
+                    },
+                    {
+                        "name": "Qabartma Tozu",
+                        "items": []
+                    },
+                    {
+                        "name": "Vanil",
+                        "items": []
+                    },
+                    {
+                        "name": "Kakao",
+                        "items": []
+                    },
+                    {
+                        "name": "Düyü Unları",
+                        "items": []
+                    },
+                    {
+                        "name": "Soda",
+                        "items": []
+                    },
+                    {
+                        "name": "Jele",
+                        "items": []
+                    },
+                    {
+                        "name": "Kekslər",
+                        "items": []
+                    },
+                    {
+                        "name": "Pudinqlər",
+                        "items": []
+                    },
+                    {
+                        "name": "Pudra Şəkəri",
+                        "items": []
+                    }
+                ]
+            },
+            {
+                "name": "Tortlar",
+                "subcategories": [ ]
+            }
+        ]
+    }
+
+
+
+
+]
+

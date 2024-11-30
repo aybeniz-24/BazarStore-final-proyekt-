@@ -1,0 +1,145 @@
+:root {
+    --primary-color: #b3b93d;
+}
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+/* offcanvas */
+#custom-offcanvas {
+    width: 250px; 
+  }
+  
+  @media (max-width: 768px) {
+    #custom-offcanvas {
+      width: 240px; 
+    }
+  }
+
+
+
+/* Slider swiper */
+  .swiper {
+    width: 100%;
+    height: 100%;
+  }
+  .swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+
+
+
+
+/* Swiper naviqasiya oxları */
+.swiper-button-next,
+.swiper-button-prev {
+  color: #fff !important;
+  background-color: #00000044;
+  width: 40px !important;
+  height: 40px !important;
+  border-radius: 50%;
+  font-size: 10px;
+}
+.mySwiper .swiper-button-prev,
+.mySwiper .swiper-button-next {
+  opacity: 0;
+  transition: opacity .5s ease; 
+}
+.mySwiper:hover .swiper-button-prev,
+.mySwiper:hover .swiper-button-next {
+  opacity: 1; 
+}
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+  color: #fff;
+  background-color: var(--primary-color);  
+}
+
+.swiper-button-next::after,
+.swiper-button-prev::after {
+  font-size: 20px !important;
+}
+
+
+
+
+/* swiper-pagination */
+.swiper-pagination-bullet {
+  width: 12px !important;
+  height: 12px !important;
+  border: 2px solid #fff !important;
+  background: #55630e !important; 
+  margin-bottom: 12px !important;
+}
+.swiper-pagination-bullet-active {
+  border: 1px solid #fff !important;
+  background: #55630e !important;
+}
+
+
+/* sprite */
+.sliderBtn{
+  border: 1px solid #eee;
+  border-radius: 5px;
+  h4{
+    font-weight: bold;
+    font-size: 18px;
+    text-align: center;
+  }
+  p{
+    margin: 8px 0;
+    text-align: center;
+  }
+  .box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+}
+.spriteTurnk {
+  background: url('/src/assets/sliderImg/turnk.png') no-repeat; 
+}
+.spriteEarphone{
+  background: url('/src/assets/sliderImg/earphone.png') no-repeat;
+}
+.spriteSertificate{
+  background: url('/src/assets/sliderImg/sertificate.webp') no-repeat;
+}
+.sprite{
+  width: 50px; 
+  height: 50px;
+}
+.sprite:hover {
+  background-position: 0 -100px; 
+}
+
+
+
+.menu2{
+  max-height: 50px;
+}
+
+.menuHover{
+  display: none;
+}
+
+.menu2:hover .menuHover{
+  display: block;
+}
