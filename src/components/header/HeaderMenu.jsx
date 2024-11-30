@@ -30,6 +30,8 @@ function HeaderMenu() {
 
               {isCategoriesOpen && (
                 // menunun acildigi zaman sehife dasir, qarsisin al !!! 
+                // !!!!
+                // !!!!
                 <div className="bg-white border border-[#5e5e5e] mt-[5px] w-full sm:w-[50%] md:w-[40%] lg:w-[30%] xlg:w-[100%]">
                 <ul className="text-black">
                   {productData.map((data1, index1) => (
