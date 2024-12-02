@@ -49,7 +49,7 @@ function MainSlider() {
 
 
                     <div className='sliderBtn my-[15px] py-[30px] flex justify-between '>
-                        <div className='box m-auto'>
+                        <div className=' m-auto flex flex-col  xlg:flex-row justify-center items-center gap-[10px]'>
                           <div className="spriteTurnk  sprite"></div>
                           <div>
                             <h4>Çatdırılma</h4>
@@ -57,7 +57,7 @@ function MainSlider() {
                           </div>
                         </div>
 
-                        <div className='box m-auto'>
+                        <div className=' m-auto flex flex-col  xlg:flex-row justify-center items-center gap-[10px]'>
                           <div className='spriteEarphone sprite'></div>
                           <div>
                             <h4>Dəstək</h4>
@@ -65,7 +65,7 @@ function MainSlider() {
                           </div>
                         </div>
                         
-                        <div className='box m-auto'>
+                        <div className=' m-auto flex flex-col  xlg:flex-row justify-center items-center gap-[10px]'>
                           <div className='spriteSertificate sprite'></div>
                           <div>
                             <h4>Sarı Etiket</h4>

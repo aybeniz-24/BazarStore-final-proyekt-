@@ -106,15 +106,15 @@
     margin: 8px 0;
     text-align: center;
   }
-  .box{
+  /* .box{
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-  }
+  } */
 }
 .spriteTurnk {
-  background: url('/src/assets/sliderImg/turnk.png') no-repeat; 
+  background: url('/src/assets/sliderImg/turnk.png') no-repeat;
 }
 .spriteEarphone{
   background: url('/src/assets/sliderImg/earphone.png') no-repeat;
