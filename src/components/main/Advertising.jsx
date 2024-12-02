@@ -1,4 +1,4 @@
-import advertisementImage from '../../assets/advertisement/pantene-sidebar_advertisemen.webp';
+import advertisingImage from '../../assets/advertising/advertising1.webp';
 
 
 
@@ -7,7 +7,7 @@ function Advertising() {
     <div className="h-[400px] w-[300px] sm:w-[30%] md:w-[40%] lg:w-[100%] mb-[50px]">
         {/* linke duzelis et */}
         <a href="#">
-             <img className='w-[100%] h-[400px] rounded-[5px]'  src={advertisementImage} alt="advertisementImage" />
+             <img className='w-[100%] h-[400px] rounded-[5px]'  src={advertisingImage} alt="advertisementImage" />
         </a>
     </div>
   )
