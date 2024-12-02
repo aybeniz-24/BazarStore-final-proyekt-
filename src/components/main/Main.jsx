@@ -1,7 +1,11 @@
+import Advertising from "./Advertising"
+
 function Main() {
   return (
-    <main>
-      Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vitae officia quasi aliquam repellat earum? Quam dolor ab obcaecati distinctio aliquid!
+    <main className="border-t-[1px] border-[#eee]">
+      <div className="md:mx-[8%] w-[20%] ">
+        <Advertising />
+      </div>
     </main>
   )
 }

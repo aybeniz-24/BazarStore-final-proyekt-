@@ -28,7 +28,7 @@ function HeaderMenu() {
   };
 
   return (
-    <section className="border-t-[1px] border-b-[1px] border-[#eee]">
+    <section className="border-t-[1px] border-[#eee]">
       <div className="md:mx-[8%] mx-[2%] xlg:flex xlg:justify-between">
         {/* Sol tərəf - Kateqoriyalar */}
         <div className="relative w-[100%] md:w-[100%] lg:w-[100%] xlg:w-[25%]">
