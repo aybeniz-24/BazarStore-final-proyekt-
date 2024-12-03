@@ -4,10 +4,10 @@ import '../../App.css'
 import { FaBars } from "react-icons/fa"
 import { FaLongArrowAltRight } from "react-icons/fa"
 import { IoIosArrowForward } from "react-icons/io"
-import MainSlider from '../main/MainSlider'
+import MainSlider from './MainSlider'
 import { useEffect, useState } from 'react'
 
-function HeaderMenu() {
+function AllCategorButton() {
   const [isCategoriesOpen, setIsCategoriesOpen] = useState(true);
     
     useEffect(() => {
@@ -121,4 +121,4 @@ function HeaderMenu() {
   );
 }
 
-export default HeaderMenu;
+export default AllCategorButton;
