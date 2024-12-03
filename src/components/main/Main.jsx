@@ -1,5 +1,7 @@
 import Advertising from "./Advertising"
+import Advertising_2 from "./Advertising_2"
 import DiscountedProducts from "./DiscountedProducts"
+import Feedback from "./Feedback"
 
 function Main() {
   return (
@@ -7,6 +9,8 @@ function Main() {
       <div className="md:mx-[8%] w-[20%] ">
         <Advertising />
         <DiscountedProducts />
+        <Advertising_2 />
+        <Feedback />
       </div>
     </main>
   )
