@@ -1,8 +1,9 @@
-import Advertising from "./Advertising"
-import Advertising_2 from "./Advertising_2"
-import AllCategorButton from "./AllCategorButton"
-import DiscountedProducts from "./DiscountedProducts"
-import Feedback from "./Feedback"
+import Advertising from "./Advertising";
+import Advertising_2 from "./Advertising_2";
+import AllCategorButton from "./AllCategorButton";
+import DiscountedProducts from "./DiscountedProducts";
+import Feedback from "./Feedback";
+import News from "./News";
 
 function Main() {
   return (
@@ -10,19 +11,23 @@ function Main() {
       <div>
         <AllCategorButton />
       </div>
-      <div className="md:mx-[8%] w-[20%] ">
-        <Advertising />
-        <DiscountedProducts />
-        <Advertising_2 />
-        <Feedback />
+
+
+
+      <div className="md:mx-[8%] flex flex-col lg:flex-row justify-between">
+        <div className="w-full lg:w-[23%] ">
+          <Advertising />
+          <DiscountedProducts />
+          <Advertising_2 />
+          <Feedback />
+        </div>
+
+        <div className="w-full lg:w-[75%]">
+          <News />
+        </div>  
       </div>
-
-
-
-
-     
     </main>
-  )
+  );
 }
 
-export default Main
+export default Main;

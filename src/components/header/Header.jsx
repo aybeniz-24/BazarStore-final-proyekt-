@@ -6,7 +6,7 @@ function Header() {
     <header>
       <HeaderTop />
       <HeaderBottom />
-      <div className='mb-[100px]'></div>
+    
     </header>
   )
 }

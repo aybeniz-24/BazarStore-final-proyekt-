@@ -1,7 +1,6 @@
 import { useState } from "react"
 import { RiDoubleQuotesL } from "react-icons/ri"
-import { IoIosArrowForward } from "react-icons/io"
-import { IoIosArrowBack } from "react-icons/io"
+import ArrowButton from "./ArrowButton"
 
 function Feedback() {
     const feedback = [
@@ -12,7 +11,7 @@ function Feedback() {
         { id: 5, text: "Razıyam, əladı xidmətiniz, həmişə sifariş edirəm.", name: "Zuleyxa M.", category: 'Onlayn Müştəri' },
     ];
 
-      const [currentIndex, setCurrentIndex] = useState(0);
+  const [currentIndex, setCurrentIndex] = useState(0);
     
 
   const handleNext = () => {
@@ -31,8 +30,8 @@ function Feedback() {
        
         <div className="m-[30px]">
             <RiDoubleQuotesL className="text-[#b3b93d] text-[50px]" />
-            <div className="my-[10px] h-[150px]">
-                <p className="text-[20px] tracking-wide leading-loose">{feedback[currentIndex].text}</p>
+            <div className="my-[10px] h-[180px]">
+                <p className="text-[17px] tracking-wide leading-loose">{feedback[currentIndex].text}</p>
             </div>
 
             <div className="my-[15px] mt-[30px]">
@@ -41,8 +40,10 @@ function Feedback() {
             </div>
 
             <div>
-                <button onClick={handlePrev}> <IoIosArrowBack  className="text-[2.1em] bg-[#eee] hover:bg-[#b3b93d] hover:text-white rounded-full m-[10px] p-[5px]"/></button>
-                <button onClick={handleNext}> <IoIosArrowForward className="text-[2.1em] bg-[#eee] hover:bg-[#b3b93d] hover:text-white rounded-full m-[10px] p-[5px]" /></button>
+            <ArrowButton direction="prev" onClick={handlePrev} />
+            <ArrowButton direction="next" onClick={handleNext} />
+                {/* <button onClick={handlePrev}> <IoIosArrowBack  className="text-[2.1em] bg-[#eee] hover:bg-[#b3b93d] hover:text-white rounded-full m-[10px] p-[5px]"/></button>
+                <button onClick={handleNext}> <IoIosArrowForward className="text-[2.1em] bg-[#eee] hover:bg-[#b3b93d] hover:text-white rounded-full m-[10px] p-[5px]" /></button> */}
             </div>
         </div>
     </div>
