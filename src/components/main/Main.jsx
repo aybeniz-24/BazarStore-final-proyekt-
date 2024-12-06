@@ -1,6 +1,7 @@
 import Advertising from "./Advertising";
 import Advertising_2 from "./Advertising_2";
 import AllCategorButton from "./AllCategorButton";
+import Blog from "./Blog";
 import DiscountedProducts from "./DiscountedProducts";
 import Feedback from "./Feedback";
 import News from "./News";
@@ -23,6 +24,7 @@ function Main() {
         </div>
 
         <div className="w-full lg:w-[75%]">
+          <Blog />
           <News />
         </div>  
       </div>
