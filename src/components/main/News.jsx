@@ -1,62 +1,66 @@
-import { useState } from "react";
-import ArrowButton from "./ArrowButton"
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { FreeMode, Navigation } from 'swiper/modules';
+import { useRef } from 'react';
 
 function News() {
-  // Məlumatlar
   const newsData = [
-    { id: 1, img: '/src/assets/news/news_slider1.webp', date: "28 Nov, 2024", title: "Onlayn sifariş et, hədiyyə qazan. 🎉" },
-    { id: 2, img: '/src/assets/news/news_slider2.webp', date: "19 Nov, 2024", title: "Parlayanların gecəsinə qoşul! ✨" },
-    { id: 3, img: '/src/assets/news/news_slider3.webp', date: "23 Oct, 2024", title: "Online sifarişə özəl endirimlər🎯" },
-    { id: 4, img: '/src/assets/news/news_slider4.webp', date: "03 Oct, 2024", title: "Bazarstore.az | Onlayn market alış-verişi 💚" },
-    { id: 5, img: '/src/assets/news/news_slider5.webp', date: "02 Aug, 2024", title: "Bazarstore.az - Onlayn Supermarket" },
-    { id: 6, img: '/src/assets/news/news_slider6.webp', date: "04 Jul, 2024", title: "Bazarstore 'Bazarfest – gözəllik festivalı' ilə ilkə imza atdı" },
+    { id: 1, img: "/src/assets/news/news_slider1.webp", date: "28 Nov, 2024", title: "Onlayn sifariş et, hədiyyə qazan. 🎉" },
+    { id: 2, img: "/src/assets/news/news_slider2.webp", date: "19 Nov, 2024", title: "Parlayanların gecəsinə qoşul! ✨" },
+    { id: 3, img: "/src/assets/news/news_slider3.webp", date: "23 Oct, 2024", title: "Online sifarişə özəl endirimlər🎯" },
+    { id: 4, img: "/src/assets/news/news_slider4.webp", date: "03 Oct, 2024", title: "Bazarstore.az | Onlayn market alış-verişi 💚" },
+    { id: 5, img: "/src/assets/news/news_slider5.webp", date: "02 Aug, 2024", title: "Bazarstore.az - Onlayn Supermarket" },
+    { id: 6, img: "/src/assets/news/news_slider6.webp", date: "04 Jul, 2024", title: "Bazarstore 'Bazarfest – gözəllik festivalı' ilə ilkə imza atdı" },
   ];
 
-  const [currentIndex, setCurrentIndex] = useState(0);
-
-  const handleNext = () => {
-    if (currentIndex < newsData.length - 3) {
-      setCurrentIndex(currentIndex + 1);
-    } else {
-      setCurrentIndex(0); // Yenidən ilk kartlara qayıt
-    }
-  };
-
-  const handlePrev = () => {
-    if (currentIndex > 0) {
-      setCurrentIndex(currentIndex - 1);
-    } else {
-      setCurrentIndex(newsData.length - 3); // Sonuncu 3 kartı göstərmək üçün
-    }
-  };
+  const swiperRef = useRef(null);
 
   return (
-    <div className="rounded-[5px] sm:hidden md:flex lg:flex xlg:flex flex-col mb-[50px]  hidden ">
-      <div className="flex justify-between px-[10px]">
-        <div className="p-[15px]">
-          <p className="font-bold text-[20px] mt-[15px]">Xəbərlər</p>
-        </div>
-        <div className="flex justify-end p-[15px] ">
-          <ArrowButton direction="prev" onClick={handlePrev} />
-          <ArrowButton direction="next" onClick={handleNext} />
-        </div>
+    <div className="relative xlg:block lg:block md:block sm:hidden hidden bg-pink-500 my-[10px]">
+      {/* Başlıq */}
+      <h2 className="text-[24px] font-bold mb-[20px] absolute left-[30px] top-0 z-10">Xəbərlər</h2>
+
+      {/* Navigation düymeleri için konteyner */}
+      <div className="absolute top-0 right-[70px] flex items-center gap-2 z-10">
+        <button
+          className="swiper-button-prev bg-gray-200 p-2 rounded-full transform rotate-180" /* yönü tersine çevirir */
+          onClick={() => swiperRef.current.swiper.slideNext()}
+        >
+        </button>
+        <button
+          className="swiper-button-next bg-gray-200 p-2 rounded-full transform rotate-180" /* yönü tersine çevirir */
+          onClick={() => swiperRef.current.swiper.slidePrev()}
+        >
+        </button>
       </div>
 
-      <div className="mx-[20px] flex justify-between space-x-[20px] flex-wrap h-[330px]">
-        {newsData.slice(currentIndex, currentIndex + 3).map((item) => (
-          <div key={item.id} className=" flex-col items-center hidden sm:hidden md:w-[48%] md:flex lg:w-[30%] lg:flex xlg:flex">
-            <img
-            src={item.img}
-            alt={item.title}
-            className="rounded-lg w-full h-[200px] object-cover mb-[15px] transition-transform duration-300 ease-in-out hover:scale-[1.05]"
-            />
-            <div>
-              <p className="text-[17px]">{item.date}</p>
-              <p className="my-[10px] font-bold">{item.title}</p>
+
+      <Swiper
+        ref={swiperRef}
+        slidesPerView={3} // Varsayılan olaraq 3
+        spaceBetween={5}
+        freeMode={true}
+        navigation={false} // Default navigation düymələri deaktiv edilir
+        modules={[FreeMode, Navigation]}
+        className="mySwiper h-[310px]"
+        breakpoints={{
+          1280: { slidesPerView: 3 },
+          1024: { slidesPerView: 2 },
+          768: { slidesPerView: 1 },
+          640: { slidesPerView: 1 },
+        }}
+      >
+        {newsData.map((item) => (
+          <SwiperSlide key={item.id} className="mt-[20px] ">
+            <div className="p-4 flex flex-col items-center w-full h-full">
+              <div className="rounded-lg w-full h-[160px] flex justify-center items-center bg-[#e0e0e0] mb-2">
+                <img src={item.img} alt={item.title} className="w-full h-full object-cover rounded-lg" />
+              </div>
+              <p className="text-[14px] ">{item.date}</p>
+              <p className="mt-[10px] text-[16px] font-bold text-center">{item.title}</p>
             </div>
-          </div>
+          </SwiperSlide>
         ))}
-      </div>
+      </Swiper>
     </div>
   );
 }

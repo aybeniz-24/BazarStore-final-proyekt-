@@ -5,6 +5,7 @@ import Blog from "./Blog";
 import DiscountedProducts from "./DiscountedProducts";
 import Feedback from "./Feedback";
 import News from "./News";
+import ProductTypes from "./ProductTypes";
 
 function Main() {
   return (
@@ -24,6 +25,7 @@ function Main() {
         </div>
 
         <div className="w-full lg:w-[75%]">
+          <ProductTypes />
           <Blog />
           <News />
         </div>  

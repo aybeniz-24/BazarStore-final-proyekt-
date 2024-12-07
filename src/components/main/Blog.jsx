@@ -1,5 +1,6 @@
-import { useState } from "react";
-import ArrowButton from "./ArrowButton";
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { FreeMode, Navigation } from 'swiper/modules';
+import { useRef } from 'react';
 
 function Blog() {
   const blogData = [
@@ -11,52 +12,56 @@ function Blog() {
     { id: 6, img: '/src/assets/blog/Balva-sorbasi.webp', date: "27 Nov, 2023", name: "Balva" },
   ];
 
-  const [currentIndex, setCurrentIndex] = useState(0);
-
-  const handleNext = () => {
-    if (currentIndex < blogData.length - 3) {
-      setCurrentIndex(currentIndex + 1); // 1 kart irəliləyir
-    } else {
-      setCurrentIndex(0); // Yenidən ilk kartlara qayıt
-    }
-  };
-
-  const handlePrev = () => {
-    if (currentIndex > 0) {
-      setCurrentIndex(currentIndex - 1); // 1 kart geriyə gedir
-    } else {
-      setCurrentIndex(blogData.length - 3); // Sonuncu 3 kartı göstərmək üçün
-    }
-  };
+  const swiperRef = useRef(null);
 
   return (
-    <div className="rounded-[5px] flex flex-col mb-[50px] ">
-      <div className="flex justify-between px-[10px]">
-        <div className="p-[15px]">
-          <p className="font-bold text-[20px] mt-[15px]">Blog</p>
-        </div>
-        <div className="flex justify-end p-[15px]">
-          <ArrowButton direction="prev" onClick={handlePrev} />
-          <ArrowButton direction="next" onClick={handleNext} />
-        </div>
+    <div className="relative bg-blue-400 my-[20px] ">
+      {/* Başlıq */}
+      <h2 className="text-[24px] font-bold mb-[20px] absolute left-[30px] top-0 z-10">Bazarcuisine Blog</h2>
+
+      {/* Navigation düymeleri için konteyner */}
+      <div className="absolute top-0 right-[70px] flex items-center gap-2 z-10">
+        <button
+          className="swiper-button-prev bg-gray-200 p-2 rounded-full transform rotate-180" /* yönü tersine çevirir */
+          onClick={() => swiperRef.current.swiper.slideNext()}
+        >
+        </button>
+        <button
+          className="swiper-button-next bg-gray-200 p-2 rounded-full transform rotate-180" /* yönü tersine çevirir */
+          onClick={() => swiperRef.current.swiper.slidePrev()}
+        >
+        </button>
       </div>
 
-      <div className="mx-[20px] flex justify-between space-x-[20px] flex-wrap h-[330px]">
-        {blogData.slice(currentIndex, currentIndex + 3).map((item) => (
-          <div key={item.id} className="flex flex-col items-center sm:w-full md:w-[48%] lg:w-[30%] xlg:w-[30%]">
-            <img
-              src={item.img}
-              alt={item.name}
-              className="rounded-lg w-full h-[200px] object-cover mb-[15px] transition-transform duration-300 ease-in-out hover:scale-[1.05]"
-            />
-            <div className="ml-[-150px]">
-              <p className="text-[17px]">{item.date}</p>
-              <p className="my-[10px] font-bold">{item.name}</p>
+
+      <Swiper
+        ref={swiperRef}
+        slidesPerView={3} // Varsayılan olaraq 3
+        spaceBetween={5}
+        freeMode={true}
+        navigation={false} // Default navigation düymələri deaktiv edilir
+        modules={[FreeMode, Navigation]}
+        className="mySwiper h-[310px]"
+        breakpoints={{
+          1280: { slidesPerView: 3 },
+          1024: { slidesPerView: 2 },
+          768: { slidesPerView: 1 },
+          640: { slidesPerView: 1 },
+          250: { slidesPerView: 1 },
+        }}
+      >
+        {blogData.map((item) => (
+          <SwiperSlide key={item.id} className="mt-[20px] ">
+            <div className="p-4 flex flex-col items-center w-full h-full">
+              <div className="rounded-lg w-full h-[160px] flex justify-center items-center bg-[#e0e0e0] mb-2">
+                <img src={item.img} alt={item.title} className="w-full h-full object-cover rounded-lg" />
+              </div>
+              <p className="text-[14px] ">{item.date}</p>
+              <p className="mt-[10px] text-[16px] font-bold text-center">{item.name}</p>
             </div>
-          </div>
+          </SwiperSlide>
         ))}
-      </div>
-
+      </Swiper>
     </div>
   );
 }
