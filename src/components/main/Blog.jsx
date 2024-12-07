@@ -15,7 +15,7 @@ function Blog() {
   const swiperRef = useRef(null);
 
   return (
-    <div className="relative bg-blue-400 my-[20px] ">
+    <div className="relative my-[20px] ">
       {/* Başlıq */}
       <h2 className="text-[24px] font-bold mb-[20px] absolute left-[30px] top-0 z-10">Bazarcuisine Blog</h2>
 

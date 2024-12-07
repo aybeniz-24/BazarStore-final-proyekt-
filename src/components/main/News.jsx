@@ -15,7 +15,7 @@ function News() {
   const swiperRef = useRef(null);
 
   return (
-    <div className="relative xlg:block lg:block md:block sm:hidden hidden bg-pink-500 my-[10px]">
+    <div className="relative xlg:block lg:block md:block sm:hidden hidden my-[10px]">
       {/* Başlıq */}
       <h2 className="text-[24px] font-bold mb-[20px] absolute left-[30px] top-0 z-10">Xəbərlər</h2>
 

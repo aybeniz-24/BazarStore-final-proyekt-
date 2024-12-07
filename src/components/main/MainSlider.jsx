@@ -4,6 +4,7 @@ import 'swiper/css'
 import 'swiper/css/navigation'
 import 'swiper/css/pagination'
 import { Autoplay, Navigation, Pagination } from 'swiper/modules'
+import slider1New from '../../assets/sliderImg/WhatsApp_Image_slidee1_new.webp'
 import slider1 from '../../assets/sliderImg/pantene-banner.webp'
 import slider2 from '../../assets/sliderImg/image.png'
 import slider3 from '../../assets/sliderImg/onlayna-ozel-banner.webp'
@@ -29,6 +30,9 @@ function MainSlider() {
                       navigation 
                       loop={true}               
                     >
+                      <SwiperSlide>
+                        <img src={slider1New} alt="slider1new" />
+                      </SwiperSlide>
                       <SwiperSlide>
                         <img src={slider1} alt="slider1" />
                       </SwiperSlide>

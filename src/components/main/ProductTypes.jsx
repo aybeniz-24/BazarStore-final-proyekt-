@@ -39,7 +39,7 @@ function ProductTypes() {
   }}
   navigation={true}
   modules={[FreeMode, Navigation]}
-  className="mySwiper h-[300px] sm:h-[300px] bg-yellow-300"
+  className="mySwiper h-[300px] sm:h-[300px]"
   breakpoints={{
     // Ekran ölçüsünə görə tənzimləmə
     1280: { slidesPerView: 5 }, // xl ekran üçün 5 kart
