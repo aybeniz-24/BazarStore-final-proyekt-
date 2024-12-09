@@ -39,20 +39,7 @@ function Feedback() {
             </SwiperSlide>
           ))}
         </Swiper>
-        <div className="absolute bottom-[30px] xlg:left-[140px] lg:left-[115px] flex items-center z-10">
-          <button
-            className="swiper-button-prev bg-gray-200 rounded-full transform rotate-180"
-            onClick={() => swiperRef.current.swiper.slideNext()}
-          >
-            {/* Sol ok yönlendirmesi */}
-          </button>
-          <button
-            className="swiper-button-next bg-gray-200 rounded-full transform rotate-180"
-            onClick={() => swiperRef.current.swiper.slidePrev()}
-          >
-            {/* Sağ ok yönlendirmesi */}
-          </button>
-        </div>
+       
       </div>
     </>
   );

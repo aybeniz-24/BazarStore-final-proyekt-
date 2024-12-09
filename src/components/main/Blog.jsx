@@ -12,7 +12,7 @@ function Blog() {
     { id: 6, img: '/src/assets/blog/Balva-sorbasi.webp', date: "27 Nov, 2023", name: "Balva" },
   ];
 
-  const swiperRef = useRef(null);
+  const swiperRef = useRef(null)
 
   return (
     <div className="relative my-[20px] ">

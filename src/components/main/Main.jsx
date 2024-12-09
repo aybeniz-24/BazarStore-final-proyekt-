@@ -4,6 +4,7 @@ import AllCategorButton from "./AllCategorButton";
 import Blog from "./Blog";
 import DiscountedProducts from "./DiscountedProducts";
 import Feedback from "./Feedback";
+import Meat from "./Meat";
 import News from "./News";
 import ProductTypes from "./ProductTypes";
 
@@ -25,6 +26,7 @@ function Main() {
         </div>
 
         <div className="w-full lg:w-[75%]">
+          <Meat />
           <ProductTypes />
           <Blog />
           <News />
