@@ -6,6 +6,7 @@ import DiscountedProducts from "./DiscountedProducts";
 import Feedback from "./Feedback";
 import Meat from "./Meat";
 import News from "./News";
+import PineTrees from "./PineTrees";
 import ProductTypes from "./ProductTypes";
 
 function Main() {
@@ -26,6 +27,7 @@ function Main() {
         </div>
 
         <div className="w-full lg:w-[75%]">
+          <PineTrees />
           <Meat />
           <ProductTypes />
           <Blog />
