@@ -69,8 +69,8 @@ function PineTrees() {
             <div className="w-[100%] group relative">
               <img className=" rounded-[5px] " src={item.img} alt={item.name} />
               <div className="absolute top-0 right-0 z-20 icon">
-                <CiHeart className="bg-[#e8e8e8] rounded-full w-[30px] h-[30px] p-[5px] m-[3px] cursor-pointer" />
-                <FaRegEye className="bg-[#e8e8e8] rounded-full w-[30px] h-[30px] p-[5px] m-[3px] cursor-pointer" />
+                <CiHeart className="bg-[#e8e8e8]  hover:bg-[#b3b93d] hover:text-white rounded-full w-[30px] h-[30px] p-[5px] m-[3px] cursor-pointer" />
+                <FaRegEye className="bg-[#e8e8e8]  hover:bg-[#b3b93d] hover:text-white rounded-full w-[30px] h-[30px] p-[5px] m-[3px] cursor-pointer" />
               </div>
             </div>
             <div className="h-[120px] my-[30px] text-left">
