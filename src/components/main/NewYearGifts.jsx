@@ -7,22 +7,22 @@ import { FaRegEye } from "react-icons/fa";
 import { SlBasket } from "react-icons/sl";
 
 function NewYearGifts() {
-    const PineTrees = [
-        { id: 1, img: "src/assets/NewYearGifts/NewYearGifts_card1.webp", name: "Yeni Il Hədiyyəsi Troleybus", price: "6.49 ₼" },
-        { id: 2, img: "src/assets/NewYearGifts/NewYearGifts_card2.webp", name: "Yeni İl Hədiyyəsi Sandıq", price: "7.99 ₼", discountedPrice: "6.99 ₼" },
-        { id: 3, img: "src/assets/NewYearGifts/NewYearGifts_card3.webp", name: "Yeni İl Hədiyyəsi İlan Şəkilli", price: "2.99 ₼" },
-        { id: 4, img: "src/assets/NewYearGifts/NewYearGifts_card4.webp", name: "Yeni İl Hədiyyəsi SEN", price: "3.99 ₼", discountedPrice: "3.49 ₼" },
-        { id: 5, img: "src/assets/NewYearGifts/NewYearGifts_card5.webp", name: "Yeni İl Hədiyyəsi Qatar", price: "6.49 ₼" },
-        { id: 5, img: "src/assets/NewYearGifts/NewYearGifts_card6.webp", name: "Yeni İl Hədiyyəsi 348 Q ŞaxtaBaba", price: "2.55 ₼" },
-        { id: 5, img: "src/assets/NewYearGifts/NewYearGifts_card7.webp", name: "Yeni İl Hədiyyəsi 330 Q Domik", price: "4.70 ₼" },
-        { id: 5, img: "src/assets/NewYearGifts/NewYearGifts_card8.webp", name: "Yeni İl Hədiyyəsi 330 Q Uşaq Evi", price: "2.99 ₼" },
-        { id: 5, img: "src/assets/NewYearGifts/NewYearGifts_card9.webp", name: "Yeni İl Hədiyyəsi Premium Qutu", price: "6.99 ₼" },
-        { id: 5, img: "src/assets/NewYearGifts/NewYearGifts_card10.webp", name: "Yeni İl Hədiyyəsi Məktub", price: "1.99 ₼" },
-        { id: 5, img: "src/assets/NewYearGifts/NewYearGifts_card11.webp", name: "Yeni İl Hədiyyəsi Kremlin", price: "5.99 ₼" },
-        { id: 5, img: "src/assets/NewYearGifts/NewYearGifts_card12.webp", name: "Yeni İl Hədiyyəs Dj Klaus Böyük", price: "7.99 ₼" },
+    const NewYearGifts = [
+        { id: 1, img: "https://bazarstore.az/cdn/shop/files/445f91730903bc13ecfc4b5b5923959f_1000x1000.jpg?v=1733296246", name: "Yeni Il Hədiyyəsi Troleybus", price: "6.49 ₼" },
+        { id: 2, img: "https://bazarstore.az/cdn/shop/files/b673de7db39fe16c5dddf7312d2843db_1000x1000.jpg?v=1733295890", name: "Yeni İl Hədiyyəsi Sandıq", price: "7.99 ₼", discountedPrice: "6.99 ₼" },
+        { id: 3, img: "https://bazarstore.az/cdn/shop/files/014abb8214c89f110c3b4ea4b1b8f71e_1000x1000.jpg?v=1733400792", name: "Yeni İl Hədiyyəsi İlan Şəkilli", price: "2.99 ₼" },
+        { id: 4, img: "https://bazarstore.az/cdn/shop/files/f240cd4ed1303d5f48369de9c32a90ad_1000x1000.jpg?v=1733297479", name: "Yeni İl Hədiyyəsi SEN", price: "3.99 ₼", discountedPrice: "3.49 ₼" },
+        { id: 5, img: "https://bazarstore.az/cdn/shop/files/4bc807017c3dea23d39c0ca5ae6c07f3_1000x1000.jpg?v=1733296843", name: "Yeni İl Hədiyyəsi Qatar", price: "6.49 ₼" },
+        { id: 6, img: "https://bazarstore.az/cdn/shop/products/30182125_9d7f2b2b-1706-487c-b87a-00e1d6eb0f0a_1000x1000.jpg?v=1693640490", name: "Yeni İl Hədiyyəsi 348 Q ŞaxtaBaba", price: "2.55 ₼" },
+        { id: 7, img: "https://bazarstore.az/cdn/shop/products/30182124_1000x1000.jpg?v=1693640486", name: "Yeni İl Hədiyyəsi 330 Q Domik", price: "4.70 ₼" },
+        { id: 8, img: "https://bazarstore.az/cdn/shop/files/170584dc4536774d1192550c1279e41c_1000x1000.jpg?v=1733297930", name: "Yeni İl Hədiyyəsi 330 Q Uşaq Evi", price: "2.99 ₼" },
+        { id: 9, img: "https://bazarstore.az/cdn/shop/files/2b370e378eae1c5a9d11caf3a426e027_1000x1000.jpg?v=1733297482", name: "Yeni İl Hədiyyəsi Premium Qutu", price: "6.99 ₼" },
+        { id: 10, img: "https://bazarstore.az/cdn/shop/files/69cf950b50546455ff421c64c91ad4aa_1000x1000.jpg?v=1733296968", name: "Yeni İl Hədiyyəsi Məktub", price: "1.99 ₼" },
+        { id: 11, img: "https://bazarstore.az/cdn/shop/files/4081c8d1c84df899b42ac6f0b56a790b_1000x1000.jpg?v=1733299003", name: "Yeni İl Hədiyyəsi Kremlin", price: "5.99 ₼" },
+        { id: 12, img: "https://bazarstore.az/cdn/shop/files/ad6d77172f325e87f23d6a4ae58835a4_1000x1000.jpg?v=1733295787", name: "Yeni İl Hədiyyəs Dj Klaus Böyük", price: "7.99 ₼" },
       ];
     
-      const [counts, setCounts] = useState(PineTrees.map(() => 1)); // Bütün miqdarlar üçün vəziyyət
+      const [counts, setCounts] = useState(NewYearGifts.map(() => 1)); // Bütün miqdarlar üçün vəziyyət
     
       const swiperRef = useRef(null);
     
@@ -68,7 +68,7 @@ function NewYearGifts() {
               0: { slidesPerView: 2 },
             }}
           >
-            {PineTrees.map((item, index) => (
+            {NewYearGifts.map((item, index) => (
               <SwiperSlide
                 key={item.id}
                 className="w-[230px] border-[#e8e8e8] border-[1px] my-[8px] p-[15px] rounded-[10px] group perspective-1000"

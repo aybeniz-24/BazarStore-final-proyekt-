@@ -7,6 +7,7 @@ import Feedback from "./Feedback";
 import Meat from "./Meat";
 import News from "./News";
 import NewYearGifts from "./NewYearGifts";
+import OnlineOrderExclusive from "./OnlineOrderExclusive";
 import PineTrees from "./PineTrees";
 import ProductTypes from "./ProductTypes";
 
@@ -28,6 +29,7 @@ function Main() {
         </div>
 
         <div className="w-full lg:w-[75%]">
+          <OnlineOrderExclusive />
           <NewYearGifts />
           <PineTrees />
           <Meat />

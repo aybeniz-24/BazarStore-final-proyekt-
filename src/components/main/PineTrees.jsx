@@ -8,11 +8,11 @@ import { SlBasket } from "react-icons/sl";
 
 function PineTrees() {
   const PineTrees = [
-    { id: 1, img: "src/assets/pine_trees/card1.webp", name: "Leva Şam Ağacı 180 sm", price: "49.99 ₼" },
-    { id: 2, img: "src/assets/pine_trees/card2.webp", name: "Leva Şam Ağacı 150 sm", price: "24.99 ₼" },
-    { id: 3, img: "src/assets/pine_trees/card3.webp", name: "Şam Ağacı Qarlı İyne Yarpaq 440 uc 240 sm", price: "6.99 ₼" },
-    { id: 4, img: "src/assets/pine_trees/card4.webp", name: "Şam Ağacı 90 sm", price: "6.99 ₼" },
-    { id: 5, img: "src/assets/pine_trees/card5.webp", name: "Şam Ağacı 90 sm A114-04", price: "6.99 ₼" },
+    { id: 1, img: "https://bazarstore.az/cdn/shop/files/e825b7d6a39a6447edafab224c0484da_7de136ce-ddfa-4c1e-85dd-3b730111ee12_1000x1000.jpg?v=1702539466", name: "Leva Şam Ağacı 180 sm", price: "49.99 ₼" },
+    { id: 2, img: "https://bazarstore.az/cdn/shop/files/e825b7d6a39a6447edafab224c0484da_1000x1000.jpg?v=1702537791", name: "Leva Şam Ağacı 150 sm", price: "24.99 ₼" },
+    { id: 3, img: "https://bazarstore.az/cdn/shop/products/30171541_1000x1000.jpg?v=1693270388", name: "Şam Ağacı Qarlı İyne Yarpaq 440 uc 240 sm", price: "6.99 ₼" },
+    { id: 4, img: "https://bazarstore.az/cdn/shop/products/30185356_1000x1000.jpg?v=1693742494", name: "Şam Ağacı 90 sm", price: "6.99 ₼" },
+    { id: 5, img: "https://bazarstore.az/cdn/shop/files/1e8ab1e5a0528669663d19b08f149ac4_1000x1000.jpg?v=1733382526", name: "Şam Ağacı 90 sm A114-04", price: "6.99 ₼" },
   ];
 
   const [counts, setCounts] = useState(PineTrees.map(() => 1)); // Bütün miqdarlar üçün vəziyyət
