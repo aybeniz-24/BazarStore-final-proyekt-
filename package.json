@@ -7,7 +7,8 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "server": "npx json-server src/data/data.json --port 3005"
   },
   "dependencies": {
     "@emotion/react": "^11.13.3",
@@ -15,6 +16,8 @@
     "@mui/icons-material": "^6.1.6",
     "@mui/material": "^6.1.6",
     "bootstrap": "^5.3.3",
+    "cors": "^2.8.5",
+    "json-server": "^1.0.0-beta.3",
     "prop-types": "^15.8.1",
     "react": "^18.3.1",
     "react-bootstrap": "^2.10.5",

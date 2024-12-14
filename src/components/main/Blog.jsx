@@ -1,16 +1,24 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { FreeMode, Navigation } from 'swiper/modules';
-import { useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import { blogData } from '../../services/api';
 
 function Blog() {
-  const blogData = [
-    { id: 1, img: 'https://bazarstore.az/cdn/shop/articles/christmas_table_950x672.jpg?v=1733727042', date: "09 Dec, 2024", name: "Yeni il süfrəsi, ləzzətli reseptlər 🎄🍴" },
-    { id: 2, img: 'https://bazarstore.az/cdn/shop/articles/yeni_il_salads_950x672.jpg?v=1733725036', date: "09 Dec, 2024", name: "Yeni ildə hazırlaya biləcəyiniz salatlar.🥗" },
-    { id: 3, img: 'https://bazarstore.az/cdn/shop/articles/yogurt_950x672.jpg?v=1732536709', date: "25 Nov, 2024", name: "Sobada Qatıq Hazırlama Resepti 🥛 💚" },
-    { id: 4, img: 'https://bazarstore.az/cdn/shop/articles/tangerine_peels_950x672.jpg?v=1730807214', date: "05 Nov, 2024", name: "Mandarin qabıqlarından istifadə 🍊" },
-    { id: 5, img: 'https://bazarstore.az/cdn/shop/articles/cay_novl_ri_950x672.jpg?v=1730449163', date: "01 Nov, 2024", name: "Ən məşhur çay növləri" },
-    { id: 6, img: 'https://bazarstore.az/cdn/shop/articles/q_hv_novl_ri_950x672.jpg?v=1730448845', date: "01 Nov, 2024", name: "Qəhvə növləri ☕" },
-  ];
+
+  const [ Blog, setBlog ] = useState([])
+  useEffect(() => {
+    blogData().then(data => setBlog(data))
+  }, [])
+
+
+  // const blogData = [
+  //   { id: 1, img: 'https://bazarstore.az/cdn/shop/articles/christmas_table_950x672.jpg?v=1733727042', date: "09 Dec, 2024", name: "Yeni il süfrəsi, ləzzətli reseptlər 🎄🍴" },
+  //   { id: 2, img: 'https://bazarstore.az/cdn/shop/articles/yeni_il_salads_950x672.jpg?v=1733725036', date: "09 Dec, 2024", name: "Yeni ildə hazırlaya biləcəyiniz salatlar.🥗" },
+  //   { id: 3, img: 'https://bazarstore.az/cdn/shop/articles/yogurt_950x672.jpg?v=1732536709', date: "25 Nov, 2024", name: "Sobada Qatıq Hazırlama Resepti 🥛 💚" },
+  //   { id: 4, img: 'https://bazarstore.az/cdn/shop/articles/tangerine_peels_950x672.jpg?v=1730807214', date: "05 Nov, 2024", name: "Mandarin qabıqlarından istifadə 🍊" },
+  //   { id: 5, img: 'https://bazarstore.az/cdn/shop/articles/cay_novl_ri_950x672.jpg?v=1730449163', date: "01 Nov, 2024", name: "Ən məşhur çay növləri" },
+  //   { id: 6, img: 'https://bazarstore.az/cdn/shop/articles/q_hv_novl_ri_950x672.jpg?v=1730448845', date: "01 Nov, 2024", name: "Qəhvə növləri ☕" },
+  // ];
 
   const swiperRef = useRef(null)
 
@@ -50,7 +58,7 @@ function Blog() {
           250: { slidesPerView: 1 },
         }}
       >
-        {blogData.map((item) => (
+        {Blog.map((item) => (
           <SwiperSlide key={item.id} className="mt-[20px] ">
             <div className="p-4 flex flex-col items-center w-full h-full">
               <div className="rounded-lg w-full h-[320px] flex justify-center items-center bg-[#e0e0e0] mb-2 overflow-hidden">
