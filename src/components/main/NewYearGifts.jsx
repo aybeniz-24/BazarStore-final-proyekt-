@@ -40,7 +40,7 @@ const swiperRef = useRef(null);
     <div className="mx-[30px] my-[10px]">
       <div className="relative flex sm:flex-col">
         <div>
-          <h2 className="text-[24px] font-bold mb-[20px] py-[20px]">Yeni İl Hədiyyələri🎁</h2>
+          <h2 className="text-[24px] font-bold mb-[20px] py-[20px]">Yeni İl Hədiyyələri 🎇</h2>
         </div>
 
         <div className="absolute top-[40px] right-[70px] flex items-center gap-2 z-10">

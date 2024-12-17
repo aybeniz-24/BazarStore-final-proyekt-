@@ -52,7 +52,7 @@ const Popup = ({ isVisible, onClose, product }) => {
         <div className="flex flex-col gap-4">
           <p className="text-[24px] uppercase">{product.name} </p>
           <p className="text-[22px] font-bold">{product.price} 
-          { product.discountedPrice && <span className="ml-[50px] text-[#666] font-normal line-through">{product.discountedPrice}</span>  }
+          { product.discountedPrice && <span className="ml-[60px] text-[#666] font-normal line-through">{product.discountedPrice}</span>  }
           </p>
           <p>
             <span className="font-bold mr-[80px]">Marka</span>:{" "}

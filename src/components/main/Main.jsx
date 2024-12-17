@@ -31,6 +31,7 @@ function Main() {
 
         <div className="w-full lg:w-[75%]">
           <Popup />
+          
           <OnlineOrderExclusive />
           <NewYearGifts />
           <PineTrees />

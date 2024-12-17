@@ -30,6 +30,9 @@ function MainSlider() {
                       navigation 
                       loop={true}               
                     >
+                       <SwiperSlide>
+                        <img src="https://bazarstore.az/cdn/shop/files/onlayna-ozel-banner-gif_900x452.jpg?v=1733982805;" alt="slider1new" />
+                      </SwiperSlide>
                       <SwiperSlide>
                         <img src={slider1New} alt="slider1new" />
                       </SwiperSlide>
