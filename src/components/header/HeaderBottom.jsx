@@ -11,6 +11,7 @@ import { IoMdArrowDropdown } from "react-icons/io"
 import { FaRegHeart } from "react-icons/fa"
 import { Offcanvas } from 'react-bootstrap'
 import { FiYoutube } from 'react-icons/fi'
+import { Link } from 'react-router-dom'
 
 
 function HeaderBottom() {
@@ -49,7 +50,9 @@ function HeaderBottom() {
                   <IoSearch className='inline text-[24px] lg:hidden ' /> 
                   <RiAccountCircleLine className='inline text-[24px] ' /> 
                   <FaRegHeart className='hidden lg:inline text-[24px]' />
-                  <SlBasket className='inline text-[24px] ' /> 
+                  <Link to="/basket"> 
+                    <SlBasket className='inline text-[26px]' /> 
+                  </Link>
           </div>
 
       </div>

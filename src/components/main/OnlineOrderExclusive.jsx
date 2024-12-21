@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useContext } from "react";
 import { FreeMode, Navigation } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { CiHeart } from "react-icons/ci";
@@ -6,8 +6,10 @@ import { FaRegEye } from "react-icons/fa";
 import { SlBasket } from "react-icons/sl";
 import { OnlineOrder } from "../../services/api";
 import Popup from "./Popup"; // Import the Popup component
+import { BASKET } from "../context/BasketContext";
 
 function OnlineOrderExclusive() {
+  const { addToBasket } = useContext(BASKET)
   const [OnlineOrderExclusive, setOnlineOrderExclusive] = useState([]);
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [isPopupVisible, setIsPopupVisible] = useState(false);
@@ -118,11 +120,16 @@ function OnlineOrderExclusive() {
                   </button>
                 </div>
                 <div className=" flex justify-start">
-                  <button className="flex justify-center items-center bg-[#e8e8e8] font-bold text-[14px] rounded-[6px] py-[8px] px-[30px] group-hover:text-white group-hover:bg-[#b3b93d]">
+                  <button 
+                    onClick={(e) => {
+                      e.preventDefault()
+                      addToBasket( item.id, item.img, item.price, item.name, item.discountedPrice, item.quantity, item.marka, item.sku, item.count)
+                    }}
+                  className="flex justify-center items-center bg-[#e8e8e8] font-bold text-[14px] rounded-[6px] py-[8px] px-[30px] group-hover:text-white group-hover:bg-[#b3b93d]">
                     <SlBasket className="inline-block" /> <p className="inline-block ml-[10px]">Səbətə At</p>
                   </button>
                 </div>
-              </div>
+              </div>  
             ) : (
               <div className="block">
                 <div className="mb-[20px] flex justify-start">

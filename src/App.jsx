@@ -3,6 +3,7 @@ import Header from "./components/header/Header"
 import Footer from "./components/footer/Footer"
 import Layout from "./components/layout/Layout"
 import Main from "./components/main/Main"
+import BasketPage from "./components/main/BasketPage"
 
 function App() {
 
@@ -12,8 +13,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Layout />} />
         <Route index element={<Main />} />
-        {/* <Route path="/about" element={<About />} />
-        <Route path="/contact" element={<Contact />} /> */}
+        <Route path="/basket" element={<BasketPage />} />
       </Routes>
       
       <Footer />

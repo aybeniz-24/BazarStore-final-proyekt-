@@ -4,6 +4,7 @@ import './index.css'
 import { BrowserRouter } from 'react-router-dom'
 import { useEffect } from 'react'
 import { updateTitleAndFavicon } from './app.js'
+import BasketContext from './components/context/BasketContext.jsx'
 
 const root = createRoot(document.getElementById('root'))
 
@@ -14,7 +15,9 @@ function FaviconAndTitle() {
 
   return (
     <BrowserRouter>
-      <App />
+      <BasketContext>
+          <App />
+      </BasketContext>
     </BrowserRouter>
   )
 }
