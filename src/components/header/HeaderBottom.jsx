@@ -28,7 +28,9 @@ function HeaderBottom() {
 
           <div className='flex items-center lg:w-[25%]'>
             <FaBars onClick={handleShow} className='inline text-[28px] md:text-[32px] pr-[10px] sm:mt-[6px] md:mt-[5px] lg:mt-[8px] lg:hidden  hover:text-[var(--primary-color)] cursor-pointer' />
-            <img className='w-[35%]  sm:w-[35%]  md:w-[35%] lg:w-[80%] ' src={headerLogo} alt="logo" />
+           <Link to="/">
+              <img className='w-[35%]  sm:w-[35%]  md:w-[35%] lg:w-[80%] ' src={headerLogo} alt="logo" />
+           </Link>
           </div>
 
 
@@ -49,7 +51,9 @@ function HeaderBottom() {
           <div className='flex flex-row gap-[10px] justify-end lg:w-[15%]'>
                   <IoSearch className='inline text-[24px] lg:hidden ' /> 
                   <RiAccountCircleLine className='inline text-[24px] ' /> 
-                  <FaRegHeart className='hidden lg:inline text-[24px]' />
+                  <Link to="/favorit">
+                    <FaRegHeart className='hidden lg:inline text-[24px]' />
+                  </Link>
                   <Link to="/basket"> 
                     <SlBasket className='inline text-[26px]' /> 
                   </Link>

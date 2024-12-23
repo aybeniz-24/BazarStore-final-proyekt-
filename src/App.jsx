@@ -4,6 +4,7 @@ import Footer from "./components/footer/Footer"
 import Layout from "./components/layout/Layout"
 import Main from "./components/main/Main"
 import BasketPage from "./components/main/BasketPage"
+import FavoritesPage from "./components/main/FavoritesPage"
 
 function App() {
 
@@ -14,6 +15,7 @@ function App() {
         <Route path="/" element={<Layout />} />
         <Route index element={<Main />} />
         <Route path="/basket" element={<BasketPage />} />
+        <Route path="/favorit" element={<FavoritesPage />} />
       </Routes>
       
       <Footer />

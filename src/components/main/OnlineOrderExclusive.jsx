@@ -7,9 +7,15 @@ import { SlBasket } from "react-icons/sl";
 import { OnlineOrder } from "../../services/api";
 import Popup from "./Popup"; // Import the Popup component
 import { BASKET } from "../context/BasketContext";
+import { FAVORIT } from "../context/FavoritContext";
 
 function OnlineOrderExclusive() {
+  
   const { addToBasket } = useContext(BASKET)
+  const { addToFavorit } = useContext(FAVORIT)
+
+  
+
   const [OnlineOrderExclusive, setOnlineOrderExclusive] = useState([]);
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [isPopupVisible, setIsPopupVisible] = useState(false);
@@ -85,7 +91,12 @@ function OnlineOrderExclusive() {
             <div className="w-[100%] group relative">
               <img className=" rounded-[5px] " src={item.img} alt={item.name} />
               <div className="absolute top-0 right-0 z-20 icon">
-                <CiHeart className="bg-[#e8e8e8]  hover:bg-[#b3b93d] hover:text-white rounded-full w-[30px] h-[30px] p-[5px] m-[3px] cursor-pointer" />
+                <CiHeart 
+                onClick={(e) => {
+                  e.preventDefault()
+                  addToFavorit( item.id, item.img, item.price, item.name, item.discountedPrice, item.quantity, item.marka, item.sku, item.count)
+                }}
+                className="bg-[#e8e8e8]  hover:bg-[#b3b93d] hover:text-white rounded-full w-[30px] h-[30px] p-[5px] m-[3px] cursor-pointer" />
                 <FaRegEye className="bg-[#e8e8e8]  hover:bg-[#b3b93d] hover:text-white rounded-full w-[30px] h-[30px] p-[5px] m-[3px] cursor-pointer" 
                 onClick={() => handleIconClick(item)} />
               </div>
