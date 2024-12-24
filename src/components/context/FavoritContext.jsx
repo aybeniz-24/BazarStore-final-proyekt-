@@ -15,11 +15,18 @@ function FavoritContext( {children} ) {
         cook.set( "favorites", JSON.stringify(favorites))
     }
 
+
+    function removeFromFavorit(id) {
+        const updatedFavorites = favorites.filter((item) => item.id !== id);
+        setFavorites(updatedFavorites);
+        cook.set("favorites", JSON.stringify(updatedFavorites));
+      }
+
     
   return (
     <FAVORIT.Provider
         value={{
-            favorites, setFavorites,  addToFavorit
+            favorites, setFavorites,  addToFavorit, removeFromFavorit 
         }}
     >
         {children}
