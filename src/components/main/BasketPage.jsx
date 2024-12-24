@@ -162,7 +162,7 @@ function BasketPage() {
             <p className='px-[10px]'>
             Bonuslarınızdan istifadə etmək istəyirsinizsə, aşağıdakı qutunu işarələyərək bonuslarınızı bu qaydada istifadə edə bilərsiniz.
             <p className=' my-[15px] '>Bonuslarınız üçün  
-              <Link to="/admin" className='underline font-bold underline-offset-4 hover:decoration-[#b3b93d]   hover:text-[#b3b93d] '> daxil olun.</Link>
+              <Link to="/login" className='underline font-bold underline-offset-4 hover:decoration-[#b3b93d]   hover:text-[#b3b93d] '> daxil olun.</Link>
             </p>
             </p>
           </div>
