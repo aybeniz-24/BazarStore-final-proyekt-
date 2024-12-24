@@ -179,19 +179,19 @@ function BasketPage() {
               <p> total </p>
               <p> endirimli </p>
            </div>
-            <p className='text-right my-[10px]  '> Vergi daxildir. Çatdırılma xərci ödəniş səhifəsində hesablanır.</p>
+            <p className='text-right my-[20px] mb-[30px] '> Vergi daxildir. Çatdırılma xərci ödəniş səhifəsində hesablanır.</p>
 
 
-            <button className="w-full bg-[#b3b93d] hover:bg-[#1e1e1e] text-white py-[15px] px-[50px] font-bold rounded-[5px] mb-[20px]">Redaktə Gözlənilir</button>
-            <button className="w-full bg-[#b3b93d] hover:bg-[#1e1e1e] text-white py-[15px] px-[50px] font-bold rounded-[5px] mb-[20px]">Ödəniş</button>
-
+            <button className="w-[400px] bg-[#b3b93d] hover:bg-[#1e1e1e] text-white py-[15px] px-[50px] font-bold rounded-[5px] mb-[20px]">Redaktə Gözlənilir</button>
+            <button className="w-[400px] bg-[#b3b93d] hover:bg-[#1e1e1e] text-white py-[15px] px-[50px] font-bold rounded-[5px] mb-[20px]">Ödəniş</button>
+            <Link to="/" >
+                   <p className=" text-center cursor-pointer underline underline-offset-4 hover:decoration-[#b3b93d]  hover:text-[#b3b93d]  text-[18px]"> Alış-verişə Davam Edin </p>
+            </Link>
 
 
       
           </div>
-             <Link to="/" >
-                   <p className=" text-center cursor-pointer underline underline-offset-4 hover:decoration-[#b3b93d]  hover:text-[#b3b93d]  text-[18px]"> Alış-verişə Davam Edin </p>
-            </Link>
+             
         </div>
 
 

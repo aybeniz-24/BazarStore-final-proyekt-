@@ -3,8 +3,7 @@ import '../../App.css'
 import menuData from '../../data/headerMenuData.json'
 import  { useState } from 'react'
 import headerLogo from "../../assets/HeaderImage/header-logo.png"
-import { IoSearch } from "react-icons/io5"
-import { RiAccountCircleLine } from "react-icons/ri"
+import { IoPersonOutline, IoSearch } from "react-icons/io5"
 import { SlBasket } from "react-icons/sl"
 import { FaBars, FaFacebookF, FaInstagram, FaTiktok } from "react-icons/fa6"
 import { IoMdArrowDropdown } from "react-icons/io"
@@ -50,7 +49,9 @@ function HeaderBottom() {
 
           <div className='flex flex-row gap-[10px] justify-end lg:w-[15%]'>
                   <IoSearch className='inline text-[24px] lg:hidden ' /> 
-                  <RiAccountCircleLine className='inline text-[24px] ' /> 
+                  <Link to="/login"> 
+                    <IoPersonOutline className='inline text-[24px] cursor-pointer ' />
+                  </Link>
                   <Link to="/favorit">
                     <FaRegHeart className='hidden lg:inline text-[24px]' />
                   </Link>
