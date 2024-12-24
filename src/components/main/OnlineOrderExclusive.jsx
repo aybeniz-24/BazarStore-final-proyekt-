@@ -134,7 +134,7 @@ function OnlineOrderExclusive() {
                   <button 
                     onClick={(e) => {
                       e.preventDefault()
-                      addToBasket( item.id, item.img, item.price, item.name, item.discountedPrice, item.quantity, item.marka, item.sku, item.count)
+                      addToBasket( item.id, item.img, item.price, item.name, item.discountedPrice, item.quantity, item.marka, item.sku, counts[index])
                     }}
                   className="flex justify-center items-center bg-[#e8e8e8] font-bold text-[14px] rounded-[6px] py-[8px] px-[30px] group-hover:text-white group-hover:bg-[#b3b93d]">
                     <SlBasket className="inline-block" /> <p className="inline-block ml-[10px]">Səbətə At</p>

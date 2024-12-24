@@ -16,6 +16,15 @@ function BasketContext( {children} ) {
         cook.set( "basket", JSON.stringify(basket))
     }
 
+
+
+    const updateCount = (index, newCount) => {
+        setBasket(basket.map((item, i) => i === index ? { ...item, quantity: newCount } : item));
+      };    
+
+
+
+      
     function removeFromBasket(id) {
         const updatedBasket = basket.filter((item) => item.id !== id);
         setBasket(updatedBasket);
@@ -32,7 +41,7 @@ function BasketContext( {children} ) {
    return (
     <BASKET.Provider 
         value={{
-            basket, setBasket, addToBasket, removeFromBasket
+            basket, setBasket, addToBasket, removeFromBasket, updateCount
         }}
     >
         {children}
