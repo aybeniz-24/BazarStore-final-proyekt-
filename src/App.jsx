@@ -39,7 +39,7 @@ function App() {
       >
         <img src="/src/assets/loading/loading.gif" alt="Yüklənir" />
       </div>
-    );
+    )
   }
 
   return (
