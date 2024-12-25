@@ -725,8 +725,8 @@
                 ]
             }
         ]
-        },
-        {
+    },
+    {
         "name": "🥐 Tort, Bişmələr, Çörək",
         "product": [
             {
@@ -871,8 +871,424 @@
                 "subcategories": [ ]
             }
         ]
+    },
+    {
+        "name": "🍪 Atışdırmalıq",
+        "product": [
+            {
+                "name": "Çərəzlər",
+                "subcategories": [
+                    {
+                        "name": "Quru Meyve",
+                        "items": []
+                    },
+                    {
+                        "name": "Günəbaxan Tumu",
+                        "items": []
+                    },
+                    {
+                        "name": "Qarışıq Çərəzlər",
+                        "items": []
+                    },
+                    {
+                        "name": "Qoz",
+                        "items": []
+                    },
+                    {
+                        "name": "Fındıq",
+                        "items": []
+                    },
+                    {
+                        "name": "Badam",
+                        "items": []
+                    },
+                    {
+                        "name": "Fısdıq",
+                        "items": []
+                    },
+                    {
+                        "name": "Qabaq Toxumu",
+                        "items": []
+                    },
+                    {
+                        "name": "Ləbləbi",
+                        "items": []
+                    },
+                    {
+                        "name": "Kaju",
+                        "items": []
+                    },
+                    {
+                        "name": "Kətan Toxumu",
+                        "items": []
+                    },
+                    {
+                        "name": "Popkorn",
+                        "items": []
+                    }
+                ]
+            },
+            {
+                "name": "Çəkili Çərəzlər",
+                "subcategories": [
+                    {
+                        "name": "Quru Meyve",
+                        "items": []
+                    },
+                    {
+                        "name": "Günəbaxan Tumu",
+                        "items": []
+                    },
+                    {
+                        "name": "Qarışıq Çərəzlər",
+                        "items": []
+                    },
+                    {
+                        "name": "Qoz",
+                        "items": []
+                    },
+                    {
+                        "name": "Fındıq",
+                        "items": []
+                    },
+                    {
+                        "name": "Badam",
+                        "items": []
+                    },
+                    {
+                        "name": "Fısdıq",
+                        "items": []
+                    },
+                    {
+                        "name": "Qabaq Toxumu",
+                        "items": []
+                    },
+                    {
+                        "name": "Kaju",
+                        "items": []
+                    }
+                ]
+            },
+            {
+                "name": "Çips",
+                "subcategories": [
+                    {
+                        "name": "Qardığalı Çipsi",
+                        "items": []
+                    },
+                    {
+                        "name": "Kartof Çipsi",
+                        "items": []
+                    },
+                    {
+                        "name": "Kukruz",
+                        "items": []
+                    },
+                    {
+                        "name": "Suxarilər",
+                        "items": []
+                    }
+                ]
+            },
+            {
+                "name": "Keks, Biskvit",
+                "subcategories": [
+                    {
+                        "name": "Baton Keks",
+                        "items": []
+                    },
+                    {
+                        "name": "Keks",
+                        "items": []
+                    },
+                    {
+                        "name": "Mini Keks",
+                        "items": []
+                    }
+                ]
+            },
+            {
+                "name": "Dondurma",
+                "subcategories": [
+                ]
+            },
+            {
+                "name": "Kruassan,Piryanik",
+                "subcategories": [
+                ]
+            },
+            {
+                "name": "Vafli, Rulet",
+                "subcategories": [
+                    {
+                        "name": "Vafli",
+                        "items": []
+                    },
+                    {
+                        "name": "Rulet",
+                        "items": []
+                    }
+                ]
+            },
+            {
+                "name": "Peçenye, Piroq",
+                "subcategories": [
+                    {
+                        "name": "Biskvit",
+                        "items": []
+                    },
+                    {
+                        "name": "Hədiyyəlik Peçenye",
+                        "items": []
+                    },
+                    {
+                        "name": "Kreker",
+                        "items": []
+                    },
+                    {
+                        "name": "Bubluk-Suski",
+                        "items": []
+                    },
+                    {
+                        "name": "Mini Rulet",
+                        "items": []
+                    },
+                    {
+                        "name": "Pryanik",
+                        "items": []
+                    },
+                    {
+                        "name": "Hazır Tort və Piroqlar",
+                        "items": []
+                    }
+                ]
+            },
+            {
+                "name": "Şokoladlar",
+                "subcategories": [
+                    {
+                        "name": "Barlar",
+                        "items": []
+                    },
+                    {
+                        "name": "Beton Şokalad",
+                        "items": []
+                    },
+                    {
+                        "name": "Draje Şokolad",
+                        "items": []
+                    },
+                    {
+                        "name": "Xüsusi Şokaladlar",
+                        "items": []
+                    },
+                    {
+                        "name": "Tablet Şokaladlar",
+                        "items": []
+                    },
+                    {
+                        "name": "Oyuncaq Şokaladlar",
+                        "items": []
+                    },
+                    {
+                        "name": "Hədiyyəlik Şokaladlar",
+                        "items": []
+                    }
+                ]
+            },
+            {
+                "name": "Çəkili Şirniyyat",
+                "subcategories": [
+                    {
+                        "name": "Çəkili Karamel",
+                        "items": []
+                    },
+                    {
+                        "name": "Çəkili Vafli",
+                        "items": []
+                    },
+                    {
+                        "name": "Çəkili Lokum",
+                        "items": []
+                    },
+                    {
+                        "name": "Çəkili Draje",
+                        "items": []
+                    },
+                    {
+                        "name": "Çəkili Marmalad",
+                        "items": []
+                    },
+                    {
+                        "name": "Çəkili Jelibom",
+                        "items": []
+                    },
+                    {
+                        "name": "Çəkili Piryanik",
+                        "items": []
+                    },
+                    {
+                        "name": "Draje və Zefirlər",
+                        "items": []
+                    },
+                    {
+                        "name": "Çəkili Kraker",
+                        "items": []
+                    }
+                ]
+            },
+            {
+                "name": "Çəkili Pecenye",
+                "subcategories": [
+                    {
+                        "name": "Çəkili Vafli",
+                        "items": []
+                    },
+                    {
+                        "name": "Bublik_suski",
+                        "items": []
+                    },
+                    {
+                        "name": "Çəkili Bİskivit",
+                        "items": []
+                    }
+                ]
+            },
+            {
+                "name": "Saqqız və Təravətləndirici",
+                "subcategories": [
+                    {
+                        "name": "Saqqız",
+                        "items": []
+                    },
+                    {
+                        "name": "Təravətləndirici",
+                        "items": []
+                    }
+                ]
+            },
+            {
+                "name": "Şəkərləmə",
+                "subcategories": [
+                    {
+                        "name": "Jelibom",
+                        "items": []
+                    },
+                    {
+                        "name": "Çubuq Şirniyyatlar",
+                        "items": []
+                    },
+                    {
+                        "name": "Draje Şirniyyat",
+                        "items": []
+                    },
+                    {
+                        "name": "Konfet, Karamel",
+                        "items": []
+                    },
+                    {
+                        "name": "Lokumlar",
+                        "items": []
+                    },
+                    {
+                        "name": "Zefirlər",
+                        "items": []
+                    },
+                    {
+                        "name": "Pişmaniyə",
+                        "items": []
+                    },
+                    {
+                        "name": "Qutu Marmalad",
+                        "items": []
+                    },
+                    {
+                        "name": "Sucuq",
+                        "items": []
+                    },
+                    {
+                        "name": "Marşmello",
+                        "items": []
+                    },
+                    {
+                        "name": "Krokan",
+                        "items": []
+                    },
+                    {
+                        "name": "Musli Bar",
+                        "items": []
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "🥃 İçkilər",
+        "product": [
+            {
+                "name": "Toz İçkilər",
+                "subcategories": []
+            },
+            {
+                "name": "Mineral Sular",
+                "subcategories": []
+            },
+            {
+                "name": "Qazlı İçkilər",
+                "subcategories": []
+            },
+            {
+                "name": "Meyvə Suları",
+                "subcategories": []
+            },
+            {
+                "name": "Kolalı İçkilər",
+                "subcategories": [ ]
+            },
+            {
+                "name": "Limonadlar",
+                "subcategories": []
+            },
+            {
+                "name": "Komportlar",
+                "subcategories": []
+            },
+            {
+                "name": "Kvaslar",
+                "subcategories": []
+            },
+            {
+                "name": "Enerji İçkiləri",
+                "subcategories": []
+            },
+            {
+                "name": "Bitki Suları",
+                "subcategories": []
+            },
+            {
+                "name": "Spirtli İçkilər",
+                "subcategories": []
+            }
+        ]
+    },
+    {
+        "name": "🚬 Tütün Məhsulları",
+        "product": [
+            {
+                "name": "Siqaret",
+                "subcategories": []
+            },
+            {
+                "name": "Elektron Siqaret",
+                "subcategories": []
+            },
+            {
+                "name": "Siqar",
+                "subcategories": []
+            }
+        ]
     }
-
+    
 
 
 

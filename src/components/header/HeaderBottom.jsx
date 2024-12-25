@@ -12,6 +12,7 @@ import { Offcanvas } from 'react-bootstrap'
 import { FiYoutube } from 'react-icons/fi'
 import { Link } from 'react-router-dom'
 import { CiCircleInfo } from 'react-icons/ci'
+import { Badge, Button } from '@material-tailwind/react'
 
 
 function HeaderBottom() {
@@ -59,7 +60,13 @@ function HeaderBottom() {
     } else {
         setErrorMessage("Sizə Ən Yaxın Bazarstore-dan gətirək! Zəhmət olmasa sizə ən yaxın ünvanı seçin."); // Error mesajını göstər
     }
-};
+}
+
+
+function handleButtonClick() {
+  handleConfirm(); // Təsdiq funksiyası
+  togglePopup();   // Bağlama funksiyası
+}
 
 
   return (
@@ -83,13 +90,13 @@ function HeaderBottom() {
                className='outline-none w-[200px] border-[1px] p-[6px] px-[10px] border-r-[0] rounded-l-full text-[#757575]'>
                 {buttonText}</button>
                 {errorMessage && (  // errorMessage varsa, aşağıdakı div-i göstər
-                <div className='bg-[#b3b93d] absolute top-[180px] text-white p-[10px] w-[180px] z-30 '>
+                <div className='bg-[#b3b93d] border border-[#d2d2d2] absolute top-[180px] text-white p-[10px] w-[180px] z-30 '>
                     {errorMessage}
                     <button
                   onClick={togglePopup}
                   className="text-[28px] absolute top-2 right-2 text-[#444444]"
                 >
-                  <IoMdClose />
+                  <IoMdCloseCircleOutlie />
                 </button>
                 </div>
             )}
@@ -153,7 +160,7 @@ function HeaderBottom() {
                 </button>
 
                 <button
-                  onClick={handleConfirm}
+                 onClick={handleButtonClick}
                   className="text-white px-4 py-2 bg-[#45a049] w-full hover:bg-[#45a060] border border-gray-300 rounded-lg"
                 >
                   Təsdiq edin
@@ -177,9 +184,14 @@ function HeaderBottom() {
                   <Link to="/favorit">
                     <FaRegHeart className='hidden lg:inline text-[24px]' />
                   </Link>
-                  <Link to="/basket"> 
-                    <SlBasket className='inline text-[26px]' /> 
-                  </Link>
+                  
+                  <Badge content={2}>
+                      <Link to="/basket">
+                        <Button>
+                           <SlBasket className='block bg-black text-[26px]' /> 
+                        </Button>
+                      </Link>
+                  </Badge>
           </div>
 
       </div>
