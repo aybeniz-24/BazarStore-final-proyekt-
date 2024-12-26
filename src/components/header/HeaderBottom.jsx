@@ -80,6 +80,12 @@ const navigate = useNavigate(); // Navigate hook'u
     navigate('/basket'); // Basket sayfasına yönlendir
   };
 
+
+
+  const handleLoginClick = () => {
+    navigate('/login'); // login sayfasına yönlendir
+  };
+
   return (
     <>
       <section>
@@ -189,7 +195,7 @@ const navigate = useNavigate(); // Navigate hook'u
 
           <div className='flex flex-row gap-[10px] justify-end lg:w-[15%]'>
                   <IoSearch className='inline text-[24px] lg:hidden ' /> 
-                  <Link to="/login"> 
+                  <Link to="/login" onClick={handleLoginClick} > 
                     <IoPersonOutline className='inline text-[24px] cursor-pointer ' />
                   </Link>
                   <Link to="/favorit"  onClick={handleFavoritClick}>

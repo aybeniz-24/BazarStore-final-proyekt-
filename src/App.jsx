@@ -3,7 +3,6 @@ import Header from "./components/header/Header"
 import Footer from "./components/footer/Footer"
 import Layout from "./components/layout/Layout"
 import Main from "./components/main/Main"
-import LoginPage from "./components/main/LoginPage"
 import { useEffect, useState } from "react"
 import PageComponent from "./components/main/PageComponent"
 
@@ -50,7 +49,7 @@ function App() {
         <Route path="/" element={<Layout />} />
         <Route index element={<Main />} />
         <Route path="/basket" element={<PageComponent />} />
-        <Route path="/login" element={<LoginPage />} />
+        <Route path="/login" element={<PageComponent />} />
         <Route path="/favorit" element={<PageComponent />} />
       </Routes>
       <Footer />

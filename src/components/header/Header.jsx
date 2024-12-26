@@ -1,11 +1,11 @@
 import HeaderTop from './HeaderTop'
 import HeaderBottom from './HeaderBottom'
-import Snowfall from '../main/Snowfall'
+import Snowfall from './Snowfall'
 
 function Header() {
   return (
     <header>
-      {/* <Snowfall /> */}
+      <Snowfall />
       <HeaderTop />
       <HeaderBottom />
     
