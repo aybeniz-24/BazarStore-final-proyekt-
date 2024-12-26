@@ -3,7 +3,6 @@ import AllCategorButton from "./AllCategorButton";
 import Meat from "./Meat";
 import CombinedComponent from "./CombinedComponent";
 import NewYearGifts from "./NewYearGifts";
-import OnlineOrderExclusive from "./OnlineOrderExclusive";
 import PineTrees from "./PineTrees";
 import Popup from "./Popup";
 // import ProductTypes from "./ProductTypes";
