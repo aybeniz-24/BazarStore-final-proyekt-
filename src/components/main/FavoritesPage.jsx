@@ -7,9 +7,6 @@ import ButtonSections from "./ButtonSections";
 import { GoHome } from "react-icons/go";
 import { Link } from "react-router-dom";
 import Advertising from "./Advertising";
-import DiscountedProducts from "./DiscountedProducts";
-import Advertising_2 from "./Advertising_2";
-import Feedback from "./Feedback";
 import { IoMdClose } from "react-icons/io";
 
 function FavoritesPage() {
@@ -37,9 +34,6 @@ function FavoritesPage() {
 
                 <div className="w-full lg:w-[23%] ">
                 <Advertising />
-                <DiscountedProducts />
-                <Advertising_2 />
-                <Feedback />
               </div>
 
 

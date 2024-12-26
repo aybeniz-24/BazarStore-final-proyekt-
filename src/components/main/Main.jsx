@@ -1,9 +1,6 @@
 import Advertising from "./Advertising";
-import Advertising_2 from "./Advertising_2";
 import AllCategorButton from "./AllCategorButton";
 import Blog from "./Blog";
-import DiscountedProducts from "./DiscountedProducts";
-import Feedback from "./Feedback";
 import Meat from "./Meat";
 import News from "./News";
 import NewYearGifts from "./NewYearGifts";
@@ -24,9 +21,6 @@ function Main() {
       <div className="md:mx-[8%] flex flex-col lg:flex-row justify-between">
         <div className="w-full lg:w-[23%] ">
           <Advertising />
-          <DiscountedProducts />
-          <Advertising_2 />
-          <Feedback />
         </div>
 
         <div className="w-full lg:w-[75%]">

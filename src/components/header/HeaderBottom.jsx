@@ -185,13 +185,14 @@ function handleButtonClick() {
                     <FaRegHeart className='hidden lg:inline text-[24px]' />
                   </Link>
                   
-                  <Badge content={2}>
-                      <Link to="/basket">
-                        <Button>
-                           <SlBasket className='block bg-black text-[26px]' /> 
-                        </Button>
-                      </Link>
-                  </Badge>
+                  <Badge  className="p-0 m-0 bg-pink-500" content={2}>
+                  <Link to="/basket" className="p-0 m-0 block">
+                    <Button className="p-0 m-0">
+                      <SlBasket className="block p-0 m-0 text-black text-[26px]" />
+                    </Button>
+                  </Link>
+                </Badge>
+
           </div>
 
       </div>
