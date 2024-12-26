@@ -2,6 +2,7 @@ import Advertising from "./Advertising";
 import AllCategorButton from "./AllCategorButton";
 import Meat from "./Meat";
 import CombinedComponent from "./CombinedComponent";
+import OnlineOrderExclusive from "./OnlineOrderExclusive";
 import NewYearGifts from "./NewYearGifts";
 import PineTrees from "./PineTrees";
 import Popup from "./Popup";
