@@ -150,4 +150,4 @@ function CombinedComponent() {
   );
 }
 
-export default CombinedComponent;
+export default CombinedComponent
