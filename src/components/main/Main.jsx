@@ -1,12 +1,14 @@
 import Advertising from "./Advertising";
 import AllCategorButton from "./AllCategorButton";
-import Meat from "./Meat";
-import OnlineOrderExclusive from "./OnlineOrderExclusive";
-import NewYearGifts from "./NewYearGifts";
-import PineTrees from "./PineTrees";
 import Popup from "./Popup";
 import CombinedComponent from "./CombinedComponent";
 // import ProductTypes from "./ProductTypes";
+
+
+import { NewYear, PineTree, OnlineOrder, ProductMeats } from "../../services/api";
+import ProductCarousel from "./ProductCarousel";
+
+
 
 function Main() {
   return (
@@ -28,11 +30,31 @@ function Main() {
 
         <div className="w-full lg:w-[75%]">
           <Popup />
+
+            {/* <OnlineOrderExclusive /> */}
+
+          <div>
+            <ProductCarousel 
+            title="Onlayn Sifarişə Özəl"
+            apiFunction={OnlineOrder}
+            categoryIcon="✨"
+            />
+            <ProductCarousel
+              title="Yeni İl Hədiyyələri"
+              apiFunction={NewYear}
+              categoryIcon="🎇"
+            />
+            <ProductCarousel
+              title="Şam Ağacları"
+              apiFunction={PineTree}
+              categoryIcon="🌲"
+            />
+             <ProductCarousel
+              title="Bol Ət, ağzınıza layiq ləzzət!"
+              apiFunction={ProductMeats}
+            />
+          </div>
           
-          <OnlineOrderExclusive />
-          <NewYearGifts />
-          <PineTrees />
-          <Meat />
           <CombinedComponent />
           {/* <ProductTypes /> */}
         </div>  
