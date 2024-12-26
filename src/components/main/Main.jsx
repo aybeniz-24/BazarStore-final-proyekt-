@@ -1,13 +1,12 @@
 import Advertising from "./Advertising";
 import AllCategorButton from "./AllCategorButton";
-import Blog from "./Blog";
 import Meat from "./Meat";
-import News from "./News";
+import CombinedComponent from "./CombinedComponent";
 import NewYearGifts from "./NewYearGifts";
 import OnlineOrderExclusive from "./OnlineOrderExclusive";
 import PineTrees from "./PineTrees";
 import Popup from "./Popup";
-import ProductTypes from "./ProductTypes";
+// import ProductTypes from "./ProductTypes";
 
 function Main() {
   return (
@@ -23,6 +22,10 @@ function Main() {
           <Advertising />
         </div>
 
+
+
+        
+
         <div className="w-full lg:w-[75%]">
           <Popup />
           
@@ -30,9 +33,8 @@ function Main() {
           <NewYearGifts />
           <PineTrees />
           <Meat />
-          <ProductTypes />
-          <Blog />
-          <News />
+          {/* <ProductTypes /> */}
+          <CombinedComponent />
         </div>  
       </div>
     </main>
