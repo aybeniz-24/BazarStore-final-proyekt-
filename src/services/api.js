@@ -27,6 +27,7 @@ export{
 }
 
 
+
 async function ProductMeats(){
     const data = await fetch("http://localhost:3005/ProductMeat")
     return data.json()

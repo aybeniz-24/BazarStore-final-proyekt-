@@ -5,6 +5,7 @@ import OnlineOrderExclusive from "./OnlineOrderExclusive";
 import NewYearGifts from "./NewYearGifts";
 import PineTrees from "./PineTrees";
 import Popup from "./Popup";
+import CombinedComponent from "./CombinedComponent";
 // import ProductTypes from "./ProductTypes";
 
 function Main() {
@@ -32,6 +33,7 @@ function Main() {
           <NewYearGifts />
           <PineTrees />
           <Meat />
+          <CombinedComponent />
           {/* <ProductTypes /> */}
         </div>  
       </div>
