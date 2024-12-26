@@ -5,7 +5,7 @@ import Snowfall from '../main/Snowfall'
 function Header() {
   return (
     <header>
-      <Snowfall />
+      {/* <Snowfall /> */}
       <HeaderTop />
       <HeaderBottom />
     

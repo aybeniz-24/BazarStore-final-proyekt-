@@ -1,12 +1,11 @@
-import { Route, Routes, useLocation } from "react-router-dom";
-import Header from "./components/header/Header";
-import Footer from "./components/footer/Footer";
-import Layout from "./components/layout/Layout";
-import Main from "./components/main/Main";
-import BasketPage from "./components/main/BasketPage";
-import FavoritesPage from "./components/main/FavoritesPage";
-import LoginPage from "./components/main/LoginPage";
-import { useEffect, useState } from "react";
+import { Route, Routes, useLocation } from "react-router-dom"
+import Header from "./components/header/Header"
+import Footer from "./components/footer/Footer"
+import Layout from "./components/layout/Layout"
+import Main from "./components/main/Main"
+import LoginPage from "./components/main/LoginPage"
+import { useEffect, useState } from "react"
+import PageComponent from "./components/main/PageComponent"
 
 function App() {
   const [loading, setLoading] = useState(false); 
@@ -50,9 +49,9 @@ function App() {
       <Routes>
         <Route path="/" element={<Layout />} />
         <Route index element={<Main />} />
-        <Route path="/basket" element={<BasketPage />} />
+        <Route path="/basket" element={<PageComponent />} />
         <Route path="/login" element={<LoginPage />} />
-        <Route path="/favorit" element={<FavoritesPage />} />
+        <Route path="/favorit" element={<PageComponent />} />
       </Routes>
       <Footer />
     </>
