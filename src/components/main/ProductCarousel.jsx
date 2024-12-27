@@ -7,6 +7,7 @@ import { SlBasket } from "react-icons/sl";
 import Popup from "./Popup";
 import { BASKET } from "../context/BasketContext";
 import { FAVORIT } from "../context/FavoritContext";
+import '../../App.css'
 
 function ProductCarousel({ title, apiFunction, categoryIcon }) {
   const [products, setProducts] = useState([]);
@@ -42,13 +43,32 @@ function ProductCarousel({ title, apiFunction, categoryIcon }) {
     setIsPopupVisible(false);
   };
 
+
+  
   return (
     <div className="mx-8 my-4">
-      <div className="relative flex sm:flex-col">
-        <h2 className="text-2xl font-bold mb-5">
+      <div className="relative flex sm:flex-col  justify-between">
+        <h2 className="text-2xl font-bold mb-2">
           {categoryIcon} {title}
         </h2>
+        <div className="absolute top-[15px] right-[70px] flex items-center gap-2 z-10">
+            <button
+            className="swiper-button-prev bg-gray-200 p-2 rounded-full transform rotate-180 scale-[.8]"
+            onClick={() => swiperRef.current.swiper.slidePrev()}  
+            >
+            </button>
+            <button
+            className="swiper-button-next bg-gray-200 p-2 rounded-full transform rotate-180 scale-[.8]"
+            onClick={() => swiperRef.current.swiper.slideNext()}  
+            >
+            </button>
+        </div>
       </div>
+
+
+      
+
+
 
       <Swiper
         ref={swiperRef}
@@ -57,16 +77,16 @@ function ProductCarousel({ title, apiFunction, categoryIcon }) {
         freeMode={true}
         navigation={false}
         autoplay={{
-            delay: 2000, // Slaydlar arasında 3 saniyə gözləmə
+            delay: 10000, // Slaydlar arasında 3 saniyə gözləmə
             disableOnInteraction: false, // İstifadəçi ilə qarşılıqlı təsirdən sonra autoplay davam etsin
           }}
           modules={[FreeMode, Navigation, Autoplay]}
         className="mySwiper"
       >
         {products.map((item, index) => (
-          <SwiperSlide key={item.id} className="w-56 border border-gray-300 my-2 p-4 rounded-lg">
+          <SwiperSlide key={item.id} className="w-56 border border-gray-300 my-2 p-3 rounded-lgh-[450px]">
             <div className="w-[100%] group relative">
-            <div className="relative group">
+            <div className="relative group mb-4">
                 <img
                     className="rounded-[5px]"
                     src={item.img}
@@ -80,6 +100,7 @@ function ProductCarousel({ title, apiFunction, categoryIcon }) {
                     />
                 )}
                 </div>
+                
               <div className="absolute top-0 right-0 z-20 icon">
                 <CiHeart className="bg-gray-200 hover:bg-green-500 hover:text-white rounded-full w-[30px] h-[30px] p-[5px] m-[3px] cursor-pointer" />
                 <FaRegEye
@@ -93,30 +114,47 @@ function ProductCarousel({ title, apiFunction, categoryIcon }) {
                 </p>
               )}
             </div>
-            <div className="h-28 my-8 text-left">
+            <div className="h-28  text-left">
               <p className="text-sm uppercase">{item.name}</p>
               <p className="font-bold text-sm">{item.discountedPrice || item.price}</p>
             </div>
-            <div className="mb-5 flex justify-center items-center border border-gray-300 w-28 h-10">
-              <button
-                onClick={() => updateCount(index, counts[index] > 1 ? counts[index] - 1 : 1)}
-                className="cursor-pointer px-3"
-              >
-                -
-              </button>
-              <p className="mx-2">{counts[index]}</p>
-              <button
-                onClick={() => updateCount(index, counts[index] + 1)}
-                className="cursor-pointer px-3"
-              >
-                +
-              </button>
-            </div>
-            <div className="flex justify-start">
-              <button className="bg-gray-200 font-bold text-sm rounded-md py-2 px-6 flex items-center">
-                <SlBasket className="mr-2" /> Səbətə At
-              </button>
-            </div>
+            {item.choose === true ? (
+                <>
+                    <p className="text-left text-[14px] my-[8px] mx-[5px]">Miqdar</p>
+                    <div className="mb-2 flex justify-center items-center border border-gray-300 w-28 h-10">
+                    <button
+                        onClick={() => updateCount(index, counts[index] > 1 ? counts[index] - 1 : 1)}
+                        className="cursor-pointer px-3"
+                    >
+                        -
+                    </button>
+                    <p className="mx-2">{counts[index]}</p>
+                    <button
+                        onClick={() => updateCount(index, counts[index] + 1)}
+                        className="cursor-pointer px-3"
+                    >
+                        +
+                    </button>
+                    </div>
+                    <div className="flex justify-start">
+                    <button className="bg-gray-200 font-bold text-sm rounded-md py-2 px-6 flex items-center hover:text-white hover:bg-[#b3b93d]">
+                        <SlBasket className="mr-2" /> Səbətə At
+                    </button>
+                    </div>
+                </>
+                ) : (
+               
+                    <button className="bg-gray-200 font-bold text-sm rounded-md mt-[84px] py-2 px-6 flex items-center hover:text-white hover:bg-[#b3b93d]">
+                         Seçim Edin
+                    </button>
+            )}
+
+            
+
+
+
+          
+
           </SwiperSlide>
         ))}
       </Swiper>

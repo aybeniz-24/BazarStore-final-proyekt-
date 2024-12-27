@@ -72,6 +72,8 @@ function Advertising() {
           </a>
         </div>
 
+
+
         <div className="h-[450px] w-[300px] sm:w-[30%] md:w-[40%] lg:w-[100%] mb-[50px]">
           <div className="bg-[#f0f0f0] rounded-t-lg">
             <p className="font-bold text-[20px] p-[20px]">Müştərimiz Deyir</p>
@@ -193,6 +195,8 @@ function Advertising() {
         </div>
       </div>
       </section>
+
+
     </div>
   );
 }
