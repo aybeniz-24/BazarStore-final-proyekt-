@@ -14,26 +14,6 @@ function PageComponent() {
   const { basket, updateCount, addToBasket, removeFromBasket } = useContext(BASKET);
   const { favorites, addToFavorit, removeFromFavorit } = useContext(FAVORIT)
 
-
-  // const location = useLocation(); // Mövcud URL
-  // const { fruitName } = useParams(); // Dinamik parametrləri əldə edir
-  // const [pageTitle, setPageTitle] = useState("Ana Səhifə");
-
-  // const titles = {
-  //   "/favorit": "Seçilmişlər",
-  //   "/basket": "Səbət",
-  //   "/fruits": "Meyvələr",
-  // };
-
-  // useEffect(() => {
-  //   if (location.pathname.startsWith("/fruits/")) {
-  //     // Dinamik məhsul adını göstərin
-  //     setPageTitle(fruitName ? `Məhsul: ${fruitName}` : "Meyvələr");
-  //   } else {
-  //     setPageTitle(titles[location.pathname] || "Ana Səhifə");
-  //   }
-  // }, [location.pathname, fruitName]); // URL və parametr dəyişəndə işləyəcək
-
   
 
   const titles = {
@@ -46,19 +26,26 @@ function PageComponent() {
   
     // Sorğu sətirindən məhsul ID-sini əldə edin
     const queryParams = new URLSearchParams(location.search);
-    const productId = queryParams.get("productId");
-  
-    if (location.pathname === "/choice" ) {
-      const product = data.OnlineOrderExclusive.find(
-        (item) => item.id === Number(productId)
-      );
+  const productId = queryParams.get("productId");
 
-      
-      const name = product ? ` | ${product.name}` : "";
-      return `Seçim Edin ${name}`;
-      
+  
+    // Əgər seçim səhifəsindəyiksə
+    if (location.pathname === "/choice") {
+      let productName = "";
+  
+      // Bütün `data` obyektini yoxla
+      for (const category in data) {
+        const product = data[category].find((item) => item.id === Number(productId));
+        if (product) {
+          productName = ` | ${product.name}`;
+          break; // Məhsul tapıldıqda döngüdən çıx
+        }
+      }
+  
+      return `Seçim Edin${productName}`;
     }
   
+    // Digər səhifələr üçün
     return titles[location.pathname] || "";
   };
   

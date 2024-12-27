@@ -123,7 +123,7 @@
     ],
     "NewYearGifts": [
     {
-        "id": 1,
+        "id": 13,
         "img": "https://bazarstore.az/cdn/shop/products/30182124_1000x1000.jpg?v=1693640486",
         "name": "Yeni Il Hədiyyəsi Troleybus",
         "price": "6.49 ₼",
@@ -132,7 +132,7 @@
         "choose": true
     },
     {
-        "id": 2,
+        "id": 14,
         "img": "https://bazarstore.az/cdn/shop/files/b673de7db39fe16c5dddf7312d2843db_1000x1000.jpg?v=1733295890",
         "name": "Yeni İl Hədiyyəsi Sandıq",
         "price": "7.99 ₼",
@@ -142,7 +142,7 @@
         "choose": true
     },
     {
-        "id": 3,
+        "id": 15,
         "img": "https://bazarstore.az/cdn/shop/files/014abb8214c89f110c3b4ea4b1b8f71e_1000x1000.jpg?v=1733400792",
         "name": "Yeni İl Hədiyyəsi İlan Şəkilli",
         "price": "2.99 ₼",
@@ -151,7 +151,7 @@
         "choose": true
     },
     {
-        "id": 4,
+        "id": 16,
         "img": "https://bazarstore.az/cdn/shop/files/f240cd4ed1303d5f48369de9c32a90ad_1000x1000.jpg?v=1733297479",
         "name": "Yeni İl Hədiyyəsi SEN",
         "price": "3.99 ₼",
@@ -161,7 +161,7 @@
         "choose": true
     },
     {
-        "id": 5,
+        "id": 17,
         "img": "https://bazarstore.az/cdn/shop/files/4bc807017c3dea23d39c0ca5ae6c07f3_1000x1000.jpg?v=1733296843",
         "name": "Yeni İl Hədiyyəsi Qatar",
         "price": "6.49 ₼",
@@ -170,7 +170,7 @@
         "choose": true
     },
     {
-        "id": 6,
+        "id": 18,
         "img": "https://bazarstore.az/cdn/shop/products/30182125_9d7f2b2b-1706-487c-b87a-00e1d6eb0f0a_1000x1000.jpg?v=1693640490",
         "name": "Yeni İl Hədiyyəsi 348 Q ŞaxtaBaba",
         "price": "2.55 ₼",
@@ -179,7 +179,7 @@
         "choose": true
     },
     {
-        "id": 7,
+        "id": 19,
         "img": "https://bazarstore.az/cdn/shop/products/30182124_1000x1000.jpg?v=1693640486",
         "name": "Yeni İl Hədiyyəsi 330 Q Domik",
         "price": "4.70 ₼",
@@ -188,7 +188,7 @@
         "choose": true
     },
     {
-        "id": 8,
+        "id": 20,
         "img": "https://bazarstore.az/cdn/shop/files/170584dc4536774d1192550c1279e41c_1000x1000.jpg?v=1733297930",
         "name": "Yeni İl Hədiyyəsi 330 Q Uşaq Evi",
         "price": "2.99 ₼",
@@ -197,7 +197,7 @@
         "choose": true
     },
     {
-        "id": 9,
+        "id": 21,
         "img": "https://bazarstore.az/cdn/shop/files/2b370e378eae1c5a9d11caf3a426e027_1000x1000.jpg?v=1733297482",
         "name": "Yeni İl Hədiyyəsi Premium Qutu",
         "price": "6.99 ₼",
@@ -206,7 +206,7 @@
         "choose": true
     },
     {
-        "id": 10,
+        "id": 22,
         "img": "https://bazarstore.az/cdn/shop/files/69cf950b50546455ff421c64c91ad4aa_1000x1000.jpg?v=1733296968",
         "name": "Yeni İl Hədiyyəsi Məktub",
         "price": "1.99 ₼",
@@ -215,7 +215,7 @@
         "choose": true
     },
     {
-        "id": 11,
+        "id": 23,
         "img": "https://bazarstore.az/cdn/shop/files/4081c8d1c84df899b42ac6f0b56a790b_1000x1000.jpg?v=1733299003",
         "name": "Yeni İl Hədiyyəsi Kremlin",
         "price": "5.99 ₼",
@@ -224,7 +224,7 @@
         "choose": true
     },
     {
-        "id": 12,
+        "id": 24,
         "img": "https://bazarstore.az/cdn/shop/files/ad6d77172f325e87f23d6a4ae58835a4_1000x1000.jpg?v=1733295787",
         "name": "Yeni İl Hədiyyəs Dj Klaus Böyük",
         "price": "7.99 ₼",
@@ -235,7 +235,7 @@
     ],
     "PineTrees": [
     {
-      "id": 1,
+      "id": 25,
       "img": "https://bazarstore.az/cdn/shop/files/e825b7d6a39a6447edafab224c0484da_7de136ce-ddfa-4c1e-85dd-3b730111ee12_1000x1000.jpg?v=1702539466",
       "name": "Leva Şam Ağacı 180 sm",
       "price": "49.99 ₼",
@@ -244,7 +244,7 @@
       "choose": true
     },
     {
-      "id": 2,
+      "id": 26,
       "img": "https://bazarstore.az/cdn/shop/files/e825b7d6a39a6447edafab224c0484da_1000x1000.jpg?v=1702537791",
       "name": "Leva Şam Ağacı 150 sm",
       "price": "24.99 ₼",
@@ -253,7 +253,7 @@
       "choose": true
     },
     {
-      "id": 3,
+      "id": 27,
       "img": "https://bazarstore.az/cdn/shop/products/30171541_1000x1000.jpg?v=1693270388",
       "name": "Şam Ağacı Qarlı İyne Yarpaq 440 uc 240 sm",
       "price": "6.99 ₼",
@@ -262,7 +262,7 @@
       "choose": true
     },
     {
-      "id": 4,
+      "id": 28,
       "img": "https://bazarstore.az/cdn/shop/products/30185356_1000x1000.jpg?v=1693742494",
       "name": "Şam Ağacı 90 sm",
       "price": "6.99 ₼",
@@ -271,7 +271,7 @@
       "choose": true
     },
     {
-      "id": 5,
+      "id": 29,
       "img": "https://bazarstore.az/cdn/shop/files/1e8ab1e5a0528669663d19b08f149ac4_1000x1000.jpg?v=1733382526",
       "name": "Şam Ağacı 90 sm A114-04",
       "price": "6.99 ₼",
@@ -283,7 +283,7 @@
 
     "ProductMeat": [
         {
-        "id": 1,
+        "id": 30,
         "img": "https://bazarstore.az/cdn/shop/files/14f2f0cca8eddc84b4898bbfa84c171e_1000x1000.jpg?v=1723544470",
         "hoverImg": "https://bazarstore.az/cdn/shop/files/e70e07aabb253842b7616203fc66d8ec_1000x1000.jpg?v=1723544467",
         "name": "Bol Ət Dana qiymə kq",
@@ -292,7 +292,7 @@
         "sku": "12345678"
         },
         {
-        "id": 2,
+        "id": 31,
         "img": "https://bazarstore.az/cdn/shop/files/db626a50d7a5da4ff967bc30de4efd9c_1000x1000.jpg?v=1723545521",
         "hoverImg": "https://bazarstore.az/cdn/shop/files/e84745fe34ffb0be58227ae93a92549a_1000x1000.jpg?v=1723545518",
         "name": "Bol Ət Dana Quşbaşı kq",
@@ -301,7 +301,7 @@
         "sku": "23456789"
         },
         {
-        "id": 3,
+        "id": 32,
         "img": "https://bazarstore.az/cdn/shop/files/bcb022afc7a646bf3210839099cf8726_1000x1000.jpg?v=1723546415",
         "hoverImg": "https://bazarstore.az/cdn/shop/files/6287f9a38a8fe7359df9eb0e9d90e67c_1000x1000.webp?v=1723546412",
         "name": "Bol Ət Dana Tranc kq",
@@ -310,7 +310,7 @@
         "sku": "34567890"
         },
         {
-        "id": 4,
+        "id": 33,
         "img": "https://bazarstore.az/cdn/shop/files/fb4f48ec32efa06d5f09b4a21e218ee0_1000x1000.jpg?v=1723547250",
         "hoverImg": "https://bazarstore.az/cdn/shop/files/8cfae374f456e6ba40bfd3834cb671ce_1000x1000.jpg?v=1723547247",
         "name": "Bol Ət Dana Əti Qol Sümüksüz kq",
@@ -319,7 +319,7 @@
         "sku": "45678901"
         },
         {
-        "id": 5,
+        "id": 34,
         "img": "https://bazarstore.az/cdn/shop/files/3e1f63aca691451162f46571d0d9074f_1000x1000.jpg?v=1723548005",
         "hoverImg": "https://bazarstore.az/cdn/shop/files/dbf2b0a0801a6949ef65874c6107c008_1000x1000.jpg?v=1723548003",
         "name": "Bol Ət Dana Əti Canəti Bonfilə kq",
@@ -328,7 +328,7 @@
         "sku": "56789012"
         },
         {
-        "id": 6,
+        "id": 35,
         "img": "https://bazarstore.az/cdn/shop/files/e3ee38302f96c3712595ec2732d687f9_1000x1000.jpg?v=1723548631",
         "hoverImg": "https://bazarstore.az/cdn/shop/files/3f978ca9004efa163089dc3877b93233_1000x1000.jpg?v=1723548628",
         "name": "Bol Ət Dana Əti Sümüklü kq",
@@ -337,7 +337,7 @@
         "sku": "67890123"
         },
         {
-        "id": 7,
+        "id": 36,
         "img": "https://bazarstore.az/cdn/shop/products/30038963_8306a922-eeab-452b-bc03-4a7e8177924a_1000x1000.jpg?v=1693556855",
         "hoverImg": "https://bazarstore.az/cdn/shop/products/30038963_8306a922-eeab-452b-bc03-4a7e8177924a_1000x1000.jpg?v=1693556855",
         "name": "Bol Ət Dana Sote kq",
@@ -346,7 +346,7 @@
         "sku": "78901234"
         },
         {
-        "id": 8,
+        "id": 37,
         "img": "https://bazarstore.az/cdn/shop/products/30015491_deae8043-d8c5-4e3b-adb8-372489080109_1000x1000.jpg?v=1693738923",
         "hoverImg": "https://bazarstore.az/cdn/shop/products/30015491_deae8043-d8c5-4e3b-adb8-372489080109_1000x1000.jpg?v=1693738923",
         "name": "Bol Ət Dana Rosto kq",
@@ -355,7 +355,7 @@
         "sku": "89012345"
         },
         {
-        "id": 9,
+        "id": 38,
         "img": "https://bazarstore.az/cdn/shop/products/30038500_1000x1000.jpg?v=1693738775",
         "hoverImg": "https://bazarstore.az/cdn/shop/products/30038500_1000x1000.jpg?v=1693738775",
         "name": "Bol Ət Dana Əti Antrikot Sümüksüz kq",
@@ -364,7 +364,7 @@
         "sku": "90123456"
         },
         {
-        "id": 10,
+        "id": 39,
         "img": "https://bazarstore.az/cdn/shop/products/30038498_1aed5ac8-506a-4f18-959a-f0fabbab5b68_1000x1000.jpg?v=1693896600",
         "hoverImg": "https://bazarstore.az/cdn/shop/products/30038498_1aed5ac8-506a-4f18-959a-f0fabbab5b68_1000x1000.jpg?v=1693896600",
         "name": "Bol Ət Dana Nuar kq",
@@ -373,7 +373,7 @@
         "sku": "01234567"
         },
         {
-        "id": 11,
+        "id": 40,
         "img": "https://bazarstore.az/cdn/shop/products/30038250_1000x1000.jpg?v=1693556854",
         "hoverImg": "https://bazarstore.az/cdn/shop/products/30038250_1000x1000.jpg?v=1693556854",
         "name": "Bol Ət Dana Əti Bel (Biftek) kq",
@@ -382,7 +382,7 @@
         "sku": "12345678"
         },
         {
-        "id": 12,
+        "id": 41,
         "img": "https://bazarstore.az/cdn/shop/products/30153388_1000x1000.jpg?v=1693348248",
         "hoverImg": "https://bazarstore.az/cdn/shop/products/30153388_1000x1000.jpg?v=1693348248",
         "name": "Bol Ət Gardan kq",
@@ -393,40 +393,40 @@
     ],   
     
     "ProductTypes": [
-        { "id": 1, "img": "https://bazarstore.az/cdn/shop/files/indirim-anasayfa-link_100x92.jpg?v=1692349846", "title": "Endirimli Məhsullar", "productCount": "(2123 Çeşidlər)" },
-        { "id": 2, "img": "https://bazarstore.az/cdn/shop/files/cok-satan-anasayfa_100x92.jpg?v=1692363270", "title": "Çox Satanlar", "productCount": "(91 Çeşidlər)" },
-        { "id": 3, "img": "https://bazarstore.az/cdn/shop/files/anne-bebek-anasayfa-2_100x92.jpg?v=1692352671", "title": "Uşaq Dünyası", "productCount": "(355 Çeşidler)" },
-        { "id": 4, "img": "https://bazarstore.az/cdn/shop/files/meyve-terevez-esas_100x92.png?v=1682521490", "title": "Meyvə, Tərəvəz", "productCount": "(148 Çeşidler)" },
-        { "id": 5, "img": "https://bazarstore.az/cdn/shop/files/baliq-et_100x92.png?v=1682521490", "title": "Ət, Toyuq, Balıq", "productCount": "(1281 Çeşidler)" },
-        { "id": 6, "img": "https://bazarstore.az/cdn/shop/files/sud-seher-yemeyi_100x92.png?v=1682521490", "title": "Süd, Səhər yeməyi", "productCount": "(943 Çeşidler)" },
-        { "id": 7, "img": "https://bazarstore.az/cdn/shop/files/mahsuller_100x92.png?v=1682580165", "title": "Təməl Qida", "productCount": "(1830 Çeşidler)" },
-        { "id": 8, "img": "https://bazarstore.az/cdn/shop/files/konserv_100x92.png?v=1682521490", "title": "Hazır Yeməklər, Donuq", "productCount": "(55 Çeşidler)" },
-        { "id": 9, "img": "https://bazarstore.az/cdn/shop/files/tort-bulka_100x92.png?v=1682521490", "title": "Firin, Pastane", "productCount": "(362 Çeşidler)" },
-        { "id": 10, "img": "https://bazarstore.az/cdn/shop/files/dondurma_100x92.png?v=1682521490", "title": "Dondurma", "productCount": "(201 Çeşidler)" },
-        { "id": 11, "img": "https://bazarstore.az/cdn/shop/files/atishdirmalik_100x92.png?v=1682521490", "title": "Atışdırmalıq", "productCount": "(1830 Çeşidler)" },
-        { "id": 12, "img": "https://bazarstore.az/cdn/shop/files/gulum-su_100x92.png?v=1682521490", "title": "İçkilər", "productCount": "(1115 Çeşidler)" },
-        { "id": 13, "img": "https://bazarstore.az/cdn/shop/files/tutun_100x92.png?v=1682521490", "title": "Tütün Məhsulları", "productCount": "(116 Çeşidler)" },
-        { "id": 14, "img": "https://bazarstore.az/cdn/shop/files/temizlik-deterjan_100x92.png?v=1682521490", "title": "Deterjan, Təmizlik", "productCount": "(977 Çeşidler)" },
-        { "id": 15, "img": "https://bazarstore.az/cdn/shop/files/temizlik-kosmetik_100x92.png?v=1682521490", "title": "Kişisəl Baxım, Kosmetik", "productCount": "(1562 Çeşidler)" },
-        { "id": 16, "img": "https://bazarstore.az/cdn/shop/files/piknik-ev_100x92.png?v=1682521490", "title": "Ev və Bağ üçün məhsullar", "productCount": "(595 Çeşidler)" },
-        { "id": 17, "img": "https://bazarstore.az/cdn/shop/files/kitab-defter_100x92.png?v=1682521490", "title": "Dəftərxana Ləvazimatları", "productCount": "(5 Çeşidler)" },
-        { "id": 18, "img": "https://bazarstore.az/cdn/shop/files/petshop_100x92.png?v=1682521490", "title": "Petshop", "productCount": "(45 Çeşidler)" },
-        { "id": 19, "img": "https://bazarstore.az/cdn/shop/files/elektornik_100x92.png?v=1682521490", "title": "Elektronika", "productCount": "(100 Çeşidler)" }
+        { "id": 42, "img": "https://bazarstore.az/cdn/shop/files/indirim-anasayfa-link_100x92.jpg?v=1692349846", "title": "Endirimli Məhsullar", "productCount": "(2123 Çeşidlər)" },
+        { "id": 43, "img": "https://bazarstore.az/cdn/shop/files/cok-satan-anasayfa_100x92.jpg?v=1692363270", "title": "Çox Satanlar", "productCount": "(91 Çeşidlər)" },
+        { "id": 44, "img": "https://bazarstore.az/cdn/shop/files/anne-bebek-anasayfa-2_100x92.jpg?v=1692352671", "title": "Uşaq Dünyası", "productCount": "(355 Çeşidler)" },
+        { "id": 45, "img": "https://bazarstore.az/cdn/shop/files/meyve-terevez-esas_100x92.png?v=1682521490", "title": "Meyvə, Tərəvəz", "productCount": "(148 Çeşidler)" },
+        { "id": 46, "img": "https://bazarstore.az/cdn/shop/files/baliq-et_100x92.png?v=1682521490", "title": "Ət, Toyuq, Balıq", "productCount": "(1281 Çeşidler)" },
+        { "id": 47, "img": "https://bazarstore.az/cdn/shop/files/sud-seher-yemeyi_100x92.png?v=1682521490", "title": "Süd, Səhər yeməyi", "productCount": "(943 Çeşidler)" },
+        { "id": 48, "img": "https://bazarstore.az/cdn/shop/files/mahsuller_100x92.png?v=1682580165", "title": "Təməl Qida", "productCount": "(1830 Çeşidler)" },
+        { "id": 49, "img": "https://bazarstore.az/cdn/shop/files/konserv_100x92.png?v=1682521490", "title": "Hazır Yeməklər, Donuq", "productCount": "(55 Çeşidler)" },
+        { "id": 50, "img": "https://bazarstore.az/cdn/shop/files/tort-bulka_100x92.png?v=1682521490", "title": "Firin, Pastane", "productCount": "(362 Çeşidler)" },
+        { "id": 51, "img": "https://bazarstore.az/cdn/shop/files/dondurma_100x92.png?v=1682521490", "title": "Dondurma", "productCount": "(201 Çeşidler)" },
+        { "id": 52, "img": "https://bazarstore.az/cdn/shop/files/atishdirmalik_100x92.png?v=1682521490", "title": "Atışdırmalıq", "productCount": "(1830 Çeşidler)" },
+        { "id": 53, "img": "https://bazarstore.az/cdn/shop/files/gulum-su_100x92.png?v=1682521490", "title": "İçkilər", "productCount": "(1115 Çeşidler)" },
+        { "id": 54, "img": "https://bazarstore.az/cdn/shop/files/tutun_100x92.png?v=1682521490", "title": "Tütün Məhsulları", "productCount": "(116 Çeşidler)" },
+        { "id": 55, "img": "https://bazarstore.az/cdn/shop/files/temizlik-deterjan_100x92.png?v=1682521490", "title": "Deterjan, Təmizlik", "productCount": "(977 Çeşidler)" },
+        { "id": 56, "img": "https://bazarstore.az/cdn/shop/files/temizlik-kosmetik_100x92.png?v=1682521490", "title": "Kişisəl Baxım, Kosmetik", "productCount": "(1562 Çeşidler)" },
+        { "id": 57, "img": "https://bazarstore.az/cdn/shop/files/piknik-ev_100x92.png?v=1682521490", "title": "Ev və Bağ üçün məhsullar", "productCount": "(595 Çeşidler)" },
+        { "id": 58, "img": "https://bazarstore.az/cdn/shop/files/kitab-defter_100x92.png?v=1682521490", "title": "Dəftərxana Ləvazimatları", "productCount": "(5 Çeşidler)" },
+        { "id": 59, "img": "https://bazarstore.az/cdn/shop/files/petshop_100x92.png?v=1682521490", "title": "Petshop", "productCount": "(45 Çeşidler)" },
+        { "id": 60, "img": "https://bazarstore.az/cdn/shop/files/elektornik_100x92.png?v=1682521490", "title": "Elektronika", "productCount": "(100 Çeşidler)" }
     ],
     "blogData": [
-        { "id": 1, "img": "https://bazarstore.az/cdn/shop/articles/christmas_table_950x672.jpg?v=1733727042", "date": "09 Dec, 2024", "name": "Yeni il süfrəsi, ləzzətli reseptlər 🎄🍴" },
-        { "id": 2, "img": "https://bazarstore.az/cdn/shop/articles/yeni_il_salads_950x672.jpg?v=1733725036", "date": "09 Dec, 2024", "name": "Yeni ildə hazırlaya biləcəyiniz salatlar.🥗" },
-        { "id": 3, "img": "https://bazarstore.az/cdn/shop/articles/yogurt_950x672.jpg?v=1732536709", "date": "25 Nov, 2024", "name": "Sobada Qatıq Hazırlama Resepti 🥛 💚" },
-        { "id": 4, "img": "https://bazarstore.az/cdn/shop/articles/tangerine_peels_950x672.jpg?v=1730807214", "date": "05 Nov, 2024", "name": "Mandarin qabıqlarından istifadə 🍊" },
-        { "id": 5, "img": "https://bazarstore.az/cdn/shop/articles/cay_novl_ri_950x672.jpg?v=1730449163", "date": "01 Nov, 2024", "name": "Ən məşhur çay növləri" },
-        { "id": 6, "img": "https://bazarstore.az/cdn/shop/articles/q_hv_novl_ri_950x672.jpg?v=1730448845", "date": "01 Nov, 2024", "name": "Qəhvə növləri ☕" }
+        { "id": 61, "img": "https://bazarstore.az/cdn/shop/articles/christmas_table_950x672.jpg?v=1733727042", "date": "09 Dec, 2024", "name": "Yeni il süfrəsi, ləzzətli reseptlər 🎄🍴" },
+        { "id": 62, "img": "https://bazarstore.az/cdn/shop/articles/yeni_il_salads_950x672.jpg?v=1733725036", "date": "09 Dec, 2024", "name": "Yeni ildə hazırlaya biləcəyiniz salatlar.🥗" },
+        { "id": 63, "img": "https://bazarstore.az/cdn/shop/articles/yogurt_950x672.jpg?v=1732536709", "date": "25 Nov, 2024", "name": "Sobada Qatıq Hazırlama Resepti 🥛 💚" },
+        { "id": 64, "img": "https://bazarstore.az/cdn/shop/articles/tangerine_peels_950x672.jpg?v=1730807214", "date": "05 Nov, 2024", "name": "Mandarin qabıqlarından istifadə 🍊" },
+        { "id": 65, "img": "https://bazarstore.az/cdn/shop/articles/cay_novl_ri_950x672.jpg?v=1730449163", "date": "01 Nov, 2024", "name": "Ən məşhur çay növləri" },
+        { "id": 66, "img": "https://bazarstore.az/cdn/shop/articles/q_hv_novl_ri_950x672.jpg?v=1730448845", "date": "01 Nov, 2024", "name": "Qəhvə növləri ☕" }
     ], 
     "newsData" : [
-        { "id": 1, "img": "https://bazarstore.az/cdn/shop/articles/christmas_tradition_950x672.jpg?v=1733725994", "date": "09 Dec, 2024", "title": "Dünyada Maraqlı Yeni İl Adət-Ənənələri" },
-        { "id": 2, "img": "https://bazarstore.az/cdn/shop/articles/WhatsApp_Image_2024-11-27_at_17.37.27_950x672.jpg?v=1732790114", "date": "28 Nov, 2024", "title": "Onlayn sifariş et, hədiyyə qazan. 🎉" },
-        { "id": 3, "img": "https://bazarstore.az/cdn/shop/articles/WhatsApp_Image_2024-11-18_at_09.22.52_950x672.jpg?v=1731997896", "date": "19 Nov, 2024", "title": "Parlayanların gecəsinə qoşul! ✨" },
-        { "id": 4, "img": "https://bazarstore.az/cdn/shop/articles/sidebar-son_950x672.jpg?v=1729678340", "date": "23 Oct, 2024", "title": "Online sifarişə özəl endirimlər🎯" },
-        { "id": 5, "img": "https://bazarstore.az/cdn/shop/articles/saytimiz-yenil_ndi-dizayn_950x672.jpg?v=1727938897", "date": "03 Oct, 2024", "title": "Bazarstore.az | Onlayn market alış-verişi 💚" },
-        { "id": 6, "img": "https://bazarstore.az/cdn/shop/articles/Untitled-1_b981b27f-55e8-4ea7-9889-811ea2999a16_950x672.jpg?v=1722584409", "date": "02 Aug, 2024", "title": "Bazarstore.az - Onlayn Supermarket" }
+        { "id": 67, "img": "https://bazarstore.az/cdn/shop/articles/christmas_tradition_950x672.jpg?v=1733725994", "date": "09 Dec, 2024", "title": "Dünyada Maraqlı Yeni İl Adət-Ənənələri" },
+        { "id": 68, "img": "https://bazarstore.az/cdn/shop/articles/WhatsApp_Image_2024-11-27_at_17.37.27_950x672.jpg?v=1732790114", "date": "28 Nov, 2024", "title": "Onlayn sifariş et, hədiyyə qazan. 🎉" },
+        { "id": 69, "img": "https://bazarstore.az/cdn/shop/articles/WhatsApp_Image_2024-11-18_at_09.22.52_950x672.jpg?v=1731997896", "date": "19 Nov, 2024", "title": "Parlayanların gecəsinə qoşul! ✨" },
+        { "id": 70, "img": "https://bazarstore.az/cdn/shop/articles/sidebar-son_950x672.jpg?v=1729678340", "date": "23 Oct, 2024", "title": "Online sifarişə özəl endirimlər🎯" },
+        { "id": 71, "img": "https://bazarstore.az/cdn/shop/articles/saytimiz-yenil_ndi-dizayn_950x672.jpg?v=1727938897", "date": "03 Oct, 2024", "title": "Bazarstore.az | Onlayn market alış-verişi 💚" },
+        { "id": 72, "img": "https://bazarstore.az/cdn/shop/articles/Untitled-1_b981b27f-55e8-4ea7-9889-811ea2999a16_950x672.jpg?v=1722584409", "date": "02 Aug, 2024", "title": "Bazarstore.az - Onlayn Supermarket" }
     ]
 }
