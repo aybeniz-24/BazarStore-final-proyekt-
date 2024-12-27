@@ -8,6 +8,7 @@ import Popup from "./Popup";
 import { BASKET } from "../context/BasketContext";
 import { FAVORIT } from "../context/FavoritContext";
 import '../../App.css'
+import { Link } from 'react-router-dom'
 
 function ProductCarousel({ title, apiFunction, categoryIcon }) {
   const [products, setProducts] = useState([]);
@@ -102,9 +103,9 @@ function ProductCarousel({ title, apiFunction, categoryIcon }) {
                 </div>
                 
               <div className="absolute top-0 right-0 z-20 icon">
-                <CiHeart className="bg-gray-200 hover:bg-green-500 hover:text-white rounded-full w-[30px] h-[30px] p-[5px] m-[3px] cursor-pointer" />
+                <CiHeart className="bg-gray-200 hover:bg-[#b3b93d] hover:text-white rounded-full w-[30px] h-[30px] p-[5px] m-[3px] cursor-pointer" />
                 <FaRegEye
-                  className="bg-gray-200 hover:bg-green-500 hover:text-white rounded-full w-[30px] h-[30px] p-[5px] m-[3px] cursor-pointer"
+                  className="bg-gray-200 hover:bg-[#b3b93d] hover:text-white rounded-full w-[30px] h-[30px] p-[5px] m-[3px] cursor-pointer"
                   onClick={() => handleIconClick(item)}
                 />
               </div>
@@ -144,9 +145,11 @@ function ProductCarousel({ title, apiFunction, categoryIcon }) {
                 </>
                 ) : (
                
-                    <button className="bg-gray-200 font-bold text-sm rounded-md mt-[84px] py-2 px-6 flex items-center hover:text-white hover:bg-[#b3b93d]">
+                    <Link to={`/choice?productId=${item.id}`}>
+                      <button className="bg-gray-200 font-bold text-sm rounded-md mt-[84px] py-2 px-6 flex items-center hover:text-white hover:bg-[#b3b93d]">
                          Seçim Edin
-                    </button>
+                     </button>
+                    </Link>
             )}
 
             

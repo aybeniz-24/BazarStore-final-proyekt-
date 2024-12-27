@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { BASKET } from '../context/BasketContext';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useParams } from 'react-router-dom';
 import { FaRegTrashCan } from 'react-icons/fa6';
 import { FAVORIT } from "../context/FavoritContext"
 import { SlBasket } from "react-icons/sl";
@@ -8,19 +8,101 @@ import ButtonSections from "./ButtonSections";
 import { GoHome } from "react-icons/go";
 import Advertising from "./Advertising";
 import { IoMdClose } from "react-icons/io";
+import data from '../../data/data.json'
 
 function PageComponent() {
   const { basket, updateCount, addToBasket, removeFromBasket } = useContext(BASKET);
   const { favorites, addToFavorit, removeFromFavorit } = useContext(FAVORIT)
 
-  const location = useLocation()
+
+  // const location = useLocation(); // Mövcud URL
+  // const { fruitName } = useParams(); // Dinamik parametrləri əldə edir
+  // const [pageTitle, setPageTitle] = useState("Ana Səhifə");
+
+  // const titles = {
+  //   "/favorit": "Seçilmişlər",
+  //   "/basket": "Səbət",
+  //   "/fruits": "Meyvələr",
+  // };
+
+  // useEffect(() => {
+  //   if (location.pathname.startsWith("/fruits/")) {
+  //     // Dinamik məhsul adını göstərin
+  //     setPageTitle(fruitName ? `Məhsul: ${fruitName}` : "Meyvələr");
+  //   } else {
+  //     setPageTitle(titles[location.pathname] || "Ana Səhifə");
+  //   }
+  // }, [location.pathname, fruitName]); // URL və parametr dəyişəndə işləyəcək
+
+  const collections = {
+    OnlineOrderExclusive: data.OnlineOrderExclusive,
+    NewYearGifts: data.NewYearGifts,
+    PineTrees: data.PineTrees,
+    ProductTypes: data.ProductTypes,
+  };
+
+  const titles = {
+    "/favorit": "Seçilmişlər",
+    "/basket": "Səbət",
+  };
+  
+  const getPageTitle = () => {
+    const location = useLocation();
+  
+    // Sorğu sətirindən məhsul ID-sini əldə edin
+    const queryParams = new URLSearchParams(location.search);
+    const productId = queryParams.get("productId");
+  
+    if (location.pathname === "/choice" ) {
+      const product = data.OnlineOrderExclusive.find(
+        (item) => item.id === Number(productId)
+      );
+
+      
+      const name = product ? ` | ${product.name}` : "";
+      return `Seçim Edin ${name}`;
+      
+    }
+  
+    return titles[location.pathname] || "Ana Səhifə";
+  };
+  
+
+  
 
   return (
     <>
+
+
+
+
       <ButtonSections />
+
+      <div className='bg-[#f0f0f0] py-[25px] mb-[20px]'>
+          <div className='md:mx-[8%] mx-[2%] m-[5px] mr-[5px] flex justify-start items-center '>
+            <p>
+              <Link to="/">
+                  <GoHome className="inline text-[26px] mr-[8px] cursor-pointer" />
+              </Link>
+              | </p>
+              <Link to="/favorit">
+                <p className="inline text-[18px] ml-[10px] hover:text-[#b3b93d]">{getPageTitle()}</p>
+              </Link>
+            
+          </div>
+      </div>
+
+
 
       <div>
 
+
+        
+      {location.pathname === "/choice" && (
+            <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea modi expedita ducimus hic cupiditate assumenda iste id qui eveniet asperiores!
+            </p>
+
+      )}
 
 
 
@@ -221,19 +303,7 @@ function PageComponent() {
           {/* favori page funksionallifi */}
           {location.pathname === "/favorit" && (
             <>
-                <div className='bg-[#f0f0f0] py-[25px] mb-[20px]'>
-                <div className='md:mx-[8%] mx-[2%] m-[5px] mr-[5px] flex justify-start items-center '>
-                  <p>
-                    <Link to="/">
-                       <GoHome className="inline text-[26px] mr-[8px] cursor-pointer" />
-                    </Link>
-                   | </p>
-                   <Link to="/favorit">
-                     <p className="inline text-[18px] ml-[10px] hover:text-[#b3b93d]">Seçilmişlər </p>
-                   </Link>
-                 
-                </div>
-            </div>
+              
             <div className="md:mx-[8%] flex flex-col lg:flex-row justify-between">
   
   
@@ -327,7 +397,7 @@ function PageComponent() {
 
 
 
-
+            {/* login page */}
           {location.pathname === "/login" && (
              <div className=" flex flex-col justify-center items-center w-[500px] mx-auto my-[100px] border border-[#e5e5e5] rounded-[5px]">
                 <p className="text-[24px] my-[20px]">🔐 Daxil Olun</p>
@@ -339,6 +409,9 @@ function PageComponent() {
                 </div>
             </div>
           )}
+
+
+
 
 
       </div>

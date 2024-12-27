@@ -50,6 +50,7 @@ function App() {
         <Route index element={<Main />} />
         <Route path="/basket" element={<PageComponent />} />
         <Route path="/login" element={<PageComponent />} />
+        <Route path="/choice" element={<PageComponent />} />
         <Route path="/favorit" element={<PageComponent />} />
       </Routes>
       <Footer />
