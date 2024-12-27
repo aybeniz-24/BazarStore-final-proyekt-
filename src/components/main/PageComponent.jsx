@@ -34,12 +34,7 @@ function PageComponent() {
   //   }
   // }, [location.pathname, fruitName]); // URL və parametr dəyişəndə işləyəcək
 
-  const collections = {
-    OnlineOrderExclusive: data.OnlineOrderExclusive,
-    NewYearGifts: data.NewYearGifts,
-    PineTrees: data.PineTrees,
-    ProductTypes: data.ProductTypes,
-  };
+  
 
   const titles = {
     "/favorit": "Seçilmişlər",
@@ -64,7 +59,7 @@ function PageComponent() {
       
     }
   
-    return titles[location.pathname] || "Ana Səhifə";
+    return titles[location.pathname] || "";
   };
   
 
@@ -72,11 +67,7 @@ function PageComponent() {
 
   return (
     <>
-
-
-
-
-      <ButtonSections />
+    <ButtonSections />
 
       <div className='bg-[#f0f0f0] py-[25px] mb-[20px]'>
           <div className='md:mx-[8%] mx-[2%] m-[5px] mr-[5px] flex justify-start items-center '>
@@ -88,6 +79,9 @@ function PageComponent() {
               <Link to="/favorit">
                 <p className="inline text-[18px] ml-[10px] hover:text-[#b3b93d]">{getPageTitle()}</p>
               </Link>
+              {/* <Link to="/choice">
+               <p className="inline text-[18px] ml-[10px] hover:text-[#b3b93d]">{getPageTitle()}</p>
+              </Link> */}
             
           </div>
       </div>
@@ -99,7 +93,8 @@ function PageComponent() {
 
         
       {location.pathname === "/choice" && (
-            <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea modi expedita ducimus hic cupiditate assumenda iste id qui eveniet asperiores!
+            <p> 
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea modi expedita ducimus hic cupiditate assumenda iste id qui eveniet asperiores!
             </p>
 
       )}
