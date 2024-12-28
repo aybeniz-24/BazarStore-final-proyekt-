@@ -140,24 +140,41 @@ function PageComponent() {
                         )}
                       </td>
 
+
+                          {/* Bu basketPagede cixan hissedir  */}
                       <td className="py-4">
                         <div className="flex justify-center items-center">
                           <div className="mb-[20px] flex justify-center items-center border-[1px] border-[#e8e8e8] w-[100px] h-[40px]">
                             <button
-                              onClick={() => updateCount(index, item.quantity > 1 ? item.quantity - 1 : 1)}
+                                 onClick={() => {
+                                  const newQuantity = item.quantity > 1 ? item.quantity - 1 : 0; // Miqdarı sıfıra endiririk
+                                  updateCount(index, newQuantity); // Miqdarı azaldırıq və sıfır olduqda silirik
+                              }}
+                              // onClick={() => updateCount(index, item.quantity > 1 ? item.quantity - 1 : 1)}
                               className="cursor-pointer p-[13px]"
                             >
                               -
                             </button>
                             <p className="mx-[10px]">{item.quantity}</p>
-                            <button onClick={() => updateCount(index, item.quantity + 1)} className="cursor-pointer p-[13px]">
+                            <button 
+                             onClick={() => updateCount(index, item.quantity + 1)} // Miqdarı artırırıq
+                             className="cursor-pointer p-[13px]"
+                         
+                            // onClick={() => updateCount(index, item.quantity + 1)} className="cursor-pointer p-[13px]"
+                            >
                               +
                             </button>
                           </div>
                           <div className="p-2">
                             <button className="p-2 bg-[#b3b93d] hover:bg-[#1e1e1e] rounded mb-[20px]">
                               <FaRegTrashCan
-                                onClick={() => removeFromBasket(item.id)}
+                               onClick={() => {
+                                if (item.quantity <= 1) {
+                                    removeFromBasket(item.id); // Miqdar 1 və ya aşağı olduqda məhsulu silirik
+                                } else {
+                                    updateCount(index, item.quantity - 1); // Əgər miqdar 1-dən çoxdursa, 1 azaldırıq
+                                }
+                            }}
                                 className="text-white text-[20px] m-[2px]" />
                             </button>
                           </div>

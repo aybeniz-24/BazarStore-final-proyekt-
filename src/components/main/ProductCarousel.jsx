@@ -126,6 +126,7 @@ function ProductCarousel({ title, apiFunction, categoryIcon }) {
             </div>
             <div className="h-28  text-left">
               <p className="text-sm uppercase">{item.name}</p>
+              <p className="text-sm uppercase">{item.price}</p>
               <p className="font-bold text-sm">{item.discountedPrice || item.price}</p>
             </div>
             {item.choose === true ? (
@@ -159,7 +160,7 @@ function ProductCarousel({ title, apiFunction, categoryIcon }) {
                           item.quantity,
                           item.marka,
                           item.sku,
-                          item.count
+                          counts[index]
                         );
                         navigate("/basket"); // Yönləndirmə buradadır
                       }}
