@@ -61,7 +61,26 @@ function PageComponent() {
 
   const product = getProductData();
 
-
+  const totalPrice = basket.reduce((acc, item) => {
+    // Qiymətləri düzgün şəkildə əldə edirik (endirimli və ya normal)
+    const price = !isNaN(parseFloat(item.name)) ? parseFloat(item.name) : 
+                  (!isNaN(parseFloat(item.price)) ? parseFloat(item.price) : 0);
+    const quantity = !isNaN(parseInt(item.quantity)) ? parseInt(item.quantity) : 1;
+  
+    return acc + price * quantity;
+  }, 0);
+  
+  // Endirimli qiymətləri düzgün hesablayırıq
+  const discountedPrice = basket.reduce((acc, item) => {
+    // Endirimli qiyməti yalnız mövcud olduqda əlavə edirik
+    const price = item.discountedPrice && !isNaN(parseFloat(item.discountedPrice)) ? parseFloat(item.discountedPrice) : 0;
+    const quantity = !isNaN(parseInt(item.quantity)) ? parseInt(item.quantity) : 1;
+  
+    return acc + price * quantity;
+  }, 0);
+  
+  
+  
 
 
   return (
@@ -168,13 +187,7 @@ function PageComponent() {
                           <div className="p-2">
                             <button className="p-2 bg-[#b3b93d] hover:bg-[#1e1e1e] rounded mb-[20px]">
                               <FaRegTrashCan
-                               onClick={() => {
-                                if (item.quantity <= 1) {
-                                    removeFromBasket(item.id); // Miqdar 1 və ya aşağı olduqda məhsulu silirik
-                                } else {
-                                    updateCount(index, item.quantity - 1); // Əgər miqdar 1-dən çoxdursa, 1 azaldırıq
-                                }
-                            }}
+                              onClick={() => removeFromBasket(item.id)}
                                 className="text-white text-[20px] m-[2px]" />
                             </button>
                           </div>
@@ -184,11 +197,13 @@ function PageComponent() {
                       <td className="py-4">
                         {item.discountedPrice ? (
                           <div className="flex flex-col">
-                            <p className="font-bold text-[14px] text-[#9b9b9b] line-through">{item.name}</p>
-                            <p className="font-bold text-[14px] text-[#439e4a]">{item.discountedPrice}</p>
+                            <p className="font-bold text-[14px] text-[#9b9b9b] line-through">{((parseFloat(item.name) || 0 ) * (parseInt(item.quantity) || 1)).toFixed(2)} ₼</p>
+                            <p className="font-bold text-[14px] text-[#439e4a]">
+                              {((parseFloat(item.discountedPrice) || 0) * (parseInt(item.quantity) || 1)).toFixed(2)} ₼
+                            </p>
                           </div>
                         ) : (
-                          <p className="font-bold text-[14px]">{item.name}</p>
+                          <p className="font-bold text-[14px]">{((parseFloat(item.name) || 0 ) * (parseInt(item.quantity) || 1)).toFixed(2)} ₼</p>
                         )}
                       </td>
                     </tr>
@@ -283,9 +298,9 @@ function PageComponent() {
             <div className='w-[90%]'>
               <div className='w-[100%] flex flex-col items-end'>
               <div className='flex  gap-[30px] my-[20px]'>
-                  <p> Ara cəmi</p>
-                  <p> total </p>
-                  <p> endirimli </p>
+                  <p> Ara cəmi </p>
+                  <p className='text-gray-500'> Ümumi cəm -- {totalPrice.toFixed(2)} ₼</p>
+                  <p className='text-green-500'> Endirimli cəm -- {discountedPrice.toFixed(2)} ₼</p>
               </div>
                 <p className='text-right my-[20px] mb-[30px] '> Vergi daxildir. Çatdırılma xərci ödəniş səhifəsində hesablanır.</p>
 
