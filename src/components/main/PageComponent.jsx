@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { BASKET } from '../context/BasketContext';
 import { Link, useLocation, useParams } from 'react-router-dom';
 import { FaRegTrashCan } from 'react-icons/fa6';
@@ -43,6 +43,11 @@ function PageComponent() {
     return titles[location.pathname] || "";
   };
 
+
+
+
+  
+
   const getProductData = () => {
     const queryParams = new URLSearchParams(location.search);
     const productId = queryParams.get("productId");
@@ -79,8 +84,29 @@ function PageComponent() {
     return acc + price * quantity;
   }, 0);
   
+
+
+
+
+  const [showPopup, setShowPopup] = useState(false);
+
+  // Popup-u avtomatik açmaq üçün
+  useEffect(() => {
+    if (discountedPrice <= 40) {
+      setShowPopup(true);
+    } else {
+      setShowPopup(false);
+    }
+  }, [discountedPrice]);
+
+
   
-  
+
+
+
+
+
+
 
 
   return (
@@ -151,8 +177,8 @@ function PageComponent() {
                       <td className="py-4">
                         {item.discountedPrice ? (
                           <div className="flex flex-col">
-                            <p className="font-bold text-[14px] text-[#9b9b9b] line-through">{item.name}</p>
-                            <p className="font-bold text-[14px] text-[#439e4a]">{item.discountedPrice}</p>
+                            <p className=" text-[14px] text-[#9b9b9b] line-through">{item.name}</p>
+                            <p className=" text-[14px] text-[#439e4a]">{item.discountedPrice}</p>
                           </div>
                         ) : (
                           <p className="font-bold text-[14px]">{item.name}</p>
@@ -298,16 +324,45 @@ function PageComponent() {
             <div className='w-[90%]'>
               <div className='w-[100%] flex flex-col items-end'>
               <div className='flex  gap-[30px] my-[20px]'>
-                  <p> Ara cəmi </p>
-                  <p className='text-gray-500'> Ümumi cəm -- {totalPrice.toFixed(2)} ₼</p>
-                  <p className='text-green-500'> Endirimli cəm -- {discountedPrice.toFixed(2)} ₼</p>
+                  <p className='text-[20px]'> Ara cəmi </p>
+                  <p className='font-bold text-[20px] text-gray-500 line-through'>{totalPrice.toFixed(2)} ₼</p>
+                  <p className='font-bold text-[20px] text-green-500'>{discountedPrice.toFixed(2)} ₼</p>
               </div>
                 <p className='text-right my-[20px] mb-[30px] '> Vergi daxildir. Çatdırılma xərci ödəniş səhifəsində hesablanır.</p>
 
+                <button
+                onClick={() => {
+                  if (discountedPrice <= 40) {
+                    setShowPopup(true);
+                  }
+                }}
+                className="w-[400px] bg-[#b3b93d] hover:bg-[#1e1e1e] text-white py-[15px] px-[50px] font-bold rounded-[5px] mb-[20px]"
+              >
+                {discountedPrice > 40 ? "Ödəniş" : "Redaktə Gözlənilir"}
+              </button>
 
-                <button className="w-[400px] bg-[#b3b93d] hover:bg-[#1e1e1e] text-white py-[15px] px-[50px] font-bold rounded-[5px] mb-[20px]">Redaktə Gözlənilir</button>
-                <button className="w-[400px] bg-[#b3b93d] hover:bg-[#1e1e1e] text-white py-[15px] px-[50px] font-bold rounded-[5px] mb-[20px]">Ödəniş</button>
-                <Link to="/" >
+              {showPopup && (
+                <div className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 flex justify-center items-center">
+                  <div className="bg-white p-5 rounded shadow-lg">
+                    <p className="text-[20px] font-bold">
+                      ⚠️ Zəhmət olmasa qeyd edilən dəyişiklikləri səbətinizə tətbiq edin:
+                    </p>
+                    <p className="p-[30px]">• Səbətinizin məbləği ən azı 40 ₼ olmalıdır.</p>
+                    <div className="flex items-end justify-end">
+                      <button
+                        onClick={() => setShowPopup(false)}
+                        className="mt-3 text-white py-2 px-4 rounded bg-[#b3b93d]"
+                      >
+                        OK
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              )}
+
+                
+
+               <Link to="/" >
                       <p className=" text-center cursor-pointer underline underline-offset-4 hover:decoration-[#b3b93d]  hover:text-[#b3b93d]  text-[18px]"> Alış-verişə Davam Edin </p>
                 </Link>
 

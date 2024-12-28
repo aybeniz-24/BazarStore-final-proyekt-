@@ -48,6 +48,11 @@ function ProductCarousel({ title, apiFunction, categoryIcon }) {
   };
 
 
+
+
+  
+
+
   
   return (
     <div className="mx-8 my-4">
@@ -162,7 +167,7 @@ function ProductCarousel({ title, apiFunction, categoryIcon }) {
                           item.sku,
                           counts[index]
                         );
-                        navigate("/basket"); // Yönləndirmə buradadır
+                       
                       }}
                         className="bg-gray-200 font-bold text-sm rounded-md py-2 px-6 flex items-center hover:text-white hover:bg-[#b3b93d]">
                             <SlBasket
