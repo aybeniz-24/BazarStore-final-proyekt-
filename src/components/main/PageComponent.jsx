@@ -155,7 +155,7 @@ function PageComponent() {
                             <p className="font-bold text-[14px] text-[#439e4a]">{item.discountedPrice}</p>
                           </div>
                         ) : (
-                          <p className="font-bold text-[14px]">{item.name}</p>
+                          <p className="font-bold text-[14px] text-[#439e4a]">{item.name}</p>
                         )}
                       </td>
 
@@ -203,7 +203,7 @@ function PageComponent() {
                             </p>
                           </div>
                         ) : (
-                          <p className="font-bold text-[14px]">{((parseFloat(item.name) || 0 ) * (parseInt(item.quantity) || 1)).toFixed(2)} ₼</p>
+                          <p className="font-bold text-[14px] text-[#439e4a]">{((parseFloat(item.name) || 0 ) * (parseInt(item.quantity) || 1)).toFixed(2)} ₼</p>
                         )}
                       </td>
                     </tr>
@@ -299,8 +299,8 @@ function PageComponent() {
               <div className='w-[100%] flex flex-col items-end'>
               <div className='flex  gap-[30px] my-[20px]'>
                   <p> Ara cəmi </p>
-                  <p className='text-gray-500'> Ümumi cəm -- {totalPrice.toFixed(2)} ₼</p>
-                  <p className='text-green-500'> Endirimli cəm -- {discountedPrice.toFixed(2)} ₼</p>
+                  <p className='text-gray-500 line-through'> Endirimli olunmamis cem   -- {totalPrice.toFixed(2)} ₼</p>
+                  <p className='text-green-500'> odenilecek cem -- {discountedPrice.toFixed(2)} ₼</p>
               </div>
                 <p className='text-right my-[20px] mb-[30px] '> Vergi daxildir. Çatdırılma xərci ödəniş səhifəsində hesablanır.</p>
 

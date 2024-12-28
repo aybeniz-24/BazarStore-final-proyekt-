@@ -24,33 +24,19 @@ function MainSlider() {
                       modules={[Autoplay, Pagination, Navigation]}
                       className="mySwiper rounded-[8px]"
                       autoplay={{
-                        delay: 1500, 
+                        delay: 3000, 
                         disableOnInteraction: false,
                       }}
                       navigation 
                       loop={true}               
                     >
                        <SwiperSlide>
+                        <img src="https://bazarstore.az/cdn/shop/files/yeni-il-banner_900x452.jpg?v=1734592875;" alt="slider1new" />
+                      </SwiperSlide>
+                      <SwiperSlide>
                         <img src="https://bazarstore.az/cdn/shop/files/onlayna-ozel-banner-gif_900x452.jpg?v=1733982805;" alt="slider1new" />
                       </SwiperSlide>
-                      <SwiperSlide>
-                        <img src={slider1New} alt="slider1new" />
-                      </SwiperSlide>
-                      <SwiperSlide>
-                        <img src={slider1} alt="slider1" />
-                      </SwiperSlide>
-                      <SwiperSlide>
-                        <img src={slider2} alt="slider2" />
-                      </SwiperSlide>
-                      <SwiperSlide>
-                        <img src={slider3} alt="slider3" />
-                      </SwiperSlide>
-                      <SwiperSlide>
-                        <img src={slider4} alt="slider4" />
-                      </SwiperSlide>
-                      <SwiperSlide>
-                        <img src={slider5} alt="slider5" />
-                      </SwiperSlide>
+                     
                       <div className="custom-pagination"></div>
                     </Swiper>
 
