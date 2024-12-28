@@ -90,6 +90,8 @@ function PageComponent() {
 
         
       <div>
+
+         {/* choice page funksionalligi */}
         {location.pathname === "/choice" && product && (
           <div>
             <h1 className="text-2xl font-bold">{product.name}</h1>
@@ -105,7 +107,7 @@ function PageComponent() {
           {/* basket page funksionalligi */}
           { location.pathname === "/basket" && (
             <>
-                <div className="md:mx-[8%] mx-[2%] ">
+                <div className="md:mx-[8%] mx-[2%]  ">
             {basket && basket.length > 0 ? (
               <table className="w-full text-center border-collapse my-[20px] mt-[50px] ">
                 <thead>

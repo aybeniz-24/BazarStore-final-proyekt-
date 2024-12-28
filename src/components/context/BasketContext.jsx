@@ -9,33 +9,19 @@ function BasketContext({ children }) {
 
     const [basket, setBasket] = useState(cook.get("basket") || [])
 
-    /*     function addToBasket(id, img,  name, price,  discountedPrice,  quantity, marka, sku ){
-            setBasket([...basket, {
-                id, img,  name, price,  discountedPrice,  quantity, marka, sku
-            }])
-            cook.set( "basket", JSON.stringify(basket))
-        } */
+   
     function addToBasket(id, img, name, price, discountedPrice, quantity, marka, sku) {
-        const existingProduct = basket.find((item) => item.id === id);
-
-        if (existingProduct) {
-            // Məhsul artıq səbətdədirsə, onun sayını artırın
-            setBasket(
-                basket.map((item) =>
-                    item.id === id
-                        ? { ...item, quantity: item.quantity + quantity }
-                        : item
-                )
-            );
-        } else {
-            // Məhsul səbətdə yoxdursa, yeni olaraq əlavə edin
-            setBasket([
+        if (!basket.some((item) => item.id === id)) {
+            const newBasket = [
                 ...basket,
-                { id, img, name, price, discountedPrice, quantity, marka, sku }
-            ]);
+                { id, img, name, price, discountedPrice, quantity, marka, sku },
+            ];
+            setBasket(newBasket);
+            cook.set("basket", JSON.stringify(newBasket)); // Yalnız yeni massiv saxlanılır
         }
-        cook.set("basket", JSON.stringify(basket));
     }
+
+
 
 
 
@@ -49,15 +35,9 @@ function BasketContext({ children }) {
     function removeFromBasket(id) {
         const updatedBasket = basket.filter((item) => item.id !== id);
         setBasket(updatedBasket);
-        // Yeni vəziyyətlə cook yeniləyin:
-        setTimeout(() => {
-            cook.set("basket", JSON.stringify(updatedBasket));
-        }, 0);
+        cook.set("basket", JSON.stringify(updatedFavorites));
     }
 
-    useEffect(() => {
-        cook.set("basket", JSON.stringify(basket));
-    }, [basket]);
 
     return (
         <BASKET.Provider

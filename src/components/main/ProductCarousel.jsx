@@ -144,9 +144,13 @@ function ProductCarousel({ title, apiFunction, categoryIcon }) {
                     </button>
                     </div>
                     <div className="flex justify-start">
-                    <button className="bg-gray-200 font-bold text-sm rounded-md py-2 px-6 flex items-center hover:text-white hover:bg-[#b3b93d]">
+                    <button 
+                     onClick={(e) => {
+                      e.preventDefault();
+                      addToBasket(item.id, item.img, item.price, item.name, item.discountedPrice, item.quantity, item.marka, item.sku, item.count);
+                    }}
+                    className="bg-gray-200 font-bold text-sm rounded-md py-2 px-6 flex items-center hover:text-white hover:bg-[#b3b93d]">
                         <SlBasket
-                          
                         className="mr-2" /> Səbətə At
                     </button>
                     </div>

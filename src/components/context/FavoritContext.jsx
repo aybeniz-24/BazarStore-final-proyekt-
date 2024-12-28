@@ -9,7 +9,6 @@ function FavoritContext( {children} ) {
     const [ favorites, setFavorites ] = useState( cook.get("favorites") || [] )
     
     function addToFavorit(id, img, name, price, discountedPrice, quantity, marka, sku) {
-        // Mövcud məhsulun olub-olmadığını yoxla
         if (!favorites.some((item) => item.id === id)) {
             const newFavorites = [
                 ...favorites,
