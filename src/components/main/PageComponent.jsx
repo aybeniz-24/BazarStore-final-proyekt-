@@ -61,7 +61,8 @@ function PageComponent() {
 
   const product = getProductData();
 
-  
+
+
 
   return (
     <>
@@ -306,10 +307,10 @@ function PageComponent() {
                   <Advertising />
                 </div>
   
-            <div  className=" w-full lg:w-[75%] flex gap-[10px]">
+            <div  className=" w-full lg:w-[75%] flex flex-wrap gap-[10px]">
             {favorites && favorites.length > 0 ? favorites.map((item, index) => {
                   return (
-                    <div key={item.id} className="group relative border-[1px] border-[#e5e5e5 rounded-[10px] w-[210px] h-[500px] m-[5px] mb-[20px]">
+                    <div key={item.id} className="group relative border-[1px] border-[#e5e5e5 rounded-[10px] w-[210px] h-[500px] m-[5px] mb-[20px] ">
                       <img className="rounded-[5px] p-[5px]" src={item.img} alt={item.name} />
                       <div className="absolute top-0 right-0 z-20 icon ">
                       <IoMdClose

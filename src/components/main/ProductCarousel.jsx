@@ -103,7 +103,13 @@ function ProductCarousel({ title, apiFunction, categoryIcon }) {
                 </div>
                 
               <div className="absolute top-0 right-0 z-20 icon">
-                <CiHeart className="bg-gray-200 hover:bg-[#b3b93d] hover:text-white rounded-full w-[30px] h-[30px] p-[5px] m-[3px] cursor-pointer" />
+                <CiHeart 
+                onClick={(e) => {
+                  e.preventDefault();
+                  addToFavorit(item.id, item.img, item.price, item.name, item.discountedPrice, item.quantity, item.marka, item.sku, item.count);
+                }}
+                className="bg-gray-200 hover:bg-[#b3b93d] hover:text-white rounded-full w-[30px] h-[30px] p-[5px] m-[3px] cursor-pointer" 
+                />
                 <FaRegEye
                   className="bg-gray-200 hover:bg-[#b3b93d] hover:text-white rounded-full w-[30px] h-[30px] p-[5px] m-[3px] cursor-pointer"
                   onClick={() => handleIconClick(item)}
@@ -139,7 +145,9 @@ function ProductCarousel({ title, apiFunction, categoryIcon }) {
                     </div>
                     <div className="flex justify-start">
                     <button className="bg-gray-200 font-bold text-sm rounded-md py-2 px-6 flex items-center hover:text-white hover:bg-[#b3b93d]">
-                        <SlBasket className="mr-2" /> Səbətə At
+                        <SlBasket
+                          
+                        className="mr-2" /> Səbətə At
                     </button>
                     </div>
                 </>
