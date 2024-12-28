@@ -8,7 +8,7 @@ import Popup from "./Popup";
 import { BASKET } from "../context/BasketContext";
 import { FAVORIT } from "../context/FavoritContext";
 import '../../App.css'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 function ProductCarousel({ title, apiFunction, categoryIcon }) {
   const [products, setProducts] = useState([]);
@@ -21,6 +21,9 @@ function ProductCarousel({ title, apiFunction, categoryIcon }) {
 
   
   const swiperRef = useRef(null);
+
+
+  const navigate = useNavigate(); // useNavigate hook-u çağırılır
 
   useEffect(() => {
     apiFunction().then((data) => {
@@ -144,15 +147,26 @@ function ProductCarousel({ title, apiFunction, categoryIcon }) {
                     </button>
                     </div>
                     <div className="flex justify-start">
-                    <button 
-                     onClick={(e) => {
-                      e.preventDefault();
-                      addToBasket(item.id, item.img, item.price, item.name, item.discountedPrice, item.quantity, item.marka, item.sku, item.count);
-                    }}
-                    className="bg-gray-200 font-bold text-sm rounded-md py-2 px-6 flex items-center hover:text-white hover:bg-[#b3b93d]">
-                        <SlBasket
-                        className="mr-2" /> Səbətə At
-                    </button>
+                      <button 
+                       onClick={(e) => {
+                        e.preventDefault();
+                        addToBasket(
+                          item.id,
+                          item.img,
+                          item.price,
+                          item.name,
+                          item.discountedPrice,
+                          item.quantity,
+                          item.marka,
+                          item.sku,
+                          item.count
+                        );
+                        navigate("/basket"); // Yönləndirmə buradadır
+                      }}
+                        className="bg-gray-200 font-bold text-sm rounded-md py-2 px-6 flex items-center hover:text-white hover:bg-[#b3b93d]">
+                            <SlBasket
+                            className="mr-2" /> Səbətə At
+                        </button>
                     </div>
                 </>
                 ) : (
