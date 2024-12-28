@@ -1,7 +1,7 @@
 import 'bootstrap/dist/css/bootstrap.min.css'
 import '../../App.css'
 import menuData from '../../data/headerMenuData.json'
-import  { useState } from 'react'
+import  { useContext, useState } from 'react'
 import headerLogo from "../../assets/HeaderImage/header-logo.png"
 import { IoPersonOutline, IoSearch } from "react-icons/io5"
 import { SlBasket } from "react-icons/sl"
@@ -13,10 +13,18 @@ import { FiYoutube } from 'react-icons/fi'
 import { Link, useNavigate } from 'react-router-dom'
 import { CiCircleInfo } from 'react-icons/ci'
 import { Badge, Button } from '@material-tailwind/react'
+import { BASKET } from '../context/BasketContext'
+import { FAVORIT } from '../context/FavoritContext'
 
 
 
 function HeaderBottom() {
+
+  
+  const { basket } = useContext(BASKET);
+  const { favorites }  = useContext(FAVORIT)
+
+  const basketBadge = basket.length;
 
   const [ show, setShow ] = useState(false);
   const handleClose = () => setShow(false);
@@ -85,6 +93,8 @@ const navigate = useNavigate(); // Navigate hook'u
   const handleLoginClick = () => {
     navigate('/login'); // login sayfasına yönlendir
   };
+
+
 
   return (
     <>
@@ -198,11 +208,20 @@ const navigate = useNavigate(); // Navigate hook'u
                   <Link to="/login" onClick={handleLoginClick} > 
                     <IoPersonOutline className='inline text-[24px] cursor-pointer ' />
                   </Link>
-                  <Link to="/favorit"  onClick={handleFavoritClick}>
-                    <FaRegHeart className='hidden lg:inline text-[24px]' />
+
+                <Badge className="p-0 m-0 bg-[#3e3b3a]" content={favorites.length || 0}>
+                  <Link to="/favorit"  className="p-0 m-0 block" onClick={handleFavoritClick}>
+                      <Button className="p-0 m-0">
+                        <FaRegHeart className='hidden lg:inline p-0 m-0 text-black text-[26px]' />
+                      </Button>
                   </Link>
+
+                </Badge>
+
+
                   
-                  <Badge  className="p-0 m-0 bg-pink-500" content={2}>
+                  
+                  <Badge  className="p-0 m-0 bg-[#3e3b3a]" content={basketBadge}>
                   <Link to="/basket" className="p-0 m-0 block" onClick={handleBasketClick}>
                     <Button className="p-0 m-0">
                       <SlBasket className="block p-0 m-0 text-black text-[26px]" />
