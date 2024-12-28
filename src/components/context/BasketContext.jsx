@@ -27,6 +27,7 @@ function BasketContext({ children }) {
         }
     }
     
+    
 
  // Miqdarı yeniləmək funksiyası
  function updateCount(index, newCount) {

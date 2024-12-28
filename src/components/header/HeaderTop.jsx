@@ -6,12 +6,13 @@ import { Form, Link } from 'react-router-dom'
 
 
 
-function HeaderTop() {
+function HeaderTop( ) {
+
    return (
     <>
     <section>
       <div style={{ backgroundImage: `url(${headerTopBg})`}}>
-        <p className='text-white text-center py-[12px] px-[10px] text-[16px]'>Pulsuz çatdırılma üçün səbətə <b className='text-red-600'>'burda js isleyecek'</b> dəyərində məhsul əlavə edin. 🧐</p>
+        <p className='text-white text-center py-[12px] px-[10px] text-[16px]'>Pulsuz çatdırılma üçün səbətə <b className='text-red-600'>40azn</b> dəyərində məhsul əlavə edin. 🧐</p>
       </div>
     </section>
 

@@ -48,6 +48,67 @@ function ProductCarousel({ title, apiFunction, categoryIcon }) {
   };
 
 
+
+
+  const [loadingStates, setLoadingStates] = useState({}); // Yüklənmə vəziyyətini saxlayır
+
+  const handleClick = (e, item, id) => {
+    e.preventDefault();
+    setLoadingStates((prev) => ({ ...prev, [id]: true })); // Yüklənmə animasiyasını aktivləşdirir
+
+    // 1 saniyəlik gecikmə ilə səbətə əlavə edir
+    setTimeout(() => {
+      if (item) {
+        addToBasket(
+          item.id,
+          item.img,
+          item.price,
+          item.name,
+          item.discountedPrice,
+          item.quantity,
+          item.marka,
+          item.sku,
+          counts[id]
+        );
+      }
+      setLoadingStates((prev) => ({ ...prev, [id]: false })); // Yüklənməni dayandırır
+    }, 500);
+  };
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  // 'Seçim Edin' düyməsinin click hadisəsi
+  const handleClick1 = (e, item, id) => {
+    e.preventDefault();
+    setLoadingStates((prev) => ({ ...prev, [item.id]: true })); // Yüklənmə animasiyasını aktivləşdirir
+
+    // 1 saniyəlik gecikmə ilə yönləndirməni başlat
+    setTimeout(() => {
+      if (id === 'selectOption') {
+        // `item.id`-yə əsasən düzgün səhifəyə yönləndirmə
+        navigate(`/choice?productId=${item.id}`);
+      }
+      setLoadingStates((prev) => ({ ...prev, [item.id]: false })); // Yüklənməni dayandırır
+    }, 500); // 1 saniyə sonra yönləndirir
+  };
+
   
   return (
     <div className="mx-8 my-4">
@@ -148,34 +209,79 @@ function ProductCarousel({ title, apiFunction, categoryIcon }) {
                     </button>
                     </div>
                     <div className="flex justify-start">
-                      <button 
-                       onClick={(e) => {
-                        e.preventDefault();
-                        addToBasket(
-                          item.id,
-                          item.img,
-                          item.price,
-                          item.name,
-                          item.discountedPrice,
-                          item.quantity,
-                          item.marka,
-                          item.sku,
-                          counts[index]
-                        );
-                        navigate("/basket"); // Yönləndirmə buradadır
-                      }}
-                        className="bg-gray-200 font-bold text-sm rounded-md py-2 px-6 flex items-center hover:text-white hover:bg-[#b3b93d]">
-                            <SlBasket
-                            className="mr-2" /> Səbətə At
-                        </button>
+                    <button
+        key={item.id}
+        onClick={(e) => handleClick(e, item, item.id)} // Funksiyaya `item` və `id` göndərilir
+        className={`bg-gray-200 font-bold text-sm rounded-md py-2 px-6 flex items-center ${
+          loadingStates[item.id] ? "cursor-not-allowed opacity-75" : "hover:text-white hover:bg-[#b3b93d]"
+        }`}
+        disabled={loadingStates[item.id]} // Yüklənmə zamanı düymə deaktiv edilir
+      >
+        {loadingStates[item.id] ? (
+          <svg
+            className="animate-spin h-5 w-5 mr-2 text-gray-800"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+          >
+            <circle
+              className="opacity-25"
+              cx="12"
+              cy="12"
+              r="10"
+              stroke="currentColor"
+              strokeWidth="4"
+            ></circle>
+            <path
+              className="opacity-75"
+              fill="currentColor"
+              d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"
+            ></path>
+          </svg>
+        ) : (
+          <SlBasket className="mr-2" />
+        )}
+        {loadingStates[item.id] ? "Yüklənir..." : "Səbətə At"}
+      </button>
                     </div>
                 </>
                 ) : (
                
+
+
+
                     <Link to={`/choice?productId=${item.id}`}>
-                      <button className="bg-gray-200 font-bold text-sm rounded-md mt-[84px] py-2 px-6 flex items-center hover:text-white hover:bg-[#b3b93d]">
-                         Seçim Edin
-                     </button>
+                <button
+      onClick={(e) => handleClick1(e, item, 'selectOption')} // `id` olaraq "selectOption" verilir
+      className={`bg-gray-200 font-bold text-sm rounded-md mt-[84px] py-2 px-6 flex items-center ${
+        loadingStates[item.id] ? "cursor-not-allowed opacity-75" : "hover:text-white hover:bg-[#b3b93d]"
+      }`}
+      disabled={loadingStates[item.id]} // Yüklənmə zamanı düymə deaktiv edilir
+    >
+      {loadingStates[item.id] ? (
+        <svg
+          className="animate-spin h-5 w-5 mr-2 text-gray-800"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+        >
+          <circle
+            className="opacity-25"
+            cx="12"
+            cy="12"
+            r="10"
+            stroke="currentColor"
+            strokeWidth="4"
+          ></circle>
+          <path
+            className="opacity-75"
+            fill="currentColor"
+            d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"
+          ></path>
+        </svg>
+      ) : null}
+      {loadingStates[item.id] ? "Yüklənir..." : "Seçim Edin"}
+    </button>
                     </Link>
             )}
 
