@@ -15,40 +15,51 @@ function PageComponent() {
   const { favorites, addToFavorit, removeFromFavorit } = useContext(FAVORIT)
 
   
+  const location = useLocation();
 
   const titles = {
     "/favorit": "Seçilmişlər",
     "/basket": "Səbət",
   };
-  
-  const getPageTitle = () => {
-    const location = useLocation();
-  
-    // Sorğu sətirindən məhsul ID-sini əldə edin
-    const queryParams = new URLSearchParams(location.search);
-  const productId = queryParams.get("productId");
 
-  
-    // Əgər seçim səhifəsindəyiksə
+  const getPageTitle = () => {
+    const queryParams = new URLSearchParams(location.search);
+    const productId = queryParams.get("productId");
+
     if (location.pathname === "/choice") {
       let productName = "";
-  
-      // Bütün `data` obyektini yoxla
+
       for (const category in data) {
         const product = data[category].find((item) => item.id === Number(productId));
         if (product) {
           productName = ` | ${product.name}`;
-          break; // Məhsul tapıldıqda döngüdən çıx
+          break;
         }
       }
-  
+
       return `Seçim Edin${productName}`;
     }
-  
-    // Digər səhifələr üçün
+
     return titles[location.pathname] || "";
   };
-  
+
+  const getProductData = () => {
+    const queryParams = new URLSearchParams(location.search);
+    const productId = queryParams.get("productId");
+
+    if (productId) {
+      for (const category in data) {
+        const product = data[category].find((item) => item.id === Number(productId));
+        if (product) {
+          return product; // Məhsulu tapdıqda geri qaytar
+        }
+      }
+    }
+
+    return null; // Əgər məhsul tapılmasa
+  };
+
+  const product = getProductData();
 
   
 
@@ -66,9 +77,7 @@ function PageComponent() {
               <Link to="/favorit">
                 <p className="inline text-[18px] ml-[10px] hover:text-[#b3b93d]">{getPageTitle()}</p>
               </Link>
-              {/* <Link to="/choice">
-               <p className="inline text-[18px] ml-[10px] hover:text-[#b3b93d]">{getPageTitle()}</p>
-              </Link> */}
+              
             
           </div>
       </div>
@@ -79,12 +88,16 @@ function PageComponent() {
 
 
         
-      {location.pathname === "/choice" && (
-            <p> 
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea modi expedita ducimus hic cupiditate assumenda iste id qui eveniet asperiores!
-            </p>
-
-      )}
+      <div>
+        {location.pathname === "/choice" && product && (
+          <div>
+            <h1 className="text-2xl font-bold">{product.name}</h1>
+            <p>{product.description}</p>
+            <img src={product.img} alt={product.name} className="w-64 h-64" />
+            <p>Qiymət: {product.price} AZN</p>
+          </div>
+        )}
+      </div>
 
 
 
@@ -289,16 +302,10 @@ function PageComponent() {
             <div className="md:mx-[8%] flex flex-col lg:flex-row justify-between">
   
   
-  
                   <div className="w-full lg:w-[23%] ">
                   <Advertising />
                 </div>
   
-  
-  
-  
-  
-               
             <div  className=" w-full lg:w-[75%] flex gap-[10px]">
             {favorites && favorites.length > 0 ? favorites.map((item, index) => {
                   return (
