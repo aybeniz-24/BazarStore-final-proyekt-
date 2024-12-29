@@ -24,7 +24,7 @@ function MainSlider() {
                       modules={[Autoplay, Pagination, Navigation]}
                       className="mySwiper rounded-[8px]"
                       autoplay={{
-                        delay: 1500, 
+                        delay: 3000, 
                         disableOnInteraction: false,
                       }}
                       navigation 
@@ -35,9 +35,7 @@ function MainSlider() {
                       </SwiperSlide>
                       <SwiperSlide>
                         <img src="https://bazarstore.az/cdn/shop/files/onlayna-ozel-banner-gif_900x452.jpg?v=1733982805;" alt="slider1new" />
-                      </SwiperSlide>
-                      
-                      <div className="custom-pagination"></div>
+                      </SwiperSlide> <div className="custom-pagination"></div>
                     </Swiper>
 
 
