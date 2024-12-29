@@ -3,9 +3,8 @@ import '../../App.css'
 import menuData from '../../data/headerMenuData.json'
 import  { useContext, useState } from 'react'
 import headerLogo from "../../assets/HeaderImage/header-logo.png"
-import { IoPersonOutline, IoSearch } from "react-icons/io5"
-import { SlBasket } from "react-icons/sl"
-import { FaBars, FaFacebookF, FaInstagram, FaTiktok } from "react-icons/fa6"
+import {  IoSearch } from "react-icons/io5"
+import { FaBars, FaFacebookF, FaInstagram, FaRegUser, FaTiktok } from "react-icons/fa6"
 import { IoMdArrowDropdown, IoMdClose } from "react-icons/io"
 import { FaRegHeart } from "react-icons/fa"
 import { Offcanvas } from 'react-bootstrap'
@@ -15,6 +14,8 @@ import { CiCircleInfo } from 'react-icons/ci'
 import { Badge, Button } from '@material-tailwind/react'
 import { BASKET } from '../context/BasketContext'
 import { FAVORIT } from '../context/FavoritContext'
+import { PiShoppingCartSimpleBold } from 'react-icons/pi'
+
 
 
 
@@ -24,7 +25,11 @@ function HeaderBottom() {
   const { basket } = useContext(BASKET);
   const { favorites }  = useContext(FAVORIT)
 
-  const basketBadge = basket.length;
+
+
+  const basketBadge = basket.reduce((total, item) => total + (item.quantity || 0), 0);
+
+
 
   const [ show, setShow ] = useState(false);
   const handleClose = () => setShow(false);
@@ -203,13 +208,13 @@ const navigate = useNavigate(); // Navigate hook'u
 
 
 
-          <div className='flex flex-row gap-[10px] justify-end lg:w-[15%]'>
+          <div className='flex flex-row gap-[15px] justify-end lg:w-[15%]'>
                   <IoSearch className='inline text-[24px] lg:hidden ' /> 
                   <Link to="/login" onClick={handleLoginClick} > 
-                    <IoPersonOutline className='inline text-[24px] cursor-pointer ' />
+                    <FaRegUser  className='inline text-[24px] cursor-pointer ' />
                   </Link>
 
-                <Badge className="p-0 m-0 bg-[#3e3b3a]" content={favorites.length || 0}>
+                <Badge className="px-[8px] text-[10px] right-[-12px] top-[-8px] bg-[#3e3b3a]" content={favorites.length || 0}>
                   <Link to="/favorit"  className="p-0 m-0 block" onClick={handleFavoritClick}>
                       <Button className="p-0 m-0">
                         <FaRegHeart className='hidden lg:inline p-0 m-0 text-black text-[26px]' />
@@ -221,10 +226,10 @@ const navigate = useNavigate(); // Navigate hook'u
 
                   
                   
-                  <Badge  className="p-0 m-0 bg-[#3e3b3a]" content={basketBadge}>
+                  <Badge  className="px-[8px] text-[10px] right-[-12px] top-[-8px]  bg-[#3e3b3a]" content={basketBadge}>
                   <Link to="/basket" className="p-0 m-0 block" onClick={handleBasketClick}>
                     <Button className="p-0 m-0">
-                      <SlBasket className="block p-0 m-0 text-black text-[26px]" />
+                      <PiShoppingCartSimpleBold className="block p-0 m-0 text-black text-[28px]" />
                     </Button>
                   </Link>
                 </Badge>

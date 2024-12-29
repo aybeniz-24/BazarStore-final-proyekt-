@@ -7,31 +7,286 @@
                 "subcategories": [
                     {
                         "name": "Eqzotik Meyvələr",
-                        "items": []
+                        "products": [
+                            {
+                                "id": 1,
+                                "img": "https://bazarstore.az/cdn/shop/products/30015539_1000x1000.jpg?v=1693895477",
+                                "name": "BANAN KQ",
+                                "price": "2.99 ₼",
+                                "marka": "MEYVE-TEREVEZ",
+                                "sku": "123456781"
+                            }, 
+                            {
+                                "id": 2,
+                                "img": "https://bazarstore.az/cdn/shop/products/30015536_1000x1000.jpg?v=1693220482",
+                                "name": "KİVİ KQ",
+                                "price": "5.59 ₼",
+                                "discountedPrice": "4.69 ₼",
+                                "marka": "MEYVE-TEREVEZ",
+                                "sku": "234567892"
+                            },
+                            {
+                                "id": 3,
+                                "img": "https://bazarstore.az/cdn/shop/products/30036056_0592f8a9-ea9f-40ef-b70b-97f5c68ebb4e_1000x1000.jpg?v=1693556296",
+                                "name": "NAR KQ",
+                                "price": "3.39 ₼",
+                                "marka": "MEYVE-TEREVEZ",
+                                "sku": "234567893"
+                            }, 
+                            {
+                                "id": 4,
+                                "img": "https://bazarstore.az/cdn/shop/products/30015546_1000x1000.jpg?v=1693554075",
+                                "name": "ANANAS ƏDƏD",
+                                "price": "5.99 ₼",
+                                "discountedPrice": "4.99 ₼",
+                                "marka": "MEYVE-TEREVEZ",
+                                "sku": "2345678944"
+                            }, 
+                            {
+                                "id": 5,
+                                "img": "https://bazarstore.az/cdn/shop/products/30036036_1000x1000.jpg?v=1693807292",
+                                "name": "MANQO KQ",
+                                "price": "11.99 ₼",
+                                "marka": "MEYVE-TEREVEZ",
+                                "sku": "2345678935"
+                            },
+                            {
+                                "id": 6,
+                                "img": "https://bazarstore.az/cdn/shop/products/30043800_410c9e99-ca33-4a55-b685-02dd3f080433_1000x1000.jpg?v=1693896702",
+                                "name": "QOZ HİNDİSTAN ƏDƏD",
+                                "price": "2.39 ₼",
+                                "marka": "MEYVE-TEREVEZ",
+                                "sku": "2345678936"
+                            },
+                            {
+                                "id": 7,
+                                "img": "https://bazarstore.az/cdn/shop/files/4918506ec248ff9a35ac3ad7bc4883b1_1000x1000.jpg?v=1697542142",
+                                "name": "ALTIN ÇİLƏK 100 Q PAKET",
+                                "price": "4.99 ₼",
+                                "marka": "MEYVE-TEREVEZ",
+                                "sku": "2345678937"
+                            },
+                            {
+                                "id": 8,
+                                "img": "https://bazarstore.az/cdn/shop/files/c7cde6288839ea781d94bb301045a1b8_1000x1000.jpg?v=1728991339",
+                                "name": "ALMA QALA PAKET",
+                                "price": "2.19 ₼",
+                                "marka": "MEYVE-TEREVEZ",
+                                "sku": "2345678938"
+                            }
+                        ]
                     },
                     {
                         "name": "Sitrus Meyvələri",
-                        "items": []
+                        "products": [
+                            {
+                                "id": 9,
+                                "img": "https://bazarstore.az/cdn/shop/files/12b18ec808819567ae8e980294793cd5_1000x1000.jpg?v=1718361183",
+                                "name": "LIMON TR KG",
+                                "price": "2.49 ₼",
+                                "marka": "MEYVE-TEREVEZ",
+                                "sku": "123456789"
+                            }, 
+                            {
+                                "id": 10,
+                                "img": "https://bazarstore.az/cdn/shop/products/30015541_1000x1000.jpg?v=1693554030",
+                                "name": "MANDARİN YERLİ KQ",
+                                "price": "2.39 ₼",
+                                "discountedPrice": "4.69 ₼",
+                                "marka": "MEYVE-TEREVEZ",
+                                "sku": "2345678910"
+                            },
+                            {
+                                "id": 11,
+                                "img": "https://bazarstore.az/cdn/shop/products/30093526_1000x1000.png?v=1693624071",
+                                "name": "PORTAGAL ITXAL KG",
+                                "price": "3.19 ₼",
+                                "discountedPrice": "2.49 ₼",
+                                "marka": "MEYVE-TEREVEZ",
+                                "sku": "2345678911"
+                            }, 
+                            {
+                                "id": 12,
+                                "img": "https://bazarstore.az/cdn/shop/products/30093526_1000x1000.png?v=1693624071",
+                                "name": "PORTAGAL KG",
+                                "price": "2.29 ₼",
+                                "discountedPrice": "1.75 ₼",
+                                "marka": "MEYVE-TEREVEZ",
+                                "sku": "2345678912"
+                            }, 
+                            {
+                                "id": 13,
+                                "img": "https://bazarstore.az/cdn/shop/products/30083581_1bd4c933-0318-48e5-9281-0e73f115894a_1000x1000.jpg?v=1693809282",
+                                "name": "LİMON YAŞIL YERLİ ƏDƏD",
+                                "price": "0.35 ₼",
+                                "marka": "MEYVE-TEREVEZ",
+                                "sku": "2345678913"
+                            }, 
+                            {
+                                "id": 14,
+                                "img": "https://bazarstore.az/cdn/shop/products/30036050_93bc593d-d696-4d92-a42c-3b15c4f42f2e_1000x1000.jpg?v=1693896557",
+                                "name": "QREYPFRUT  KQ",
+                                "price": "3.19 ₼",
+                                "marka": "MEYVE-TEREVEZ",
+                                "sku": "23456789314"
+                            },
+                            {
+                                "id": 15,
+                                "img": "https://bazarstore.az/cdn/shop/files/0ccaad1f464e0e79dbf2ba501939c1c8_1000x1000.jpg?v=1725520221",
+                                "name": "MANDARİN TÜRKİYƏ KQ",
+                                "price": "3.49 ₼",
+                                "discountedPrice": "2.99 ₼",
+                                "marka": "MEYVE-TEREVEZ",
+                                "sku": "23456789315"
+                            },
+                            {
+                                "id": 16,
+                                "img": "https://bazarstore.az/cdn/shop/products/30042441_6aa1b93e-9081-4aeb-9f05-0c172dc83143_1000x1000.jpg?v=1693896635",
+                                "name": "KINKAN KG",
+                                "price": "4.99 ₼",
+                                "marka": "MEYVE-TEREVEZ",
+                                "sku": "23456789316"
+                            },
+                            {
+                                "id": 17,
+                                "img": "https://bazarstore.az/cdn/shop/products/30081975_dd1a5fd6-c7ee-41f8-9055-ca29ca6c7ef5_1000x1000.jpg?v=1693315017",
+                                "name": "LİMON LAYM KQ",
+                                "price": "12.99 ₼",
+                                "marka": "MEYVE-TEREVEZ",
+                                "sku": "23456789317"
+                            }
+                        ]
                     },
                     {
                         "name": "Bərk Meyvələr",
-                        "items": []
+                        "products": [
+                            {
+                                "id": 18,
+                                "img": "https://bazarstore.az/cdn/shop/products/30015523_9bd08cd0-d127-4c84-be0c-80c0f89d7f14_1000x1000.jpg?v=1693895461",
+                                "name": "QALA ALMASI KQ",
+                                "price": "2.59 ₼",
+                                "marka": "MEYVE-TEREVEZ",
+                                "sku": "1234567818"
+                            }, 
+                            {
+                                "id": 19,
+                                "img": "https://bazarstore.az/cdn/shop/products/30088513_d173c483-a167-4bb9-ac9c-584352c894a0_1000x1000.jpg?v=1693623061",
+                                "name": "ALMA SMİRİNKA ENDİRİMLİ KQ",
+                                "price": "2.19 ₼",
+                                "marka": "MEYVE-TEREVEZ",
+                                "sku": "2345678919"
+                            },
+                            {
+                                "id": 20,
+                                "img": "https://bazarstore.az/cdn/shop/products/30056921_dc319101-f2e2-49b8-89ba-28f232560e9a_1000x1000.jpg?v=1693561305",
+                                "name": "ARMUD KONFRANS KQ",
+                                "price": "5.99 ₼",
+                                "marka": "MEYVE-TEREVEZ",
+                                "sku": "2345678920"
+                            }, 
+                            {
+                                "id": 21,
+                                "img": "https://bazarstore.az/cdn/shop/products/30086490_ab6ef003-9fec-4768-8564-2e32301144cb_1000x1000.jpg?v=1693566171",
+                                "name": "HEYVA YERLİ KG",
+                                "price": "2.49 ₼",
+                                "discountedPrice": "1.99 ₼",
+                                "marka": "MEYVE-TEREVEZ",
+                                "sku": "2345678921"
+                            }
+                        ]
                     },
                     {
                         "name": "Yumşaq Meyvələr",
-                        "items": []
+                        "products": [
+                            {
+                                "id": 22,
+                                "img": "https://bazarstore.az/cdn/shop/products/30036072_d5c7f784-d8cf-45aa-9f0d-d89f8133b3e4_1000x1000.png?v=1693559080",
+                                "name": "KARALYOK KQ",
+                                "price": "3.49 ₼",
+                                "marka": "MEYVE-TEREVEZ",
+                                "sku": "1234567822"
+                            }, 
+                            {
+                                "id": 23,
+                                "img": "https://bazarstore.az/cdn/shop/products/30015527_ba8ec45a-f024-42c2-a478-452e9134589a_1000x1000.jpg?v=1693553995",
+                                "name": "XURMA",
+                                "price": "2.29 ₼",
+                                "discountedPrice": "1.29 ₼",
+                                "marka": "MEYVE-TEREVEZ",
+                                "sku": "2345678923"
+                            },
+                            {
+                                "id": 24,
+                                "img": "https://bazarstore.az/cdn/shop/files/1723b093882003571e6a419db4e0267c_1000x1000.webp?v=1728638828",
+                                "name": "XURMA ŞİŞBURUN KQ",
+                                "price": "2.19 ₼",
+                                "marka": "MEYVE-TEREVEZ",
+                                "sku": "2345678924"
+                            }, 
+                            {
+                                "id": 25,
+                                "img": "https://bazarstore.az/cdn/shop/products/30089389_1000x1000.jpg?v=1693900004",
+                                "name": "QURUDULMUŞ XURMA KQ",
+                                "price": "7.49 ₼",
+                                "marka": "MEYVE-TEREVEZ",
+                                "sku": "2345678925"
+                            }
+                        ]
                     },
                     {
                         "name": "Qarpız-Yemiş",
-                        "items": []
+                        "products": []
                     },
                     {
                         "name": "Quru Meyvə-Çərəzlər",
-                        "items": []
+                        "products": [
+                            {
+                                "id": 26,
+                                "img": "https://bazarstore.az/cdn/shop/products/30109575_1000x1000.jpg?v=1693772512",
+                                "name": "BADAM QABIQLI KQ",
+                                "price": "4.59 ₼",
+                                "discountedPrice": "3.79 ₼",
+                                "marka": "MEYVE-TEREVEZ",
+                                "sku": "1234567826"
+                            }, 
+                            {
+                                "id": 27,
+                                "img": "https://bazarstore.az/cdn/shop/products/30015517_569c23af-ebca-44ec-923b-4ad62d432ffb_1000x1000.jpg?v=1693387460",
+                                "name": "QOZ KG",
+                                "price": "7.69 ₼",
+                                "marka": "MEYVE-TEREVEZ",
+                                "sku": "2345678927"
+                            },
+                            {
+                                "id": 28,
+                                "img": "https://bazarstore.az/cdn/shop/products/30160743_1000x1000.jpg?v=1693351506",
+                                "name": "GÜLÜM QOVRULMUŞ FISTIQ KQ",
+                                "price": "4.99 ₼",
+                                "discountedPrice": "3.99 ₼",
+                                "marka": "MEYVE-TEREVEZ",
+                                "sku": "2345678928"
+                            }, 
+                            {
+                                "id": 29,
+                                "img": "https://bazarstore.az/cdn/shop/products/30015533_1000x1000.jpg?v=1693301662",
+                                "name": "ŞABALID KQ",
+                                "price": "9.69 ₼",
+                                "marka": "MEYVE-TEREVEZ",
+                                "sku": "2345678929"
+                            },
+                            {
+                                "id": 30,
+                                "img": "https://bazarstore.az/cdn/shop/products/30015525_1000x1000.jpg?v=1693553987",
+                                "name": "FINDIQ KQ",
+                                "price": "7.99 ₼",
+                                "marka": "MEYVE-TEREVEZ",
+                                "sku": "2345678930"
+                            }
+                        ]
                     },
                     {
                         "name": "Doğranmış Meyvələr",
-                        "items": []
+                        "products": []
                     }
                 ]
             },
@@ -40,23 +295,152 @@
                 "subcategories": [
                     {
                         "name": "Eqzotik Tərəvəzlər",
-                        "items": []
+                        "products": [
+                            {
+                                "id": 31,
+                                "img": "https://bazarstore.az/cdn/shop/products/30036035_d5547fd4-4cf9-45df-82a5-6bfaabe6989b_1000x1000.jpg?v=1693807289",
+                                "name": "AVOKADO KQ",
+                                "price": "11.99 ₼",
+                                "marka": "MEYVE-TEREVEZ",
+                                "sku": "1234567831"
+                            }, 
+                            {
+                                "id": 32,
+                                "img": "https://bazarstore.az/cdn/shop/products/30033884_1000x1000.jpg?v=1693786814",
+                                "name": "ZƏNCƏFİL TƏZƏ KG",
+                                "price": "9.99 ₼",
+                                "marka": "MEYVE-TEREVEZ",
+                                "sku": "2345678932"
+                            }
+                        ]
                     },
                     {
                         "name": "Mövsüm Tərəvəzləri",
-                        "items": []
+                        "products": [
+                            {
+                                "id": 33,
+                                "img": "https://bazarstore.az/cdn/shop/products/30036090_ba921ffa-f4db-4b82-a233-702f33947226_1000x1000.jpg?v=1693896326",
+                                "name": "XİYAR KG",
+                                "price": "4.39 ₼",
+                                "discountedPrice": "3.39 ₼",
+                                "marka": "MEYVE-TEREVEZ",
+                                "sku": "1234567833"
+                            }, 
+                            {
+                                "id": 34,
+                                "img": "https://bazarstore.az/cdn/shop/products/30036069_1000x1000.jpg?v=1693896456",
+                                "name": "ÇUĞUNDUR KQ",
+                                "price": "0.85 ₼",
+                                "discountedPrice": "0.69 ₼",
+                                "marka": "MEYVE-TEREVEZ",
+                                "sku": "2345678934"
+                            },
+                            {
+                                "id": 35,
+                                "img": "https://bazarstore.az/cdn/shop/products/30036089_00b9f784-9b9a-47ac-9b0e-9ea3f353ec70_1000x1000.jpg?v=1693558817",
+                                "name": "KOK YERLI KG",
+                                "price": "1.19 ₼",
+                                "discountedPrice": "0.99 ₼",
+                                "marka": "MEYVE-TEREVEZ",
+                                "sku": "2345678935"
+                            },
+                            {
+                                "id": 36,
+                                "img": "https://bazarstore.az/cdn/shop/products/30063224_1000x1000.jpg?v=1693739220",
+                                "name": "POMİDOR MUÇO KQ",
+                                "price": "3.39 ₼",
+                                "discountedPrice": "2.89 ₼",
+                                "marka": "MEYVE-TEREVEZ",
+                                "sku": "2345678936"
+                            },
+                            {
+                                "id": 37,
+                                "img": "https://bazarstore.az/cdn/shop/products/30036082_1000x1000.jpg?v=1693559106",
+                                "name": "BİBƏR DOLMA KG",
+                                "price": "3.49 ₼",
+                                "discountedPrice": "4.49 ₼",
+                                "marka": "MEYVE-TEREVEZ",
+                                "sku": "2345678937"
+                            },
+                            {
+                                "id": 38,
+                                "img": "https://bazarstore.az/cdn/shop/products/30036096_ab577b12-856b-4985-93cd-7cba073e30bc_1000x1000.jpg?v=1693896475",
+                                "name": "AĞ KƏLƏM KG",
+                                "price": "0.75 ₼",
+                                "marka": "MEYVE-TEREVEZ",
+                                "sku": "2345678938"
+                            }, 
+                            {
+                                "id": 39,
+                                "img": "https://bazarstore.az/cdn/shop/products/30072519_ce31520b-0666-4831-ba0e-d7d580758211_1000x1000.jpg?v=1693738496",
+                                "name": "BADIMCAN KQ",
+                                "price": "4.69 ₼",
+                                "marka": "MEYVE-TEREVEZ",
+                                "sku": "2345678939"
+                            },
+                            {
+                                "id": 40,
+                                "img": "https://bazarstore.az/cdn/shop/products/30071601_c6d1181c-d396-4e1f-8a00-c2fae34208cc_1000x1000.jpg?v=1693563527",
+                                "name": "BALQABAQ KQ",
+                                "price": "0.95 ₼",
+                                "marka": "MEYVE-TEREVEZ",
+                                "sku": "2345678940"
+                            }
+                        ]
                     },
                     {
                         "name": "Kartof-Soğan-Sarımsaq",
-                        "items": []
+                        "products": [
+                            {
+                                "id": 41,
+                                "img": "https://bazarstore.az/cdn/shop/products/30067908_f1c81895-4216-4655-a8d4-257161bc0bc8_1000x1000.jpg?v=1693562418",
+                                "name": "KARTOF KG",
+                                "price": "1.19 ₼",
+                                "marka": "MEYVE-TEREVEZ",
+                                "sku": "1234567841"
+                            }, 
+                            {
+                                "id": 42,
+                                "img": "https://bazarstore.az/cdn/shop/products/30036138_1000x1000.jpg?v=1693559165",
+                                "name": "SOĞAN KQ",
+                                "price": "0.79 ₼",
+                                "marka": "MEYVE-TEREVEZ",
+                                "sku": "2345678942"
+                            },
+                            {
+                                "id": 43,
+                                "img": "https://bazarstore.az/cdn/shop/products/30036107_1000x1000.jpg?v=1693300602",
+                                "name": "QIRMIZI SOĞAN",
+                                "price": "1.29 ₼",
+                                "marka": "MEYVE-TEREVEZ",
+                                "sku": "2345678943"
+                            },
+                            {
+                                "id": 44,
+                                "img": "https://bazarstore.az/cdn/shop/products/30036105_3afac5a5-86d0-444b-8d19-e2992f387164_1000x1000.jpg?v=1693807295",
+                                "name": "SARIMSAQ KQ",
+                                "price": "6.89 ₼",
+                                "marka": "MEYVE-TEREVEZ",
+                                "sku": "2345678944"
+                            }
+                        ]
                     },
                     {
                         "name": "Soyulmuş Tərəvəzlər",
-                        "items": []
+                        "products": []
                     },
                     {
                         "name": "Göbələk",
-                        "items": []
+                        "products": [
+                            {
+                                "id": 45,
+                                "img": "https://bazarstore.az/cdn/shop/products/30015580_1000x1000.jpg?v=1693387434",
+                                "name": "GÖBƏLƏK PAKET 500 Q",
+                                "price": "3.50 ₼",
+                                "marka": "MEYVE-TEREVEZ",
+                                "sku": "1234567845"
+                            }
+                        ]
                     }
                 ]
             },
@@ -64,16 +448,49 @@
                 "name": "Göyərti, Yarpaq",
                 "subcategories": [
                     {
-                        "name": "Eqzotik Göyərtilər",
-                        "items": []
-                    },
-                    {
                         "name": "Mövsüm Göyərtiləri",
-                        "items": []
-                    },
-                    {
-                        "name": "Salat Yarpaqları",
-                        "items": []
+                        "products": [
+                            {
+                                "id": 46,
+                                "img": "https://bazarstore.az/cdn/shop/files/5a16d43a3a65936b45079fb280ad8f6c_1000x1000.jpg?v=1723711367",
+                                "name": "GÖYƏRTİ ŞÜYÜD",
+                                "price": "0.17 ₼",
+                                "marka": "MEYVE-TEREVEZ",
+                                "sku": "1234567846"
+                            },
+                            {
+                                "id": 47,
+                                "img": "https://bazarstore.az/cdn/shop/files/48d07671a929333baa6031783f1a11da_1000x1000.jpg?v=1694095693",
+                                "name": "GÖYƏRTİ KEŞNİŞ",
+                                "price": "0.17 ₼",
+                                "marka": "MEYVE-TEREVEZ",
+                                "sku": "1234567847"
+                            },
+                            {
+                                "id": 48,
+                                "img": "https://bazarstore.az/cdn/shop/files/6cbc4338ff5db5de1f3787982254ca7a_1000x1000.jpg?v=1694095770",
+                                "name": "GÖYƏRTİ NANƏ",
+                                "price": "0.17 ₼",
+                                "marka": "MEYVE-TEREVEZ",
+                                "sku": "1234567848"
+                            },
+                            {
+                                "id": 49,
+                                "img": "https://bazarstore.az/cdn/shop/files/3fce31aaa761b0f3d9207f7b88a9bff3_1000x1000.jpg?v=1694095882",
+                                "name": "GÖYƏRTİ QARA REYHAN",
+                                "price": "0.17 ₼",
+                                "marka": "MEYVE-TEREVEZ",
+                                "sku": "1234567849"
+                            },
+                            {
+                                "id": 50,
+                                "img": "https://bazarstore.az/cdn/shop/files/8dc2792fda682cc5b22ee5e80966d8a1_b2fdc24d-cc7e-4da0-b4aa-81ded176ba53_1000x1000.webp?v=1694096047",
+                                "name": "GÖYƏRTİ TURP QIRMIZI",
+                                "price": "0.17 ₼",
+                                "marka": "MEYVE-TEREVEZ",
+                                "sku": "1234567850"
+                            }
+                        ]
                     }
                 ]
             }
@@ -86,8 +503,7 @@
                 "name": "Qırmızı Ət",
                 "subcategories": [
                     {
-                        "name": "Dana Əti",
-                        "items": []
+                        "name": "Dana Əti"
                     }
                 ]
             },
@@ -95,20 +511,16 @@
                 "name": "İçalat",
                 "subcategories": [
                     {
-                        "name": "Dana İçalat",
-                        "items": []
+                        "name": "Dana İçalat"
                     },
                     {
-                        "name": "Quzu İçalat",
-                        "items": []
+                        "name": "Quzu İçalat"
                     },
                     {
-                        "name": "Hindi İçalat",
-                        "items": []
+                        "name": "Hindi İçalat"
                     },
                     {
-                        "name": "Toyuq İçalat",
-                        "items": []
+                        "name": "Toyuq İçalat"
                     }
                 ]
             },
@@ -116,20 +528,16 @@
                 "name": "Ağ Ət",
                 "subcategories": [
                     {
-                        "name": "Bildirçin Əti",
-                        "items": []
+                        "name": "Bildirçin Əti"
                     },
                     {
-                        "name": "Təzə Toyuq",
-                        "items": []
+                        "name": "Təzə Toyuq"
                     },
                     {
-                        "name": "Hinduşka Əti",
-                        "items": []
+                        "name": "Hinduşka Əti"
                     },
                     {
-                        "name": "Ördək Əti",
-                        "items": []
+                        "name": "Ördək Əti"
                     }
                 ]
             },
@@ -137,20 +545,16 @@
                 "name": "Dondurulmuş Ət",
                 "subcategories": [
                     {
-                        "name": "Dondurulmuş Ət Məhsulları",
-                        "items": []
+                        "name": "Dondurulmuş Ət Məhsulları"
                     },
                     {
-                        "name": "Dondurulmuş Toyuq",
-                        "items": []
+                        "name": "Dondurulmuş Toyuq"
                     },
                     {
-                        "name": "Dondurulmuş Ördək, Hinduşka, Bildirçin",
-                        "items": []
+                        "name": "Dondurulmuş Ördək, Hinduşka, Bildirçin"
                     },
                     {
-                        "name": "Ördək Əti",
-                        "items": []
+                        "name": "Ördək Əti"
                     }
                 ]
             },
@@ -158,32 +562,25 @@
                 "name": "Ət Qastranom",
                 "subcategories": [
                     {
-                        "name": "Bişmiş Kolbasa",
-                        "items": []
+                        "name": "Bişmiş Kolbasa"
                     },
                     {
-                        "name": "Basdirma",
-                        "items": []
+                        "name": "Basdirma"
                     },
                     {
-                        "name": "Hisə verilmiş Kolbasa",
-                        "items": []
+                        "name": "Hisə verilmiş Kolbasa"
                     },
                     {
-                        "name": "Sosis",
-                        "items": []
+                        "name": "Sosis"
                     },
                     {
-                        "name": "Vetçina, Jambon",
-                        "items": []
+                        "name": "Vetçina, Jambon"
                     },
                     {
-                        "name": "Sucuqlar",
-                        "items": []
+                        "name": "Sucuqlar"
                     },
                     {
-                        "name": "Hisə Verilmiş Ət",
-                        "items": []
+                        "name": "Hisə Verilmiş Ət"
                     }
                 ]
             },
@@ -191,24 +588,19 @@
                 "name": "Dəniz Məhsulları",
                 "subcategories": [
                     {
-                        "name": "Balıq",
-                        "items": []
+                        "name": "Balıq"
                     },
                     {
-                        "name": "Hisə Verilmiş Balıq",
-                        "items": []
+                        "name": "Hisə Verilmiş Balıq"
                     },
                     {
-                        "name": "Hazır Dəniz Məhsulları",
-                        "items": []
+                        "name": "Hazır Dəniz Məhsulları"
                     },
                     {
-                        "name": "Dəniz Məhsulları",
-                        "items": []
+                        "name": "Dəniz Məhsulları"
                     },
                     {
-                        "name": "Dəniz Məzələri",
-                        "items": []
+                        "name": "Dəniz Məzələri"
                     }
                 ]
             }
