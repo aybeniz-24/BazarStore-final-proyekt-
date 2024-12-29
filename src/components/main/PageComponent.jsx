@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { BASKET } from '../context/BasketContext';
-import { Link, useLocation, useParams } from 'react-router-dom';
+import { Link, useLocation, useNavigate, useParams } from 'react-router-dom';
 import { FaRegTrashCan } from 'react-icons/fa6';
 import { FAVORIT } from "../context/FavoritContext"
 import { SlBasket } from "react-icons/sl";
@@ -14,8 +14,9 @@ function PageComponent() {
   const { basket, updateCount, addToBasket, removeFromBasket } = useContext(BASKET);
   const { favorites, addToFavorit, removeFromFavorit } = useContext(FAVORIT)
 
-  
+  const navigate = useNavigate();
   const location = useLocation();
+
 
   const titles = {
     "/favorit": "Seçilmişlər",
@@ -86,23 +87,17 @@ function PageComponent() {
   
 
 
-
-
   const [showPopup, setShowPopup] = useState(false);
 
-  // Popup-u avtomatik açmaq üçün
+
+  // Qiyməti yoxlayaraq pop-up-u avtomatik açmaq üçün
   useEffect(() => {
-    if (discountedPrice <= 40) {
+    if (discountedPrice < 40 || (discountedPrice >= 30 && discountedPrice <= 40)) {
       setShowPopup(true);
     } else {
       setShowPopup(false);
     }
   }, [discountedPrice]);
-
-
-  
-
-
 
 
 
@@ -331,34 +326,38 @@ function PageComponent() {
                 <p className='text-right my-[20px] mb-[30px] '> Vergi daxildir. Çatdırılma xərci ödəniş səhifəsində hesablanır.</p>
 
                 <button
-              onClick={() => {
-                if (discountedPrice <= 40) {
-                  setShowPopup(true);
-                }
-              }}
-              className="w-[400px] bg-[#b3b93d] hover:bg-[#1e1e1e] text-white py-[15px] px-[50px] font-bold rounded-[5px] mb-[20px]"
-            >
-              {discountedPrice > 40 ? "Ödəniş" : "Redaktə Gözlənilir"}
-            </button>
+                    onClick={() => {
+                      if (discountedPrice >= 30 && discountedPrice <= 40) {
+                        setShowPopup(true);
+                      } else if (discountedPrice > 40) {
+                        navigate("/login"); // Login səhifəsinə yönləndirin
+                      }
+                    }}
+                    className="w-[400px] bg-[#b3b93d] hover:bg-[#1e1e1e] text-white py-[15px] px-[50px] font-bold rounded-[5px] mb-[20px]"
+                  >
+                    {discountedPrice > 40 ? "Ödəniş" : "Redaktə Gözlənilir"}
+                  </button>
 
-            {showPopup && (
-              <div className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 flex justify-center items-center">
-                <div className="bg-white p-5 rounded shadow-lg">
-                  <p className="text-[20px] font-bold">
-                    ⚠️ Zəhmət olmasa qeyd edilən dəyişiklikləri səbətinizə tətbiq edin:
-                  </p>
-                  <p className="p-[30px]">• Səbətinizin məbləği ən azı 40 ₼ olmalıdır.</p>
-                  <div className="flex items-end justify-end">
-                    <button
-                      onClick={() => setShowPopup(false)}
-                      className="mt-3 text-white py-2 px-4 rounded bg-[#b3b93d]"
-                    >
-                      OK
-                    </button>
-                  </div>
-                </div>
-              </div>
-            )}
+                  {showPopup && (
+        <div className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 flex justify-center items-center">
+          <div className="bg-white p-5 rounded shadow-lg">
+            <p className="text-[20px] font-bold">
+              ⚠️ Zəhmət olmasa qeyd edilən dəyişiklikləri səbətinizə tətbiq edin:
+            </p>
+            <p className="p-[30px]">
+              • Səbətinizin məbləği ən azı 40 ₼ olmalıdır.
+            </p>
+            <div className="flex items-end justify-end">
+              <button
+                onClick={() => setShowPopup(false)}
+                className="mt-3 text-white py-2 px-4 rounded bg-[#b3b93d]"
+              >
+                OK
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
 
                 
 
