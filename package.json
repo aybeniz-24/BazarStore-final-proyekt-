@@ -8,14 +8,20 @@
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "server": "npx json-server src/data/data.json --port 3005"
+    "server": "npx json-server src/data/data.json --port 3005",
+    "server2": "npx json-server src/data/productCategoriesData.json --port 3006"
   },
   "dependencies": {
     "@emotion/react": "^11.13.3",
     "@emotion/styled": "^11.13.0",
+    "@fortawesome/fontawesome-svg-core": "^6.7.2",
+    "@fortawesome/free-solid-svg-icons": "^6.7.2",
+    "@fortawesome/react-fontawesome": "^0.2.2",
     "@material-tailwind/react": "^2.1.10",
     "@mui/icons-material": "^6.1.6",
     "@mui/material": "^6.1.6",
+    "antd": "^5.22.7",
+    "axios": "^1.7.9",
     "bootstrap": "^5.3.3",
     "cors": "^2.8.5",
     "json-server": "^1.0.0-beta.3",

@@ -12,8 +12,8 @@ const Snowfall = () => {
           id: i,
           x: Math.random() * window.innerWidth, // Yatay mövqe
           y: Math.random() * window.innerHeight, // Şaquli mövqe
-          size: Math.random() * 20 + 10, // Ölçü
-          speedY: Math.random() * 3 + 2, // Şaquli sürət
+          size: Math.random() * 15 + 5, // Ölçü
+          speedY: Math.random() * 2 + 1, // Şaquli sürət
           speedX: Math.random() * 2 - 1, // Yatay sürət
         });
       }

@@ -6,6 +6,7 @@ import { useEffect } from 'react'
 import { updateTitleAndFavicon } from './app.js'
 import BasketContext from './components/context/BasketContext.jsx'
 import FavoritContext from './components/context/FavoritContext.jsx'
+import DataContext from './components/context/DataContext.jsx'
 
 const root = createRoot(document.getElementById('root'))
 
@@ -16,11 +17,15 @@ function FaviconAndTitle() {
 
   return (
     <BrowserRouter>
-        <BasketContext>
-          <FavoritContext>
-            <App />
-          </FavoritContext>
-        </BasketContext>
+      
+        <DataContext>
+          <BasketContext>
+            <FavoritContext>
+              <App />
+            </FavoritContext>
+          </BasketContext>
+        </DataContext>
+      
     </BrowserRouter>
   )
 }

@@ -5,6 +5,8 @@ import Layout from "./components/layout/Layout"
 import Main from "./components/main/Main"
 import { useEffect, useState } from "react"
 import PageComponent from "./components/main/PageComponent"
+import ProductSelect from "./components/main/ProductSelect"
+import NotFound from "./components/main/NotFound"
 
 function App() {
   const [loading, setLoading] = useState(false); 
@@ -52,6 +54,8 @@ function App() {
         <Route path="/login" element={<PageComponent />} />
         <Route path="/choice" element={<PageComponent />} />
         <Route path="/favorit" element={<PageComponent />} />
+        <Route path="/notFound" element={<NotFound />} />
+        <Route path="/:catname/:subname/:subId" element={<ProductSelect />} />
       </Routes>
       <Footer />
     </>

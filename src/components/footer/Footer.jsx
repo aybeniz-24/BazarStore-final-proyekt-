@@ -100,7 +100,7 @@ function Footer() {
               {data.information.map((item, index) => (
                 <div key={index} className='flex hover:text-[var(--primary-color)] cursor-pointer'>
                   <FaLongArrowAltRight className='my-[5px] mr-[10px]' />
-                  <a href={item.url} className='text-[14px] mb-[5px]'>{item.name}</a>
+                  <a href="/notFound" className='text-[14px] mb-[5px]'>{item.name}</a>
                 </div>
               ))}
           </div>
@@ -115,7 +115,7 @@ function Footer() {
                 {data.bazarStore.map((item, index) => (
                   <div key={index} className='flex hover:text-[var(--primary-color)] cursor-pointer'>
                     <FaLongArrowAltRight className='my-[5px] mr-[10px]' />
-                    <a href={item.url} className='text-[14px] mb-[5px]'>{item.name}</a>
+                    <a href="/notFound" className='text-[14px] mb-[5px]'>{item.name}</a>
                   </div>
                 ))}
             </div>
@@ -130,7 +130,7 @@ function Footer() {
                 {data.popularCategories.map((item, index) => (
                   <div key={index} className='flex hover:text-[var(--primary-color)] cursor-pointer'>
                     <FaLongArrowAltRight className='my-[5px] mr-[10px]' />
-                    <a href={item.url} className='text-[14px] mb-[5px]'>{item.name}</a>
+                    <a href="/notFound" className='text-[14px] mb-[5px]'>{item.name}</a>
                   </div>
                 ))}
             </div>
@@ -145,7 +145,7 @@ function Footer() {
                 {data.blog.map((item, index) => (
                   <div key={index} className='flex hover:text-[var(--primary-color)] cursor-pointer'>
                     <FaLongArrowAltRight className='my-[5px] mr-[10px]' />
-                    <a href={item.url} className='text-[14px] mb-[5px]'>{item.name}</a>
+                    <a href="/notFound" className='text-[14px] mb-[5px]'>{item.name}</a>
                   </div>
                 ))}
             </div>
@@ -155,7 +155,7 @@ function Footer() {
 
       <section className='border-t-[1px]'>
         <div className='mx-[35px] px-[15px] flex justify-center items-center'>
-          <p className='my-[10px] text-[#666] text-[14px]'> &copy; {new Date().getFullYear()} <a className='no-underline hover:text-[var(--primary-color)]' href="#">BazarStore</a> <a href='https://github.com/aybeniz-24' target='target' className='no-underline hover:text-[var(--primary-color)]'>by aybeniz </a> </p>
+          <p className='my-[10px] text-[#666] text-[14px]'> &copy; {new Date().getFullYear()} <span className='no-underline hover:text-[var(--primary-color)]'>by aybeniz </span> </p>
         </div>
       </section>
 

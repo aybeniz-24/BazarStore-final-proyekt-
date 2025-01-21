@@ -36,14 +36,20 @@ function MainSlider() {
                       <SwiperSlide>
                         <img src="https://bazarstore.az/cdn/shop/files/onlayna-ozel-banner-gif_900x452.jpg?v=1733982805;" alt="slider1new" />
                       </SwiperSlide> <div className="custom-pagination"></div>
+                      <SwiperSlide>
+                        <img src="https://bazarstore.az/cdn/shop/files/onlayna-ozel-banner-gif_900x452.gif?v=1727676474;" alt="slider1new" />
+                      </SwiperSlide> <div className="custom-pagination"></div>
+                      <SwiperSlide>
+                        <img src="https://bazarstore.az/cdn/shop/files/AnaSayfaBanner-Sari_etiket_-_AZE-min_900x452.jpg?v=1689335719;" alt="slider1new" />
+                      </SwiperSlide> <div className="custom-pagination"></div>
                     </Swiper>
 
 
                     <div className='sliderBtn my-[15px] py-[20px] flex justify-between '>
-                        <div className='border-r-[1px] pr-[100px] m-auto flex flex-col  xlg:flex-row justify-center items-center gap-[5px]'>
+                        <div className=' cursor-pointer border-r-[1px] pr-[100px] m-auto flex flex-col  xlg:flex-row justify-center items-center gap-[5px]'>
                           <div className="spriteTurnk  sprite"></div>
                           <div>
-                            <h4>Çatdırılma</h4>
+                            <a href='/notFound'>Çatdırılma</a>
                             <p>40 ₼+ Pulsuz 🚚</p>
                           </div>
                         </div>
@@ -51,7 +57,7 @@ function MainSlider() {
                         <div className='border-r-[1px] pr-[100px] m-auto flex flex-col  xlg:flex-row justify-center items-center gap-[5px]'>
                           <div className='spriteEarphone sprite'></div>
                           <div>
-                            <h4>Dəstək</h4>
+                            <a href='/notFound'>Dəstək</a>
                             <p>Onlayn Chat 💬</p>
                           </div>
                         </div>
@@ -59,7 +65,7 @@ function MainSlider() {
                         <div className=' m-auto flex flex-col  xlg:flex-row justify-center items-center gap-[5px]'>
                           <div className='spriteSertificate sprite'></div>
                           <div>
-                            <h4>Sarı Etiket</h4>
+                            <a href='/notFound'>Sarı Etiket</a>
                             <p>Endirimler 🏷️</p>
                           </div>
                         </div>

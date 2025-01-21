@@ -4,11 +4,15 @@ import '../../App.css'
 import { FaBars } from "react-icons/fa"
 import { FaLongArrowAltRight } from "react-icons/fa"
 import { IoIosArrowForward } from "react-icons/io"
-import MainSlider from './MainSlider'
-import { useEffect, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
+import { useLocation } from 'react-router-dom'
+import { Link } from 'react-router-dom';
+import { DATA } from '../context/DataContext'
 
 function ButtonSections() {
     const [isCategoriesOpen, setIsCategoriesOpen] = useState(false);
+    const location = useLocation();
+
     
     useEffect(() => {
       const handleResize = () => {
@@ -27,6 +31,13 @@ function ButtonSections() {
     setIsCategoriesOpen((prevState) => !prevState);
   };
 
+
+
+
+  const { category } = useContext(DATA)
+  const icon = ["🍉", "🍗", "🥖", "🥣", "🍰", "🥃", "🥛", "👶", "🧺", "💄", "🔪", "✏️", "🐕", "💚", "📻", "🏷️", "👚"]
+  
+
   return (
     <section className="border-t-[1px] border-[#eee] ">
       <div className="md:mx-[8%] mx-[2%] xlg:flex xlg:justify-between">
@@ -42,59 +53,46 @@ function ButtonSections() {
           </button>
 
           {isCategoriesOpen && (
-            <div className="bg-white border border-[#5e5e5e] mt-[5px] w-full sm:w-[50%] md:w-[40%] lg:w-[30%] xlg:w-[100%]">
+            <div className="bg-white border border-[#5e5e5e] mt-[5px] w-full sm:w-[50%] md:w-[40%] lg:w-[30%] xlg:w-[100%] ">
               <ul className="text-black">
-                {productData.map((data1, index1) => (
+                {category.length > 0 &&  category.map((item, index) => (
                   <li
-                    key={index1}
+                    key={index}
                     className={`relative group cursor-pointer ${
-                      index1 === productData.length - 1 ? "border-b-0" : "border-b-[1px]"
+                      index === category.length - 1 ? "border-b-0" : "border-b-[1px]"
                     }`}
                   >
-                    <a href="#" className="block hover:text-[#b3b93d] pt-[8px] py-[8px]">
-                      <div className="font-bold pb-[10px] px-[15px] flex justify-between items-center">
-                        <FaLongArrowAltRight className="inline mt-[5px] text-[#5e5e5e]" />
-                        <div className="mr-auto pl-[15px]">{data1.name}</div>
-                        <IoIosArrowForward className="inline mt-[5px] text-[#5e5e5e]" />
-                      </div>
-                    </a>
+                    <Link to={`/category/${item.name}`} className="block hover:text-[#b3b93d] pt-[8px] py-[8px]">
+                        <div className="font-bold pb-[10px] px-[15px] flex justify-between items-center">
+                          <FaLongArrowAltRight className="inline mt-[5px] text-[#5e5e5e]" />
+                          <div className="mr-auto pl-[15px] flex fle-row gap-[10px]">
+                            {icon[index]} 
+                                   
+                            {item.categoryName}
+                          </div>
+                          <IoIosArrowForward className="inline mt-[5px] text-[#5e5e5e]" />
+                        </div>
+                      </Link>
 
                     {/* 2-ci Səviyyə menu*/}
-                    <ul className="absolute hidden group-hover:block bg-white text-black border-[#5e5e5e] border left-[100%] w-[100%] top-[-1px] py-[1px] z-10">
-                      {data1.product.map((data2, index2) => (
-                        <li
-                          key={index2}
-                          className={`menu2 cursor-pointer p-[10px] ${
-                            index2 === data1.product.length - 1 ? "border-b-0" : "border-b-[1px]"
-                          }`}
-                        >
-                          <a href="#" className="block hover:text-[#b3b93d]">
-                            <div className="pb-[10px] px-[15px] flex justify-between items-center">
-                              <div className="mr-auto">{data2.name}</div>
-                              <IoIosArrowForward className="inline mt-[5px] text-[#5e5e5e]" />
-                            </div>
-                          </a>
 
-                          {/* 3-cü Səviyyə menu */}
-                          <ul className="menuHover text-black bg-white border-[#5e5e5e] border ml-[103%] px-[10px] z-20 w-[100%] my-[-46px]">
-                            {data2.subcategories.map((data3, index3) => (
-                              <li
-                                key={index3}
-                                className={`relative cursor-pointer ${
-                                  index3 === data2.subcategories.length - 1 ? "border-b-0" : "border-b-[1px]"
-                                }`}
-                              >
-                                <a href="#" className="block hover:text-[#b3b93d] pt-[8px] py-[8px]">
-                                  <div className="pb-[10px] px-[15px] flex justify-between items-center">
-                                    <div className="mr-auto">{data3.name}</div>
-                                  </div>
-                                </a>
-                              </li>
-                            ))}
-                          </ul>
+                    <ul className="absolute hidden group-hover:block bg-white text-black border-[#5e5e5e] border left-[100%] w-[100%] top-[-1px] py-[1px] z-10">
+                      {item.subcategory.map((sub, subIndex) => (
+                        <li
+                          key={subIndex}
+                          className={`menu2 cursor-pointer p-[10px] ${subIndex === item.subcategory.length - 1 ? "border-b-0" : "border-b-[1px]"}`}
+                        >
+                          <Link to={`/category/${item.categoryName}/${sub.id}`} className="block hover:text-[#b3b93d]">
+                            <div className="pb-[10px] px-[15px] flex justify-between items-center">
+                              <div className="mr-auto first-letter:uppercase">{sub.categoryName}</div> {/* sub.name - data2.name düzəlişi */}
+                              {/* <IoIosArrowForward className="inline mt-[5px] text-[#5e5e5e]" /> */}
+                            </div>
+                          </Link>
                         </li>
                       ))}
                     </ul>
+
+                 
                   </li>
                 ))}
               </ul>
@@ -107,7 +105,7 @@ function ButtonSections() {
           <ul className="m-[12px] hidden justify-between lg:flex xlg:flex">
             {menuData.map((menu, menuIndex) => (
               <li key={menuIndex} className="relative group text-[16px] my-[5px] hover:text-[var(--primary-color)]">
-                <a href="#">{menu.label}</a>
+                <a href="/notFound">{menu.label}</a>
               </li>
             ))}
           </ul>

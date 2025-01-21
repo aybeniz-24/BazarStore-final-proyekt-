@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useEffect, useRef, useState } from 'react';
 import { BASKET } from '../context/BasketContext';
 import { Link, useLocation, useNavigate, useParams } from 'react-router-dom';
 import { FaRegTrashCan } from 'react-icons/fa6';
@@ -7,8 +7,13 @@ import { SlBasket } from "react-icons/sl";
 import ButtonSections from "./ButtonSections";
 import { GoHome } from "react-icons/go";
 import Advertising from "./Advertising";
-import { IoMdClose } from "react-icons/io";
+import { IoIosInformationCircleOutline, IoMdClose } from "react-icons/io";
 import data from '../../data/data.json'
+import productData from '../../data/productCategoriesData.json'; // JSON faylının yeri
+import { CiDeliveryTruck } from 'react-icons/ci';
+import { RiArrowDropDownLine } from 'react-icons/ri';
+import { IoReturnDownBack } from 'react-icons/io5';
+
 
 function PageComponent() {
   const { basket, updateCount, addToBasket, removeFromBasket } = useContext(BASKET);
@@ -47,7 +52,7 @@ function PageComponent() {
 
 
 
-  
+
 
   const getProductData = () => {
     const queryParams = new URLSearchParams(location.search);
@@ -69,22 +74,22 @@ function PageComponent() {
 
   const totalPrice = basket.reduce((acc, item) => {
     // Qiymətləri düzgün şəkildə əldə edirik (endirimli və ya normal)
-    const price = !isNaN(parseFloat(item.name)) ? parseFloat(item.name) : 
-                  (!isNaN(parseFloat(item.price)) ? parseFloat(item.price) : 0);
+    const price = !isNaN(parseFloat(item.name)) ? parseFloat(item.name) :
+      (!isNaN(parseFloat(item.price)) ? parseFloat(item.price) : 0);
     const quantity = !isNaN(parseInt(item.quantity)) ? parseInt(item.quantity) : 1;
-  
+
     return acc + price * quantity;
   }, 0);
-  
+
   // Endirimli qiymətləri düzgün hesablayırıq
   const discountedPrice = basket.reduce((acc, item) => {
     // Endirimli qiyməti yalnız mövcud olduqda əlavə edirik
     const price = item.discountedPrice && !isNaN(parseFloat(item.discountedPrice)) ? parseFloat(item.discountedPrice) : 0;
     const quantity = !isNaN(parseInt(item.quantity)) ? parseInt(item.quantity) : 1;
-  
+
     return acc + price * quantity;
   }, 0);
-  
+
 
 
   const [showPopup, setShowPopup] = useState(false);
@@ -101,26 +106,61 @@ function PageComponent() {
 
 
 
+  const [selected, setSelected] = useState("250g"); // Default olaraq "250g" seçili
 
+
+
+
+
+
+
+  const [count, setCount] = useState(1);
+
+
+
+
+
+  const addToBasket1 = (id, img, price, name, discountedPrice, quantity, marka, sku, count) => {
+    // Yerli yaddaşa səbəti yazın və ya global state istifadə edin
+    const basket = JSON.parse(localStorage.getItem("basket")) || [];
+
+    // Yeni məhsulu səbətə əlavə et
+    const newItem = { id, img, price, name, discountedPrice, quantity, marka, sku, count };
+
+    // Əgər məhsul artıq səbətdədirsə, miqdarını artırın
+    const existingItemIndex = basket.findIndex(item => item.id === id);
+    if (existingItemIndex !== -1) {
+      basket[existingItemIndex].count += count;
+    } else {
+      basket.push(newItem);
+    }
+
+    // Səbəti yerli yaddaşa yenidən yaz
+    localStorage.setItem("basket", JSON.stringify(basket));
+  };
+
+  const [deliveryOpen, setDeliveryOpen] = useState(false);
+  const [returnPolicyOpen, setReturnPolicyOpen] = useState(false);
+  const [infoOpen, setInfoOpen] = useState(false);
 
 
   return (
     <>
-    <ButtonSections />
+      <ButtonSections />
 
       <div className='bg-[#f0f0f0] py-[25px] mb-[20px]'>
-          <div className='md:mx-[8%] mx-[2%] m-[5px] mr-[5px] flex justify-start items-center '>
-            <p>
-              <Link to="/">
-                  <GoHome className="inline text-[26px] mr-[8px] cursor-pointer" />
-              </Link>
-              | </p>
-              <Link to="/favorit">
-                <p className="inline text-[18px] ml-[10px] hover:text-[#b3b93d]">{getPageTitle()}</p>
-              </Link>
-              
-            
-          </div>
+        <div className='md:mx-[8%] mx-[2%] m-[5px] mr-[5px] flex justify-start items-center '>
+          <p>
+            <Link to="/">
+              <GoHome className="inline text-[26px] mr-[8px] cursor-pointer" />
+            </Link>
+            | </p>
+          <Link to="/favorit">
+            <p className="inline text-[18px] ml-[10px] hover:text-[#b3b93d]">{getPageTitle()}</p>
+          </Link>
+
+
+        </div>
       </div>
 
 
@@ -128,115 +168,236 @@ function PageComponent() {
       <div>
 
 
-        
-      <div>
 
-         {/* choice page funksionalligi */}
+
+        {/* choice page funksionalligi */}
         {location.pathname === "/choice" && product && (
-          <div>
-            <h1 className="text-2xl font-bold">{product.name}</h1>
-            <p>{product.description}</p>
-            <img src={product.img} alt={product.name} className="w-64 h-64" />
-            <p>Qiymət: {product.price} AZN</p>
-          </div>
-        )}
-      </div>
+          <>
+            <div className="flex flex-row md:mx-[8%] mx-[2%] h-[600px] ">
+              <div className="w-[100%] h-[500px] p-[20px] border border-[#f0f0f0] flex justify-center items-center overflow-hidden">
+                <img src={product.img} alt={product.name} className="w-[480px] h-[450px] object-cover" />
+              </div>
+
+              <div className="pl-[20px] my-[20px]">
+                <p className="uppercase text-[22px]">{product.name}</p>
+
+                <div className="flex gap-[20px]">
+                  {product.discountedPrice ? (
+                    <>
+                      <p className="text-[#439e4a] text-[18px] my-[10px] font-bold">{product.discountedPrice}</p>
+                      <p className="text-[#838383] text-[18px] my-[10px] font-bold line-through">{product.price}</p>
+                    </>
+                  ) : (
+                    <p className="text-[#439e4a] text-[18px] my-[10px] font-bold">{product.price}</p>
+                  )}
+                </div>
+
+                <p className="pb-[20px] border-b-[2px] border-b-[#f0f0f0]">
+            <span className="uppercase">{product.marka}</span> brendinin <span className="uppercase">{product.name}</span> məhsulunu indi əldə etmək üçün alış-verişə başlaya bilərsiniz.
+          </p>
+
+
+                <div className="flex gap-[30px] my-[20px]">
+                  <div>
+                    <p className="font-bold text-[18px] my-[5px]">Marka</p>
+                    <p className="font-bold text-[18px] my-[5px]">Sku</p>
+                    <p className="font-bold text-[18px] my-[5px]">Mövcudluq</p>
+                  </div>
+                  <div>
+                    <p className="text-[18px] my-[5px]">: {product.marka}</p>
+                    <p className="text-[18px] my-[5px]">: {product.sku}</p>
+                    <p className="text-[18px] my-[5px]">: Mövcuddur</p>
+                  </div>
+                </div>
+
+                {/* Delivery and Payment Section */}
+                <div className="border-b border-[#e1e1e1] rounded w-full mt-[20px] py-[10px]">
+                  <p
+                    onClick={() => setDeliveryOpen(!deliveryOpen)}
+                    className="flex items-center justify-between cursor-pointer text-lg"
+                  >
+                    <span className="flex items-center">
+                      <CiDeliveryTruck className="mr-4 text-[25px]" /> Çatdırılma və Ödəniş
+                    </span>
+                    <RiArrowDropDownLine
+                      className={`transition-transform text-[25px] ${deliveryOpen ? "rotate-180" : "rotate-0"}`}
+                    />
+                  </p>
+                  <div
+                    className={`overflow-hidden transition-[max-height] duration-300 ease-in-out w-full ${deliveryOpen ? "max-h-[500px]" : "max-h-0"}`}
+                  >
+                    <p className="mt-2 text-gray-600">
+                      Çatdırılma, sifarişi rəsmiləşdirkən qrafikdə seçdiyiniz saata uyğun olaraq yerinə yetirilir. Qrafikdə qeyd edilən çatdırılma saatlarına sifariş qəbulu 1 saat öncədən bağlanır. Ödənişi nağd və bank kartları (pos-terminal) ilə sifariş çatdırılan zaman edə bilərsiniz.
+                    </p>
+                  </div>
+                </div>
+
+                {/* Return Policy Section */}
+                <div className="border-b border-[#e1e1e1] rounded w-full py-[10px] my-[20px]">
+                  <p
+                    onClick={() => setReturnPolicyOpen(!returnPolicyOpen)}
+                    className="flex items-center justify-between cursor-pointer text-lg"
+                  >
+                    <span className="flex items-center">
+                      <IoReturnDownBack className="mr-4 text-[25px]" /> Geri Qaytarma Şərtləri
+                    </span>
+                    <RiArrowDropDownLine
+                      className={`transition-transform text-[25px] ${returnPolicyOpen ? "rotate-180" : "rotate-0"}`}
+                    />
+                  </p>
+                  <div
+                    className={`overflow-hidden transition-[max-height] duration-300 ease-in-out w-full ${returnPolicyOpen ? "max-h-[500px]" : "max-h-0"}`}
+                  >
+                    <p className="mt-2 text-gray-600">
+                      Sifariş olunan məhsulları alış-veriş etdiyiniz gündən 14 gün ərzində qəbzdə göstərilən Bazarstore MMC şöbəsində dəyişə və ya qaytara bilərsiniz. Mağazaya gələrkən məhsul və qəbz ilə yaxınlaşmağınızı xahiş edirik. Qəbz olmadan məhsul geri qaytarılmır.
+                    </p>
+                    <p className="mt-2 text-gray-600">
+                      Əgər məhsul müştəriyə çatdırılan anda son istifadə tarixi keçməmişdirsə, qablaşdırmasında ciddi qüsur yoxdursa, o zaman məhsulun çatdırılma anında kuryerə geri qaytarılması mümkün deyil.
+                    </p>
+                  </div>
+                </div>
+
+                {/* Information and Rules Section */}
+                <div className="border-b border-[#e1e1e1] rounded w-full py-[10px] my-[20px]">
+                  <p
+                    onClick={() => setInfoOpen(!infoOpen)}
+                    className="flex items-center justify-between cursor-pointer text-lg"
+                  >
+                    <span className="flex items-center">
+                      <IoIosInformationCircleOutline className="mr-4 text-[25px]" /> Məlumat Və Qaydalar
+                    </span>
+                    <RiArrowDropDownLine
+                      className={`transition-transform text-[25px] ${infoOpen ? "rotate-180" : "rotate-0"}`}
+                    />
+                  </p>
+                  <div
+                    className={`overflow-hidden transition-[max-height] duration-300 ease-in-out w-full ${infoOpen ? "max-h-[500px]" : "max-h-0"}`}
+                  >
+                    <p className="mt-2 text-gray-600">
+                      Malların sifarişi, satışı və çatdırılması qaydası haqqında razılaşma, məlumat və qaydaları bu linkdən öyrənə bilərsiniz.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              
+            </div>
+            <div className='md:mx-[8%] mx-[2%] mb-[40px]'>
+              <div className='bg-[#b3b93d] w-[100px] text-[20px] text-center text-white py-[10px] rounded-top'>Təsvir</div>
+              <div className= ' border-[2px] border-[#f0f0f0] p-[15px] rounded-[8px]'>
+                <p className="p-[20px] ">
+                  <span className="uppercase">{product.marka}</span> brendinin <span className="uppercase">{product.name}</span> məhsulunu indi əldə etmək üçün alış-verişinizi başlaya bilərsiniz.
+                </p>
+                <p className="px-[20px] ">
+                  {product.marka}-də <span className="uppercase">{product.name}</span> ilə yanaşı, diger məhsullarını da araşdıra bilərsiniz!
+                </p>
+              </div>
+            </div>
+            
+          </>
+          )}
 
 
 
-          {/* basket page funksionalligi */}
-          { location.pathname === "/basket" && (
-            <>
-                <div className="md:mx-[8%] mx-[2%]  ">
-            {basket && basket.length > 0 ? (
-              <table className="w-full text-center border-collapse my-[20px] mt-[50px] ">
-                <thead>
-                  <tr className='border-b '>
-                    <th className="w-[40%] py-4">Məhsul</th>
-                    <th className="w-[15%] py-4">Qiymət</th>
-                    <th className="w-[30%] py-4">Miqdar</th>
-                    <th className="w-[15%] py-4">Ümumi</th>
-                  </tr>
-                </thead>
 
-                <tbody>
-                  {basket.map((item, index) => (
-                    <tr key={item.id} className="bg-white  hover:bg-gray-100 border-b">
-                      <td className="py-4">
-                        <div className="flex justify-start items-center">
-                          <img className="w-[80px] inline rounded-[5px]" src={item.img} alt={item.name} />
-                          <p className="inline text-[15px] uppercase">{item.price}</p>
-                        </div>
-                      </td>
 
-                      <td className="py-4">
-                        {item.discountedPrice ? (
-                          <div className="flex flex-col">
-                            <p className=" text-[14px] text-[#9b9b9b] line-through">{item.name}</p>
-                            <p className=" text-[14px] text-[#439e4a]">{item.discountedPrice}</p>
+
+
+
+
+
+        {/* basket page funksionalligi */}
+        {location.pathname === "/basket" && (
+          <>
+            <div className="md:mx-[8%] mx-[2%]  ">
+              {basket && basket.length > 0 ? (
+                <table className="w-full text-center border-collapse my-[20px] mt-[50px] ">
+                  <thead>
+                    <tr className='border-b '>
+                      <th className="w-[40%] py-4">Məhsul</th>
+                      <th className="w-[15%] py-4">Qiymət</th>
+                      <th className="w-[30%] py-4">Miqdar</th>
+                      <th className="w-[15%] py-4">Ümumi</th>
+                    </tr>
+                  </thead>
+
+                  <tbody>
+                    {basket.map((item, index) => (
+                      <tr key={item.id} className="bg-white  hover:bg-gray-100 border-b">
+                        <td className="py-4">
+                          <div className="flex justify-start items-center">
+                            <img className="w-[80px] inline rounded-[5px]" src={item.img} alt={item.name} />
+                            <p className="inline text-[15px] uppercase">{item.price}</p>
                           </div>
-                        ) : (
-                          <p className="font-bold text-[14px]">{item.name}</p>
-                        )}
-                      </td>
+                        </td>
+
+                        <td className="py-4">
+                          {item.discountedPrice ? (
+                            <div className="flex flex-col">
+                              <p className=" text-[14px] text-[#9b9b9b] line-through">{item.name}</p>
+                              <p className=" text-[14px] text-[#439e4a]">{item.discountedPrice}</p>
+                            </div>
+                          ) : (
+                            <p className="font-bold text-[14px]">{item.name}</p>
+                          )}
+                        </td>
 
 
-                          {/* Bu basketPagede cixan hissedir  */}
-                      <td className="py-4">
-                        <div className="flex justify-center items-center">
-                          <div className="mb-[20px] flex justify-center items-center border-[1px] border-[#e8e8e8] w-[100px] h-[40px]">
-                            <button
-                                 onClick={() => {
+                        {/* Bu basketPagede cixan hissedir  */}
+                        <td className="py-4">
+                          <div className="flex justify-center items-center">
+                            <div className="mb-[20px] flex justify-center items-center border-[1px] border-[#e8e8e8] w-[100px] h-[40px]">
+                              <button
+                                onClick={() => {
                                   const newQuantity = item.quantity > 1 ? item.quantity - 1 : 0; // Miqdarı sıfıra endiririk
                                   updateCount(index, newQuantity); // Miqdarı azaldırıq və sıfır olduqda silirik
-                              }}
-                              // onClick={() => updateCount(index, item.quantity > 1 ? item.quantity - 1 : 1)}
-                              className="cursor-pointer p-[13px]"
-                            >
-                              -
-                            </button>
-                            <p className="mx-[10px]">{item.quantity}</p>
-                            <button 
-                             onClick={() => updateCount(index, item.quantity + 1)} // Miqdarı artırırıq
-                             className="cursor-pointer p-[13px]"
-                         
-                            // onClick={() => updateCount(index, item.quantity + 1)} className="cursor-pointer p-[13px]"
-                            >
-                              +
-                            </button>
-                          </div>
-                          <div className="p-2">
-                            <button className="p-2 bg-[#b3b93d] hover:bg-[#1e1e1e] rounded mb-[20px]">
-                              <FaRegTrashCan
-                              onClick={() => removeFromBasket(item.id)}
-                                className="text-white text-[20px] m-[2px]" />
-                            </button>
-                          </div>
-                        </div>
-                      </td>
+                                }}
+                                // onClick={() => updateCount(index, item.quantity > 1 ? item.quantity - 1 : 1)}
+                                className="cursor-pointer p-[13px]"
+                              >
+                                -
+                              </button>
+                              <p className="mx-[10px]">{item.quantity}</p>
+                              <button
+                                onClick={() => updateCount(index, item.quantity + 1)} // Miqdarı artırırıq
+                                className="cursor-pointer p-[13px]"
 
-                      <td className="py-4">
-                        {item.discountedPrice ? (
-                          <div className="flex flex-col">
-                            <p className="font-bold text-[14px] text-[#9b9b9b] line-through">{((parseFloat(item.name) || 0 ) * (parseInt(item.quantity) || 1)).toFixed(2)} ₼</p>
-                            <p className="font-bold text-[14px] text-[#439e4a]">
-                              {((parseFloat(item.discountedPrice) || 0) * (parseInt(item.quantity) || 1)).toFixed(2)} ₼
-                            </p>
+                              // onClick={() => updateCount(index, item.quantity + 1)} className="cursor-pointer p-[13px]"
+                              >
+                                +
+                              </button>
+                            </div>
+                            <div className="p-2">
+                              <button className="p-2 bg-[#b3b93d] hover:bg-[#1e1e1e] rounded mb-[20px]">
+                                <FaRegTrashCan
+                                  onClick={() => removeFromBasket(item.id)}
+                                  className="text-white text-[20px] m-[2px]" />
+                              </button>
+                            </div>
                           </div>
-                        ) : (
-                          <p className="font-bold text-[14px]">{((parseFloat(item.name) || 0 ) * (parseInt(item.quantity) || 1)).toFixed(2)} ₼</p>
-                        )}
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            ) : (
-              <div className="my-[140px] w-full mx-auto text-center">
-                <div className="w-[100px] h-[100px] mx-auto">
-                    <svg class="icon icon-empty-cart" version="1.0" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 320.000000 258.000000" preserveAspectRatio="xMidYMid meet">
-                  <g transform="translate(0.000000,258.000000) scale(0.100000,-0.100000)" fill="#000000" stroke="none">
-                  <path d="M58 2568 c-25 -21 -28 -46 -9 -69 16 -20 39 -25 207 -46 103 -12 191
+                        </td>
+
+                        <td className="py-4">
+                          {item.discountedPrice ? (
+                            <div className="flex flex-col">
+                              <p className="font-bold text-[14px] text-[#9b9b9b] line-through">{((parseFloat(item.name) || 0) * (parseInt(item.quantity) || 1)).toFixed(2)} ₼</p>
+                              <p className="font-bold text-[14px] text-[#439e4a]">
+                                {((parseFloat(item.discountedPrice) || 0) * (parseInt(item.quantity) || 1)).toFixed(2)} ₼
+                              </p>
+                            </div>
+                          ) : (
+                            <p className="font-bold text-[14px]">{((parseFloat(item.name) || 0) * (parseInt(item.quantity) || 1)).toFixed(2)} ₼</p>
+                          )}
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              ) : (
+                <div className="my-[140px] w-full mx-auto text-center">
+                  <div className="w-[100px] h-[100px] mx-auto">
+                    <svg class="icon icon-empty-cart" version="1.0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320.000000 258.000000" preserveAspectRatio="xMidYMid meet">
+                      <g transform="translate(0.000000,258.000000) scale(0.100000,-0.100000)" fill="#000000" stroke="none">
+                        <path d="M58 2568 c-25 -21 -28 -46 -9 -69 16 -20 39 -25 207 -46 103 -12 191
                   -26 195 -30 4 -5 57 -298 119 -653 62 -355 134 -773 162 -930 27 -156 54 -290
                   60 -297 7 -9 56 -13 161 -15 127 -3 152 -5 155 -18 2 -10 -10 -20 -31 -28 -63
                   -23 -113 -68 -142 -126 -24 -48 -27 -65 -23 -125 5 -88 42 -152 112 -196 42
@@ -254,78 +415,78 @@ function PageComponent() {
                   -118 3 -41 -1 -58 -20 -86 -61 -90 -185 -91 -245 -1 -43 64 -23 158 42 201 37
                   24 116 27 153 4z m1449 -4 c47 -28 66 -72 61 -137 -9 -106 -113 -164 -207
                   -115 -47 23 -72 61 -78 114 -6 53 12 93 57 132 40 33 118 36 167 6z"></path>
-                  <path d="M1550 1730 c-30 -30 -27 -83 6 -109 43 -34 86 -24 112 26 18 32 15
+                        <path d="M1550 1730 c-30 -30 -27 -83 6 -109 43 -34 86 -24 112 26 18 32 15
                   51 -13 78 -30 31 -77 33 -105 5z"></path>
-                  <path d="M2050 1730 c-33 -33 -30 -75 6 -107 34 -31 60 -29 96 7 24 25 29 36
+                        <path d="M2050 1730 c-33 -33 -30 -75 6 -107 34 -31 60 -29 96 7 24 25 29 36
                   24 58 -14 58 -86 82 -126 42z"></path>
-                  <path d="M1735 1450 c-125 -50 -232 -204 -165 -240 27 -14 44 -3 79 52 103
+                        <path d="M1735 1450 c-125 -50 -232 -204 -165 -240 27 -14 44 -3 79 52 103
                   162 326 155 411 -13 11 -20 27 -39 36 -43 21 -8 64 19 64 40 0 48 -90 153
                   -165 192 -69 35 -188 41 -260 12z"></path>
-                  </g>
+                      </g>
                     </svg>
+                  </div>
+                  <p className="text-center  text-[22px] my-[25px]" >Səbətiniz boşdur</p>
+                  <Link to="/" >
+                    <button className=" cursor-pointer text-white font-bold bg-[#b3b93d] hover:bg-[#1e1e1e] text-[18px] px-[50px] py-[15px] rounded-[5px]"> Alış-verişə Davam Edin </button>
+                  </Link>
                 </div>
-                <p className="text-center  text-[22px] my-[25px]" >Səbətiniz boşdur</p>
-                    <Link to="/" >
-                        <button className=" cursor-pointer text-white font-bold bg-[#b3b93d] hover:bg-[#1e1e1e] text-[18px] px-[50px] py-[15px] rounded-[5px]"> Alış-verişə Davam Edin </button>
-                    </Link>
-              </div>
-            )}
-          </div>
-          <div className="md:mx-[8%] mx-[2%] flex justify-between text-[#1e1e1e]">
-
-
-            <div>
-              <p className='my-[20px]'> 📑 Sifariş üçün xüsusi təlimatlar varmı?</p>
-              <div className='my-[5px]'>
-                <textarea
-                  className='border-[#7e7e7e] border w-[80%]  h-[100px] p-2 resize-none outline-none'
-                  placeholder='Your note here'
-                ></textarea>
-              </div>
-              <div className='border-[#7e7e7e] border my-[10px] p-[10px] w-[80%]'>
-                <p className='p-[5px] mb-[25px] px-[10px] font-bold'>Almaq istədiyiniz məhsullardan hər hansı biri bitmişsə nə etməliyik? Zəhmət olmasa seçin.</p>
-                <div className="my-[5px]">
-                  <p className="mb-[10px] px-[10px]">
-                    <label className="cursor-pointer">
-                      <input type="radio" name="option" /> Mənə zəng edin.
-                    </label>
-                  </p>
-                  <p className="mb-[10px] px-[10px]">
-                    <label className="cursor-pointer">
-                      <input type="radio" name="option" /> Əvəzedici məhsul qoyun.
-                    </label>
-                  </p>
-                  <p className="mb-[10px] px-[10px]">
-                    <label className="cursor-pointer">
-                      <input type="radio" name="option" /> Olmayan məhsulu ləğv edin.
-                    </label>
-                  </p>
-                </div>
-              </div>
-              <div className='border-[#7e7e7e] border mb-[50px] p-[10px]  w-[80%]'>
-                <p className='px-[10px]'>
-                Bonuslarınızdan istifadə etmək istəyirsinizsə, aşağıdakı qutunu işarələyərək bonuslarınızı bu qaydada istifadə edə bilərsiniz.
-                <p className=' my-[15px] '>Bonuslarınız üçün  
-                  <Link to="/login" className='underline font-bold underline-offset-4 hover:decoration-[#b3b93d]   hover:text-[#b3b93d] '> daxil olun.</Link>
-                </p>
-                </p>
-              </div>
-              
+              )}
             </div>
+            <div className="md:mx-[8%] mx-[2%] flex justify-between text-[#1e1e1e]">
 
 
+              <div>
+                <p className='my-[20px]'> 📑 Sifariş üçün xüsusi təlimatlar varmı?</p>
+                <div className='my-[5px]'>
+                  <textarea
+                    className='border-[#7e7e7e] border w-[80%]  h-[100px] p-2 resize-none outline-none'
+                    placeholder='Your note here'
+                  ></textarea>
+                </div>
+                <div className='border-[#7e7e7e] border my-[10px] p-[10px] w-[80%]'>
+                  <p className='p-[5px] mb-[25px] px-[10px] font-bold'>Almaq istədiyiniz məhsullardan hər hansı biri bitmişsə nə etməliyik? Zəhmət olmasa seçin.</p>
+                  <div className="my-[5px]">
+                    <p className="mb-[10px] px-[10px]">
+                      <label className="cursor-pointer">
+                        <input type="radio" name="option" /> Mənə zəng edin.
+                      </label>
+                    </p>
+                    <p className="mb-[10px] px-[10px]">
+                      <label className="cursor-pointer">
+                        <input type="radio" name="option" /> Əvəzedici məhsul qoyun.
+                      </label>
+                    </p>
+                    <p className="mb-[10px] px-[10px]">
+                      <label className="cursor-pointer">
+                        <input type="radio" name="option" /> Olmayan məhsulu ləğv edin.
+                      </label>
+                    </p>
+                  </div>
+                </div>
+                <div className='border-[#7e7e7e] border mb-[50px] p-[10px]  w-[80%]'>
+                  <p className='px-[10px]'>
+                    Bonuslarınızdan istifadə etmək istəyirsinizsə, aşağıdakı qutunu işarələyərək bonuslarınızı bu qaydada istifadə edə bilərsiniz.
+                    <p className=' my-[15px] '>Bonuslarınız üçün
+                      <Link to="/login" className='underline font-bold underline-offset-4 hover:decoration-[#b3b93d]   hover:text-[#b3b93d] '> daxil olun.</Link>
+                    </p>
+                  </p>
+                </div>
 
-
-            <div className='w-[90%]'>
-              <div className='w-[100%] flex flex-col items-end'>
-              <div className='flex  gap-[30px] my-[20px]'>
-                  <p className='text-[20px]'> Ara cəmi </p>
-                  <p className='font-bold text-[20px] text-gray-500 line-through'>{totalPrice.toFixed(2)} ₼</p>
-                  <p className='font-bold text-[20px] text-green-500'>{discountedPrice.toFixed(2)} ₼</p>
               </div>
-                <p className='text-right my-[20px] mb-[30px] '> Vergi daxildir. Çatdırılma xərci ödəniş səhifəsində hesablanır.</p>
 
-                <button
+
+
+
+              <div className='w-[90%]'>
+                <div className='w-[100%] flex flex-col items-end'>
+                  <div className='flex  gap-[30px] my-[20px]'>
+                    <p className='text-[20px]'> Ara cəmi </p>
+                    <p className='font-bold text-[20px] text-gray-500 line-through'>{totalPrice.toFixed(2)} ₼</p>
+                    <p className='font-bold text-[20px] text-green-500'>{discountedPrice.toFixed(2)} ₼</p>
+                  </div>
+                  <p className='text-right my-[20px] mb-[30px] '> Vergi daxildir. Çatdırılma xərci ödəniş səhifəsində hesablanır.</p>
+
+                  <button
                     onClick={() => {
                       if (discountedPrice >= 30 && discountedPrice <= 40) {
                         setShowPopup(true);
@@ -339,73 +500,73 @@ function PageComponent() {
                   </button>
 
                   {showPopup && (
-        <div className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 flex justify-center items-center">
-          <div className="bg-white p-5 rounded shadow-lg">
-            <p className="text-[20px] font-bold">
-              ⚠️ Zəhmət olmasa qeyd edilən dəyişiklikləri səbətinizə tətbiq edin:
-            </p>
-            <p className="p-[30px]">
-              • Səbətinizin məbləği ən azı 40 ₼ olmalıdır.
-            </p>
-            <div className="flex items-end justify-end">
-              <button
-                onClick={() => setShowPopup(false)}
-                className="mt-3 text-white py-2 px-4 rounded bg-[#b3b93d]"
-              >
-                OK
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
-
-                
-
-               <Link to="/" >
-                      <p className=" text-center cursor-pointer underline underline-offset-4 hover:decoration-[#b3b93d]  hover:text-[#b3b93d]  text-[18px]"> Alış-verişə Davam Edin </p>
-                </Link>
-
-
-          
-              </div>
-                
-            </div>
+                    <div className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 flex justify-center items-center">
+                      <div className="bg-white p-5 rounded shadow-lg">
+                        <p className="text-[20px] font-bold">
+                          ⚠️ Zəhmət olmasa qeyd edilən dəyişiklikləri səbətinizə tətbiq edin:
+                        </p>
+                        <p className="p-[30px]">
+                          • Səbətinizin məbləği ən azı 40 ₼ olmalıdır.
+                        </p>
+                        <div className="flex items-end justify-end">
+                          <button
+                            onClick={() => setShowPopup(false)}
+                            className="mt-3 text-white py-2 px-4 rounded bg-[#b3b93d]"
+                          >
+                            OK
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  )}
 
 
 
-          </div>
-            </>
-          )}
-
-          
+                  <Link to="/" >
+                    <p className=" text-center cursor-pointer underline underline-offset-4 hover:decoration-[#b3b93d]  hover:text-[#b3b93d]  text-[18px]"> Alış-verişə Davam Edin </p>
+                  </Link>
 
 
 
-
-
-
-          {/* favori page funksionallifi */}
-          {location.pathname === "/favorit" && (
-            <>
-              
-            <div className="md:mx-[8%] flex flex-col lg:flex-row justify-between">
-  
-  
-                  <div className="w-full lg:w-[23%] ">
-                  <Advertising />
                 </div>
-  
-            <div  className=" w-full lg:w-[75%] flex flex-wrap gap-[10px]">
-            {favorites && favorites.length > 0 ? favorites.map((item, index) => {
+
+              </div>
+
+
+
+            </div>
+          </>
+        )}
+
+
+
+
+
+
+
+
+        {/* favori page funksionallifi */}
+        {location.pathname === "/favorit" && (
+          <>
+
+            <div className="md:mx-[8%] flex flex-col lg:flex-row justify-between">
+
+
+              <div className="w-full lg:w-[23%] ">
+                <Advertising />
+              </div>
+
+              <div className=" w-full lg:w-[75%] h-[500px] flex flex-wrap gap-[10px]">
+                {favorites && favorites.length > 0 ? favorites.map((item, index) => {
                   return (
                     <div key={item.id} className="group relative border-[1px] border-[#e5e5e5 rounded-[10px] w-[210px] h-[500px] m-[5px] mb-[20px] ">
                       <img className="rounded-[5px] p-[5px]" src={item.img} alt={item.name} />
                       <div className="absolute top-0 right-0 z-20 icon ">
-                      <IoMdClose
-                       onClick={() => removeFromFavorit(item.id)} 
-                       
-                      className="text-black hover:text-[#b3b93d] rounded-full w-[35px] h-[35px] p-[5px] m-[3px] cursor-pointer"
-                    />
+                        <IoMdClose
+                          onClick={() => removeFromFavorit(item.id)}
+
+                          className="text-black hover:text-[#b3b93d] rounded-full w-[35px] h-[35px] p-[5px] m-[3px] cursor-pointer"
+                        />
                       </div>
                       {item.discountedPrice && (
                         <p className="bg-[#fed504] m-[10px] px-[10px] py-[5px] text-[12px] rounded-[5px] absolute top-0">Endirim</p>
@@ -421,10 +582,10 @@ function PageComponent() {
                             <p className="font-bold text-[14px] text-[#9b9b9b] line-through">{item.name}</p>
                           </div>
                         ) : (
-                          <p className="font-bold text-[14px]">{item.price}</p>
+                          <p className="font-bold text-[14px] mt-[10px]">{item.name}</p>
                         )}
                       </div>
-          
+
                       {item.quantity > 0 ? (
                         <div className="block  mt-[100px] m-[10px]">
                           <p className="text-[14px] text-left mb-[8px]">Miqdar</p>
@@ -452,41 +613,41 @@ function PageComponent() {
                       )}
                     </div>
                   );
-                }) : 
-                
-                <div className="mt-[150px] w-full mx-auto">
-                  <p className="text-center font-bold text-[26px] mb-[20px]" >Sevimli məhsul tapılmadı 💔</p>
-                  <Link to="/" >
-                     <p className=" text-center cursor-pointer underline underline-offset-4 hover:decoration-[#b3b93d] text-[18px]"> Alış-verişə Davam Edin </p>
-                  </Link>
-                </div>  
+                }) :
+
+                  <div className="mt-[150px] w-full mx-auto">
+                    <p className="text-center font-bold text-[26px] mb-[20px]" >Sevimli məhsul tapılmadı 💔</p>
+                    <Link to="/" >
+                      <p className=" text-center cursor-pointer underline underline-offset-4 hover:decoration-[#b3b93d] text-[18px]"> Alış-verişə Davam Edin </p>
+                    </Link>
+                  </div>
                 }
-  
+
+              </div>
+
+
+
+
             </div>
-  
-  
-  
-  
+          </>
+        )}
+
+
+
+
+
+        {/* login page */}
+        {location.pathname === "/login" && (
+          <div className=" flex flex-col justify-center items-center w-[500px] mx-auto my-[100px] border border-[#e5e5e5] rounded-[5px]">
+            <p className="text-[24px] my-[20px]">🔐 Daxil Olun</p>
+            <input className="w-[70%] p-[6px] my-[8px] border border-[#5e5e5e] rounded-[5px] outline-none" type="email" placeholder="E-poçt" />
+            <input className="w-[70%] p-[6px] my-[8px] border border-[#5e5e5e] rounded-[5px] outline-none" type="parol" placeholder="Parol" />
+            <div className="flex justify-between gap-[30px] my-[30px]">
+              <button className=" bg-[#b3b93d] hover:bg-[#1e1e1e] text-white font-bold rounded-[5px] px-[10px] p-[8px] ">Daxil Olun</button>
+              <button className=" bg-[#e7e7e7]  text-black  rounded-[5px] px-[10px] p-[8px] ">Hesab Yarat</button>
             </div>
-            </>
-          )}
-          
-
-
-
-
-            {/* login page */}
-          {location.pathname === "/login" && (
-             <div className=" flex flex-col justify-center items-center w-[500px] mx-auto my-[100px] border border-[#e5e5e5] rounded-[5px]">
-                <p className="text-[24px] my-[20px]">🔐 Daxil Olun</p>
-                <input className="w-[70%] p-[6px] my-[8px] border border-[#5e5e5e] rounded-[5px] outline-none" type="email" placeholder="E-poçt" />
-                <input className="w-[70%] p-[6px] my-[8px] border border-[#5e5e5e] rounded-[5px] outline-none" type="parol" placeholder="Parol" />
-                <div className="flex justify-between gap-[30px] my-[30px]">
-                    <button className=" bg-[#b3b93d] hover:bg-[#1e1e1e] text-white font-bold rounded-[5px] px-[10px] p-[8px] ">Daxil Olun</button>
-                    <button className=" bg-[#e7e7e7]  text-black  rounded-[5px] px-[10px] p-[8px] ">Hesab Yarat</button>
-                </div>
-            </div>
-          )}
+          </div>
+        )}
 
 
 

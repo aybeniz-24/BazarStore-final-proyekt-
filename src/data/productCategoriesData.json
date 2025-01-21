@@ -1,11 +1,15 @@
 [
-    {
-        "name": "🍉 Meyvə, Tərəvəz",
+    {  
+        "id": 1,
+        "icon": "🍉",
+        "name": "Meyvə Tərəvəz",
         "product": [
             {
+                "id": 1, 
                 "name": "Meyvə",
                 "subcategories": [
                     {
+                        "id": 1, 
                         "name": "Eqzotik Meyvələr",
                         "products": [
                             {
@@ -77,6 +81,7 @@
                         ]
                     },
                     {
+                        "id": 2, 
                         "name": "Sitrus Meyvələri",
                         "products": [
                             {
@@ -158,6 +163,7 @@
                         ]
                     },
                     {
+                        "id": 3, 
                         "name": "Bərk Meyvələr",
                         "products": [
                             {
@@ -196,6 +202,7 @@
                         ]
                     },
                     {
+                        "id": 4, 
                         "name": "Yumşaq Meyvələr",
                         "products": [
                             {
@@ -234,10 +241,12 @@
                         ]
                     },
                     {
+                        "id": 5, 
                         "name": "Qarpız-Yemiş",
                         "products": []
                     },
                     {
+                        "id": 6, 
                         "name": "Quru Meyvə-Çərəzlər",
                         "products": [
                             {
@@ -285,15 +294,18 @@
                         ]
                     },
                     {
+                        "id": 7, 
                         "name": "Doğranmış Meyvələr",
                         "products": []
                     }
                 ]
             },
             {
+                "id": 2,
                 "name": "Tərəvəz",
                 "subcategories": [
                     {
+                        "id": 1,
                         "name": "Eqzotik Tərəvəzlər",
                         "products": [
                             {
@@ -315,6 +327,7 @@
                         ]
                     },
                     {
+                        "id": 2,
                         "name": "Mövsüm Tərəvəzləri",
                         "products": [
                             {
@@ -389,6 +402,7 @@
                         ]
                     },
                     {
+                        "id": 3,
                         "name": "Kartof-Soğan-Sarımsaq",
                         "products": [
                             {
@@ -426,10 +440,12 @@
                         ]
                     },
                     {
+                        "id": 4,
                         "name": "Soyulmuş Tərəvəzlər",
                         "products": []
                     },
                     {
+                        "id": 5,
                         "name": "Göbələk",
                         "products": [
                             {
@@ -445,9 +461,11 @@
                 ]
             },
             {
+                "id": 3,
                 "name": "Göyərti, Yarpaq",
                 "subcategories": [
                     {
+                        "id": 1,
                         "name": "Mövsüm Göyərtiləri",
                         "products": [
                             {
@@ -497,7 +515,9 @@
         ]
     },
     {
-        "name": "🍗 Ət, Toyuq, Baliq",
+        "id": 2, 
+        "icon": "🍗",
+        "name": "Ət, Toyuq, Baliq",
         "product": [
             {
                 "name": "Qırmızı Ət",

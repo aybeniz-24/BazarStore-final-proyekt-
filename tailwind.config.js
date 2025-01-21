@@ -12,6 +12,11 @@ export default {
         'lg': '1024px',
         'xlg': '1270px'
       },
+      gridTemplateColumns: {
+        '2': 'repeat(2, minmax(0, 1fr))',
+        '3': 'repeat(3, minmax(0, 1fr))',
+        '4': 'repeat(4, minmax(0, 1fr))',
+      },
       // Hover ilə bağlı xüsusi dəyişikliklər
       transform: ['hover', 'focus'],
       scale: {

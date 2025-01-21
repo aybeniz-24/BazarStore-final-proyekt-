@@ -1,26 +1,87 @@
 import 'bootstrap/dist/css/bootstrap.min.css'
 import '../../App.css'
 import menuData from '../../data/headerMenuData.json'
-import  { useContext, useState } from 'react'
+import  { useContext, useState, useEffect } from 'react'
 import headerLogo from "../../assets/HeaderImage/header-logo.png"
-import {  IoSearch } from "react-icons/io5"
+import {  IoChatboxEllipsesOutline, IoSearch } from "react-icons/io5"
 import { FaBars, FaFacebookF, FaInstagram, FaRegUser, FaTiktok } from "react-icons/fa6"
-import { IoMdArrowDropdown, IoMdClose } from "react-icons/io"
+import { IoIosArrowDropup, IoMdArrowDropdown, IoMdArrowDropup, IoMdClose } from "react-icons/io"
 import { FaRegHeart } from "react-icons/fa"
 import { Offcanvas } from 'react-bootstrap'
 import { FiYoutube } from 'react-icons/fi'
 import { Link, useNavigate } from 'react-router-dom'
-import { CiCircleInfo } from 'react-icons/ci'
+import { CiCircleInfo, CiSearch } from 'react-icons/ci'
 import { Badge, Button } from '@material-tailwind/react'
 import { BASKET } from '../context/BasketContext'
 import { FAVORIT } from '../context/FavoritContext'
 import { PiShoppingCartSimpleBold } from 'react-icons/pi'
-
-
+import { RiArrowDropUpLine } from 'react-icons/ri'
+import { IoIosArrowUp } from 'react-icons/io';
 
 
 function HeaderBottom() {
 
+  const [isScrolled, setIsScrolled] = useState(false); // Scroll vəziyyətini izləyirik
+  const [isHeaderVisible, setIsHeaderVisible] = useState(true); // Headerin görünməsini izləyirik
+
+  // Scroll hadisəsi üçün useEffect istifadə edirik
+  useEffect(() => {
+    const handleScroll = () => {
+      // Scroll vəziyyəti dəyişir
+      setIsScrolled(window.scrollY > 100); // 100px-dən çox scroll edilibsə, 'isScrolled' true olacaq
+      setIsHeaderVisible(window.scrollY < 50); // 50px-dən aşağı scroll edilibsə, header görünməyəcək
+    };
+
+    // Scroll hadisəsini dinləyirik
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
+
+
+
+  const [showNotification, setShowNotification] = useState(false); // Duyurunun göstərilməsi vəziyyəti
+
+  // Scroll hadisəsi üçün useEffect istifadə edirik
+  useEffect(() => {
+    const handleScroll = () => {
+      // Ekranın yarısından aşağıya inildikdə duyurunu göstər
+      if (window.scrollY > window.innerHeight / 2) {
+        setShowNotification(true);
+      } else {
+        setShowNotification(false);
+      }
+    };
+
+    // Scroll hadisəsini dinləyirik
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
+  // Səhifəni yuxarıya qaytarmaq üçün funksiya
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth', // Smooth scroll effektini əlavə edirik
+    });
+  };
+
+
+
+
+
+  const [isOpen, setIsOpen] = useState(false);
+
+  // Menyuya tıkladıqda açma və bağlama funksiyası
+  const toggleDropdown = () => {
+    setIsOpen(!isOpen);
+  };
   
   const { basket } = useContext(BASKET);
   const { favorites }  = useContext(FAVORIT)
@@ -104,11 +165,14 @@ const navigate = useNavigate(); // Navigate hook'u
   return (
     <>
       <section>
-      <div className='flex justify-between items-center  py-[20px] px-[15px] md:mx-[8%] my-[10px]'>
+      <div className={`flex justify-between items-center py-[20px] px-[15px] md:mx-[8%] my-[10px] ${isHeaderVisible ? '' : 'hidden'}`}>
 
           <div className='flex items-center lg:w-[25%]'>
-            <FaBars onClick={handleShow} className='inline text-[28px] md:text-[32px] pr-[10px] sm:mt-[6px] md:mt-[5px] lg:mt-[8px] lg:hidden  hover:text-[var(--primary-color)] cursor-pointer' />
-           <Link to="/">
+          <FaBars 
+            onClick={handleShow} 
+            className="inline text-[100px]   pr-2 lg:hidden hover:text-[var(--primary-color)] cursor-pointer" 
+          />
+          <Link to="/">
               <img className='w-[35%]  sm:w-[35%]  md:w-[35%] lg:w-[80%] ' src={headerLogo} alt="logo" />
            </Link>
           </div>
@@ -134,6 +198,8 @@ const navigate = useNavigate(); // Navigate hook'u
             )}
               <button className='border-[1px] p-[10px] rounded-r-full border-l-[0] bg-white'>  <IoMdArrowDropdown className='text-[20px]' /> </button>
             </div>
+
+
 
             <div className='flex justify-center rounded-full p-[5px]'>
               <input className='outline-none w-[200px] border-[1px] p-[6px] px-[10px] border-r-[0] rounded-l-full' type="search" placeholder='Məhsul Axtar' />
@@ -208,17 +274,15 @@ const navigate = useNavigate(); // Navigate hook'u
 
 
 
-          <div className='flex flex-row gap-[15px] justify-end lg:w-[15%]'>
+          <div className='flex flex-row gap-[18px] justify-end lg:w-[15%]'>
                   <IoSearch className='inline text-[24px] lg:hidden ' /> 
                   <Link to="/login" onClick={handleLoginClick} > 
                     <FaRegUser  className='inline text-[24px] cursor-pointer ' />
                   </Link>
 
-                <Badge className="px-[8px] text-[10px] right-[-12px] top-[-8px] bg-[#3e3b3a]" content={favorites.length || 0}>
+                <Badge className="hidden lg:inline px-[9px] text-[10px] right-[-12px] top-[-8px] bg-[#3e3b3a]" content={favorites.length || 0}>
                   <Link to="/favorit"  className="p-0 m-0 block" onClick={handleFavoritClick}>
-                      <Button className="p-0 m-0">
                         <FaRegHeart className='hidden lg:inline p-0 m-0 text-black text-[26px]' />
-                      </Button>
                   </Link>
 
                 </Badge>
@@ -226,11 +290,9 @@ const navigate = useNavigate(); // Navigate hook'u
 
                   
                   
-                  <Badge  className="px-[8px] text-[10px] right-[-12px] top-[-8px]  bg-[#3e3b3a]" content={basketBadge}>
+                  <Badge  className="px-[9px] text-[10px] right-[-12px] top-[-8px]  bg-[#3e3b3a]" content={basketBadge}>
                   <Link to="/basket" className="p-0 m-0 block" onClick={handleBasketClick}>
-                    <Button className="p-0 m-0">
                       <PiShoppingCartSimpleBold className="block p-0 m-0 text-black text-[28px]" />
-                    </Button>
                   </Link>
                 </Badge>
 
@@ -246,6 +308,60 @@ const navigate = useNavigate(); // Navigate hook'u
           </div>
       </section>
 
+
+      {isScrolled && (
+        <div className="fixed bottom-[60px] right-10 bg-[#b3b93d] p-[25px] rounded-full shadow-lg z-50 transition-opacity duration-2000 ease-in-out opacity-100">
+          <Badge className="px-[8px] right-[-10px] top-[-15px] text-[10px] bg-[#3e3b3a]" content={basketBadge}>
+            <Link to="/basket" className="p-0 m-0 block">
+                <PiShoppingCartSimpleBold className="text-white text-[28px]" />
+            </Link>
+          </Badge>
+        </div>
+      )}
+
+      
+
+
+<div className="relative">
+      {/* Button - Sağ aşağı küncdə */}
+      <button
+        onClick={toggleDropdown}
+        className="fixed bottom-4 right-[50px] p-[5px] px-[10px] bg-[#b3b93d] text-white rounded-full shadow-lg z-50">
+        <p><IoChatboxEllipsesOutline className='inline text-[24px] pr-[5px]'  />Buyurun...</p>
+      </button>
+
+
+      {/* Dropdown Menyu */}
+    <div
+        className={`fixed right-[50px] bottom-[60px] shadow-lg transition-all duration-300 z-20 transform ${
+          isOpen ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
+        }`}>
+          
+            <div className='p-[20px] bg-gradient-to-r from-[#b2b83d] via-[#808526] to-[#525410] rounded-[15px]'>
+              <p className='text-white text-[24px]'>🤍 Buyurun...</p>
+              <p className='text-[#ebebeb] p-[10px]'>
+                Sifarişinizin statusunu izləyin və ya ən çox <br /> verilən suallara baxın, dəstək üçün bizimlə <br /> əlaqə saxlayın.
+              </p>
+              <div className='my-[20px]'>
+                  <a className='text-[16px] mr-[15px] bg-[#ccc] p-[10px] pt-[5px] rounded-full ' href="https://facebook.com/bazarstore"><FaFacebookF className='inline' /></a>
+                  <a className='text-[16px] mr-[15px] bg-[#ccc] p-[10px] pt-[5px] rounded-full ' href="https://instagram.com/bazarstore"><FaInstagram className='inline' /></a>
+                  <a className='text-[16px] mr-[15px] bg-[#ccc] p-[10px] pt-[5px] rounded-full ' href="https://tiktok.com/@bazarstore"><FaTiktok className='inline' /></a>
+                  <a className='text-[16px] mr-[15px] bg-[#ccc] p-[10px] pt-[5px] rounded-full ' href="https://youtube.com/bazarstore"><FiYoutube className='inline' /></a>
+              </div>
+            </div>
+            
+      </div>
+
+
+      {showNotification && (
+        <span
+          className="fixed bottom-4 right-[-5px] transform -translate-x-1/2 bg-[#b3b93d] text-white rounded-[100%] shadow-lg cursor-pointer z-50 transition-opacity duration-2000 ease-in-out opacity-100"
+          onClick={scrollToTop}
+        >
+          <RiArrowDropUpLine className="text-[35px]" />
+        </span>
+      )}
+    </div>
       
 
 
@@ -260,27 +376,24 @@ const navigate = useNavigate(); // Navigate hook'u
             <ul className='mx-[5px]'>
                 {menuData.map(data => (
                   <li key={data.id} className='text-[16px] my-[5px] hover:text-[var(--primary-color)]'>
-                    <a href="#">{data.label}</a>  
+                    <a href="/notFound">{data.label}</a>  
                   </li>
                 ))}
               </ul>
 
-              {/* url lleri duzelt  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/}
-
+             
 
 
               <div className='my-[20px]'>
-                <a className='text-[16px] mr-[15px] bg-[#ccc] p-[10px] pt-[5px] rounded-full hover:bg-[var(--primary-color)] hover:text-white' href="https://facebook.com/bazarstore"><FaFacebookF className='inline' /></a>
-                <a className='text-[16px] mr-[15px] bg-[#ccc] p-[10px] pt-[5px] rounded-full hover:bg-[var(--primary-color)] hover:text-white' href="https://www.instagram.com/bazarstore_supermarket/"><FaInstagram className='inline' /></a>
-                <a className='text-[16px] mr-[15px] bg-[#ccc] p-[10px] pt-[5px] rounded-full hover:bg-[var(--primary-color)] hover:text-white' href="https://tiktok.com/@bazarstore"><FaTiktok className='inline' /></a>
-                <a className='text-[16px] mr-[15px] bg-[#ccc] p-[10px] pt-[5px] rounded-full hover:bg-[var(--primary-color)] hover:text-white' href="https://youtube.com/bazarstore"><FiYoutube className='inline' /></a>
+                <a href="https://facebook.com/bazarstore"  className='text-[16px] mr-[15px] bg-[#ccc] p-[10px] pt-[5px] rounded-full hover:bg-[var(--primary-color)] hover:text-white'><FaFacebookF className='inline' /></a>
+                <a href="https://www.instagram.com/bazarstore_supermarket/"  className='text-[16px] mr-[15px] bg-[#ccc] p-[10px] pt-[5px] rounded-full hover:bg-[var(--primary-color)] hover:text-white'><FaInstagram className='inline' /></a>
+                <a href="https://tiktok.com/@bazarstore"  className='text-[16px] mr-[15px] bg-[#ccc] p-[10px] pt-[5px] rounded-full hover:bg-[var(--primary-color)] hover:text-white'><FaTiktok className='inline' /></a>
+                <a href="https://youtube.com/bazarstore"  className='text-[16px] mr-[15px] bg-[#ccc] p-[10px] pt-[5px] rounded-full hover:bg-[var(--primary-color)] hover:text-white'><FiYoutube className='inline' /></a>
               </div>
            </div>
           </Offcanvas.Body>
         </Offcanvas>
 
-
-      
     </>
   )
 }

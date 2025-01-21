@@ -1,7 +1,7 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { FreeMode, Navigation } from 'swiper/modules';
 import { useEffect, useRef, useState } from 'react';
-import { ProductType, blogData, newsData } from '../../services/api'; // Həm ProductType, həm də blogData, newsData import edirik
+import { ProductType, blogData, newsData } from '../../services/api';
 
 function CombinedComponent() {
   const [productTypes, setProductTypes] = useState([]);
@@ -14,16 +14,17 @@ function CombinedComponent() {
     newsData().then(data => setNews(data));
   }, []);
 
-  const swiperRef = useRef(null);
+  // Fərqli referanslar yaratmaq
+  const swiperProductRef = useRef(null);
+  const swiperBlogRef = useRef(null);
+  const swiperNewsRef = useRef(null);
 
   return (
     <div>
       {/* Məhsul növləri bölməsi */}
       <div className="relative my-[30px] mb-[60px]">
-        {/* <h2 className="text-[24px] font-bold mb-[20px] absolute left-[30px] top-0 z-10">Məhsul Növləri</h2> */}
-
         <Swiper
-          ref={swiperRef}
+          ref={swiperProductRef}
           slidesPerView={5}
           spaceBetween={30}
           freeMode={true}
@@ -61,18 +62,18 @@ function CombinedComponent() {
         <div className="absolute top-0 right-[70px] flex items-center gap-2 z-10">
           <button
             className="swiper-button-prev bg-gray-200 p-2 rounded-full transform rotate-180 scale-[.8]"
-            onClick={() => swiperRef.current.swiper.slideNext()}
+            onClick={() => swiperBlogRef.current.swiper.slideNext()}
           >
           </button>
           <button
             className="swiper-button-next bg-gray-200 p-2 rounded-full transform rotate-180 scale-[.8]"
-            onClick={() => swiperRef.current.swiper.slidePrev()}
+            onClick={() => swiperBlogRef.current.swiper.slidePrev()}
           >
           </button>
         </div>
 
         <Swiper
-          ref={swiperRef}
+          ref={swiperBlogRef}
           slidesPerView={3}
           spaceBetween={5}
           freeMode={true}
@@ -108,18 +109,18 @@ function CombinedComponent() {
         <div className="absolute top-0 right-[70px] flex items-center gap-2 z-10">
           <button
             className="swiper-button-prev bg-gray-200 p-2 rounded-full transform rotate-180 scale-[.8]"
-            onClick={() => swiperRef.current.swiper.slideNext()}
+            onClick={() => swiperNewsRef.current.swiper.slideNext()}
           >
           </button>
           <button
             className="swiper-button-next bg-gray-200 p-2 rounded-full transform rotate-180 scale-[.8]"
-            onClick={() => swiperRef.current.swiper.slidePrev()}
+            onClick={() => swiperNewsRef.current.swiper.slidePrev()}
           >
           </button>
         </div>
 
         <Swiper
-          ref={swiperRef}
+          ref={swiperNewsRef}
           slidesPerView={3}
           spaceBetween={5}
           freeMode={true}
