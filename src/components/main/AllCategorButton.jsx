@@ -113,7 +113,7 @@ function AllCategorButton() {
        
 
         {/* Sağ tərəf - Menyu və Slayder */}
-        <div className="flex-col justify-between h-full lg:block xlg:w-[75%] xlg:ml-[20px]">
+        <div className="flex-col justify-between h-full  lg:block xlg:w-[75%] xlg:ml-[20px]">
           <ul className="m-[12px] hidden justify-between lg:flex xlg:flex">
             {menuData.map((menu, menuIndex) => (
               <li key={menuIndex} className="relative group text-[16px] my-[5px] hover:text-[var(--primary-color)]">

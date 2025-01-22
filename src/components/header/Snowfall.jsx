@@ -7,14 +7,14 @@ const Snowfall = () => {
   useEffect(() => {
     const createSnowflakes = () => {
       const flakes = [];
-      for (let i = 0; i < 50; i++) { // Qar dənəciklərinin sayı
+      for (let i = 0; i < 50; i++) {
         flakes.push({
           id: i,
-          x: Math.random() * window.innerWidth, // Yatay mövqe
-          y: Math.random() * window.innerHeight, // Şaquli mövqe
-          size: Math.random() * 15 + 5, // Ölçü
-          speedY: Math.random() * 2 + 1, // Şaquli sürət
-          speedX: Math.random() * 2 - 1, // Yatay sürət
+          x: Math.random() * window.innerWidth,
+          y: Math.random() * window.innerHeight,
+          size: Math.random() * 15 + 5,
+          speedY: Math.random() * 2 + 1,
+          speedX: Math.random() * 2 - 1,
         });
       }
       setSnowflakes(flakes);
@@ -29,14 +29,13 @@ const Snowfall = () => {
           x: flake.x + flake.speedX,
           y: flake.y + flake.speedY > window.innerHeight
             ? 0
-            : flake.y + flake.speedY, // Ekrandan çıxdıqda təkrar
+            : flake.y + flake.speedY,
         }))
       );
     };
 
     const interval = setInterval(moveSnowflakes, 50);
 
-    // Yenidən ölçüləndə qar dənəciklərini tənzimlə
     window.addEventListener("resize", createSnowflakes);
 
     return () => {
@@ -56,8 +55,8 @@ const Snowfall = () => {
             left: flake.x,
             fontSize: `${flake.size}px`,
             zIndex: 9999,
-            color: "rgba(255, 255, 255, 0.8)", // Rəng və şəffaflıq
-            pointerEvents: "none", // Klik etməyi bloklamaq üçün
+            color: "rgba(255, 255, 255, 0.8)",
+            pointerEvents: "none",
           }}
         />
       ))}

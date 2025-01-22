@@ -17,7 +17,6 @@ export default {
         '3': 'repeat(3, minmax(0, 1fr))',
         '4': 'repeat(4, minmax(0, 1fr))',
       },
-      // Hover ilə bağlı xüsusi dəyişikliklər
       transform: ['hover', 'focus'],
       scale: {
         102: '1.02',

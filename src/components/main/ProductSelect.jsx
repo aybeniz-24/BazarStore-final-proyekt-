@@ -21,6 +21,7 @@ import { HiBars2, HiBars3, HiBars4 } from "react-icons/hi2";
 
 
 function ProductSelect() {
+  
   const [productData, setProductData] = useState(null);
   const [page, setPage] = useState(1);
   const [limit, setLimit] = useState(12);
@@ -43,29 +44,39 @@ function ProductSelect() {
 
 
 
+
+
+
+                                         
   const [sortOption, setSortOption] = useState("asc"); // Default olaraq "Ucuzdan Bahaya"
 
-useEffect(() => {
-  // Məhsulları API-dən alarkən qiymətə görə sıralamaq
-  getProductsBySubId(subId, page, limit).then((res) => {
-    const sortedProducts = res.products.map((item) => ({
-      ...item,
-      count: 1,
-    }));
-
-    if (sortOption === "asc") {
-      // Qiymətə görə artan (ucuzdan bahaya)
-      sortedProducts.sort((a, b) => a.price - b.price);
-    } else if (sortOption === "desc") {
-      // Qiymətə görə azalan (bahadan ucuza)
-      sortedProducts.sort((a, b) => b.price - a.price);
-    }
-
-    setProductData(sortedProducts);
-    setTotalPages(res.totalPages);
-  });
-}, [subId, page, limit, sortOption]); // sortOption əlavə olundu
-
+  useEffect(() => {
+    // Məhsulları API-dən alarkən qiymətə və ada görə sıralamaq
+    getProductsBySubId(subId, page, limit).then((res) => {
+      const sortedProducts = res.products.map((item) => ({
+        ...item,
+        count: 1,
+      }));
+  
+      if (sortOption === "asc") {
+        // Qiymətə görə artan (ucuzdan bahaya)
+        sortedProducts.sort((a, b) => a.price - b.price);
+      } else if (sortOption === "desc") {
+        // Qiymətə görə azalan (bahadan ucuza)
+        sortedProducts.sort((a, b) => b.price - a.price);
+      } else if (sortOption === "a-z") {
+        // Adlara görə artan (A-dan Z-yə)
+        sortedProducts.sort((a, b) => a.name.localeCompare(b.name));
+      } else if (sortOption === "z-a") {
+        // Adlara görə azalan (Z-dən A-ya)
+        sortedProducts.sort((a, b) => b.name.localeCompare(a.name));
+      }
+  
+      setProductData(sortedProducts);
+      setTotalPages(res.totalPages);
+    });
+  }, [subId, page, limit, sortOption]);
+     
   
 
   useEffect(() => {
@@ -84,17 +95,45 @@ useEffect(() => {
     setPage(1);
   }, [catname]);
 
+  // const updateCount = (id, increment) => {
+  //   setProductData((prevProducts) =>
+  //     prevProducts.map((item) =>
+  //       item.id === id
+  //         ? { ...item, count: Math.max(1, item.count + increment) }
+  //         : item
+  //     )
+  //   );
+  // }
+ 
+  
+
+
+  // Miqdarı artırıb-azaltmaq üçün funksiya
   const updateCount = (id, increment) => {
     setProductData((prevProducts) =>
       prevProducts.map((item) =>
         item.id === id
-          ? { ...item, count: Math.max(1, item.count + increment) }
+          ? { ...item, count: Math.max(1, item.count + increment) } // Miqdar 1-dən az olmur
           : item
       )
     );
-  }
- 
-  
+  };
+
+// Səbətə əlavə etmək
+const addToBasketHandler = (item) => {
+  addToBasket(
+    item.id,
+    item.img,
+    item.price,
+    item.name,
+    item.discountedPrice,
+    item.count, // Miqdar burada istifadə olunur
+    item.marka,
+    item.sku
+  );
+};
+
+
   
 
   return (
@@ -116,7 +155,19 @@ useEffect(() => {
             </div>
       </>
 
-      <div className="max-w-[1150px] mx-auto md:px-[15px]">
+
+
+
+      <div className="md:mx-[8%] flex flex-col lg:flex-row justify-between">
+
+
+<div className="w-full lg:w-[23%] ">
+  <Advertising />
+</div>
+
+
+
+      <div className="mx-[10px] md:px-[15px] ">
         <div className="px-2 mdl:flex gap-2 w-full">
           
 
@@ -131,20 +182,25 @@ useEffect(() => {
               <div className="product-filter md:flex mdl:justify-end md:gap-3 justify-between  my-[15px]">
                               
 
-<div>
+              <div>
   
-<form className="flex items-center mb-[15px] ">
-  <label className="font-normal text-[18px] mr-[18px] leading-10" htmlFor="sortPrice">
-    Qiymət:
-  </label>
-  <select value={sortOption} onChange={(e) => setSortOption(e.target.value)}
-    className="font-bold h-[38px] text-[14px] px-[10px] rounded-[24px] bg-white border border-[#e5e5e5] cursor-pointer text-black w-full outline-none "
-    id="sortPrice">
-    <option value="asc">Ucuzdan Bahaya</option>
-    <option value="desc">Bahadan Ucuza</option>
-  </select>
-</form>
-</div>
+  <form className="flex items-center mb-[15px]">
+      <label className=" text-[18px] mr-[18px] leading-10" htmlFor="sortPrice">
+        Seçilmişlər 
+      </label>
+      <select
+        value={sortOption}
+        onChange={(e) => setSortOption(e.target.value)}
+        className="font-bold h-[40px] text-[14px] px-[35px]  bg-white border border-[#e5e5e5] cursor-pointer text-black w-full outline-none"
+        id="sortPrice"
+      >
+        <option value="asc">Ucuzdan Bahaya</option>
+        <option value="desc">Bahadan Ucuza</option>
+        <option value="a-z">A-dan Z-yə</option>
+        <option value="z-a">Z-dən A-ya</option>
+      </select>
+    </form>
+  </div>   
 
 
 <div className='flex '>
@@ -156,7 +212,7 @@ useEffect(() => {
                     Məhsul:
                   </label>
                   <select value={limit} onChange={(e) => setLimit(Number(e.target.value))}
-                    className="font-bold h-[38px] text-[14px] px-[10px] rounded-[24px] bg-white border border-[#e5e5e5] cursor-pointer text-black w-full outline-none "
+                    className="font-bold h-[38px] text-[14px] px-[10px]  bg-white border border-[#e5e5e5] cursor-pointer text-black w-full outline-none "
                     id="sort"
                   >
                     <option value="12">12</option>
@@ -210,12 +266,19 @@ useEffect(() => {
                         >
                         
                           <div className="w-full min-h-[150px] relative">
+
                             <img
                               className="object-cover w-full"
                               src={item.img}
                               alt=""
                             />
-                           
+
+
+4
+
+
+
+
                           </div>
                           <h3 className="text-[14px] mb-4 mt-[15px] px-[25px] text-left ">
                             {item.name}
@@ -226,23 +289,55 @@ useEffect(() => {
 
                        
                                         <p className="text-left text-[14px] my-[8px] px-[25px] mx-[5px]">Miqdar</p>
-                                        <div className="mb-2 flex justify-center mx-[25px] items-center border border-gray-300 w-28 h-10">
+                                        {/* <div className="mb-2 flex justify-center mx-[25px] items-center border border-gray-300 w-28 h-10">
                                           <button
-                                            onClick={() => updateCount(index, counts[index] > 1 ? counts[index] - 1 : 1)}
-                                            className="cursor-pointer px-3"
+                                             onClick={() => updateCount(index, item.quantity > 1 ? item.quantity - 1 : 1)} className="cursor-pointer p-[13px]"
+                                           
                                           >
                                             -
                                           </button>
-                                          {/* <p className="mx-2">{counts[index]}</p> */}
+                                          <p className="mx-2">{item.count}</p>
+                                          <p className="mx-2">{counts[index]}</p>
                                           <button
                                             onClick={() => updateCount(index, counts[index] + 1)}
                                             className="cursor-pointer px-3"
                                           >
                                             +
                                           </button>
-                                        </div>
+                                        </div> */}
+
+
+<div className="mb-2 flex justify-center mx-[25px] items-center border border-gray-300 w-28 h-10">
+  <button
+    onClick={() => updateCount(item.id, -1)} // Decrement the quantity
+    className="cursor-pointer p-[13px]"
+  >
+    -
+  </button>
+  <p className="mx-2">{item.count}</p>
+  <button
+    onClick={() => updateCount(item.id, 1)} // Increment the quantity
+    className="cursor-pointer px-3"
+  >
+    +
+  </button>
+</div>
+
+
+{/* 
+
+<div className="mb-2 flex justify-center mx-[25px] items-center border border-gray-300 w-28 h-10">
+  <button onClick={() => updateCount(item.id, -1)} className="cursor-pointer p-[13px]">-</button>
+  <p className="mx-2">{item.count}</p>
+  <button onClick={() => updateCount(item.id, 1)} className="cursor-pointer px-3">+</button>
+</div> */}
+
+
+
+
+
                                         <div className="flex justify-start">
-                                          <button 
+                                          {/* <button 
                                             onClick={(e) => {
                                               e.preventDefault();
                                               addToBasket(
@@ -260,7 +355,22 @@ useEffect(() => {
                                             className="bg-gray-200 font-bold text-sm rounded-md mx-[25px] my-[20px] py-2 px-6 flex items-center hover:text-white hover:bg-[#b3b93d]"
                                           >
                                             <SlBasket className="mr-2" /> Səbətə At
-                                          </button>
+                                          </button> */}
+
+
+<button 
+  onClick={(e) => {
+    e.preventDefault();
+    addToBasketHandler(item); // Basketə əlavə et
+  }}
+  className="bg-gray-200 font-bold text-sm rounded-md mx-[25px] my-[20px] py-2 px-6 flex items-center hover:text-white hover:bg-[#b3b93d]"
+>
+  <SlBasket className="mr-2" /> Səbətə At
+</button>
+
+
+
+
                                         </div>
                                      
 
@@ -285,6 +395,11 @@ useEffect(() => {
             </div>
           </div>
         </div>
+      </div>
+
+
+
+
       </div>
     </div>
   );

@@ -27,17 +27,3 @@ export const updateTitleAndFavicon = () => {
 
 
 
-// Helper funksiyası
-// const updateIndex = (currentIndex, length, direction) => {
-//   if (direction === "next") {
-//     return (currentIndex + 1) % length;
-//   } else if (direction === "prev") {
-//     return (currentIndex - 1 + length) % length;
-//   }
-//   return currentIndex;
-// };
-
-// handleNext və handlePrev birləşdirilir
-// const handleUpdateIndex = (direction) => {
-//   setCurrentIndex((prevIndex) => updateIndex(prevIndex, feedback.length, direction));
-// };

@@ -4,12 +4,7 @@ import 'swiper/css'
 import 'swiper/css/navigation'
 import 'swiper/css/pagination'
 import { Autoplay, Navigation, Pagination } from 'swiper/modules'
-import slider1New from '../../assets/sliderImg/WhatsApp_Image_slidee1_new.webp'
-import slider1 from '../../assets/sliderImg/pantene-banner.webp'
-import slider2 from '../../assets/sliderImg/image.png'
-import slider3 from '../../assets/sliderImg/onlayna-ozel-banner.webp'
-import slider4 from '../../assets/sliderImg/Designs.webp'
-import slider5 from '../../assets/sliderImg/endirimler.webp'
+
 
 
 function MainSlider() {
@@ -27,20 +22,21 @@ function MainSlider() {
                         delay: 3000, 
                         disableOnInteraction: false,
                       }}
+                      
                       navigation 
                       loop={true}               
                     >
                        <SwiperSlide>
-                        <img src="https://bazarstore.az/cdn/shop/files/yeni-il-banner_900x452.jpg?v=1734592875;" alt="slider1new" />
+                        <img className="w-full h-auto object-cover" src="https://bazarstore.az/cdn/shop/files/yeni-il-banner_900x452.jpg?v=1734592875;" alt="slider1new" />
                       </SwiperSlide>
                       <SwiperSlide>
-                        <img src="https://bazarstore.az/cdn/shop/files/onlayna-ozel-banner-gif_900x452.jpg?v=1733982805;" alt="slider1new" />
+                        <img  className="w-full h-auto object-cover" src="https://bazarstore.az/cdn/shop/files/onlayna-ozel-banner-gif_900x452.jpg?v=1733982805;" alt="slider1new" />
                       </SwiperSlide> <div className="custom-pagination"></div>
                       <SwiperSlide>
-                        <img src="https://bazarstore.az/cdn/shop/files/onlayna-ozel-banner-gif_900x452.gif?v=1727676474;" alt="slider1new" />
+                        <img  className="w-full h-auto object-cover" src="https://bazarstore.az/cdn/shop/files/onlayna-ozel-banner-gif_900x452.gif?v=1727676474;" alt="slider1new" />
                       </SwiperSlide> <div className="custom-pagination"></div>
                       <SwiperSlide>
-                        <img src="https://bazarstore.az/cdn/shop/files/AnaSayfaBanner-Sari_etiket_-_AZE-min_900x452.jpg?v=1689335719;" alt="slider1new" />
+                        <img className="w-full h-auto object-cover" src="https://bazarstore.az/cdn/shop/files/AnaSayfaBanner-Sari_etiket_-_AZE-min_900x452.jpg?v=1689335719;" alt="slider1new" />
                       </SwiperSlide> <div className="custom-pagination"></div>
                     </Swiper>
 
