@@ -10,7 +10,6 @@ import { useLocation } from 'react-router-dom'
 import { Link } from 'react-router-dom';
 import { DATA } from '../context/DataContext'
 import ProductCarousel from './ProductCarousel'
-
 import { NewYear, PineTree, OnlineOrder, ProductMeats } from "../../services/api";
 import CombinedComponent from './CombinedComponent'
 import Advertising from './Advertising'
@@ -44,6 +43,7 @@ function AllCategorButton() {
 
     return (
     <section className="border-t-[1px] border-[#eee]">
+
       <div className="md:mx-[8%] mx-[2%] xlg:flex xlg:justify-between">
         {/* Sol tərəf - Kateqoriyalar */}
 

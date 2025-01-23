@@ -9,10 +9,11 @@ import { GoHome } from "react-icons/go";
 import Advertising from "./Advertising";
 import { IoIosInformationCircleOutline, IoMdClose } from "react-icons/io";
 import data from '../../data/data.json'
-import productData from '../../data/productCategoriesData.json'; // JSON faylının yeri
+import productData from '../../data/productCategoriesData.json';
 import { CiDeliveryTruck } from 'react-icons/ci';
 import { RiArrowDropDownLine } from 'react-icons/ri';
 import { IoReturnDownBack } from 'react-icons/io5';
+import { MdOutlineZoomIn } from 'react-icons/md';
 
 
 function PageComponent() {
@@ -23,9 +24,18 @@ function PageComponent() {
   const location = useLocation();
 
 
+  const meat = [
+    { id: 1, name: "SİYƏZƏN D.T TƏZƏ FİLE AÇIQ KQ", price: "7.19 ₼", img: "https://bazarstore.az/cdn/shop/files/98b514e78a7eb3d82323968ccc908758_100x.jpg?v=1736156000" },
+    { id: 2, name: "MƏRCAN TƏZƏ TOYUQ PAKET KQ", price: "7.50 ₼", img: "https://bazarstore.az/cdn/shop/files/b4a747abc2a48762beff344302619a79_100x.webp?v=1736146988" },
+    { id: 3, name: "MƏRCAN TƏZƏ TOYUQ FİLE KQ", price: "2.39 ₼", img: "https://bazarstore.az/cdn/shop/files/ad3e3dd6af6f217f66f4b596bdb5dbb4_100x.webp?v=1736146273" },
+    { id: 4, name: "SİYƏZƏN D.T TƏZƏ YAŞIL PAKET KQ", price: "4.99 ₼", img: "https://bazarstore.az/cdn/shop/files/07586faac76777e91d272f3296018b9e_100x.webp?v=1736147009" },
+  ]
+
+
   const titles = {
     "/favorit": "Seçilmişlər",
     "/basket": "Səbət",
+    "/login": "Login",
   };
 
   const getPageTitle = () => {
@@ -50,10 +60,6 @@ function PageComponent() {
   };
 
 
-
-
-
-
   const getProductData = () => {
     const queryParams = new URLSearchParams(location.search);
     const productId = queryParams.get("productId");
@@ -62,18 +68,17 @@ function PageComponent() {
       for (const category in data) {
         const product = data[category].find((item) => item.id === Number(productId));
         if (product) {
-          return product; // Məhsulu tapdıqda geri qaytar
+          return product;
         }
       }
     }
 
-    return null; // Əgər məhsul tapılmasa
+    return null;
   };
 
   const product = getProductData();
 
   const totalPrice = basket.reduce((acc, item) => {
-    // Qiymətləri düzgün şəkildə əldə edirik (endirimli və ya normal)
     const price = !isNaN(parseFloat(item.name)) ? parseFloat(item.name) :
       (!isNaN(parseFloat(item.price)) ? parseFloat(item.price) : 0);
     const quantity = !isNaN(parseInt(item.quantity)) ? parseInt(item.quantity) : 1;
@@ -81,9 +86,7 @@ function PageComponent() {
     return acc + price * quantity;
   }, 0);
 
-  // Endirimli qiymətləri düzgün hesablayırıq
   const discountedPrice = basket.reduce((acc, item) => {
-    // Endirimli qiyməti yalnız mövcud olduqda əlavə edirik
     const price = item.discountedPrice && !isNaN(parseFloat(item.discountedPrice)) ? parseFloat(item.discountedPrice) : 0;
     const quantity = !isNaN(parseInt(item.quantity)) ? parseInt(item.quantity) : 1;
 
@@ -91,13 +94,10 @@ function PageComponent() {
   }, 0);
 
 
-
   const [showPopup, setShowPopup] = useState(false);
 
-
-  // Qiyməti yoxlayaraq pop-up-u avtomatik açmaq üçün
   useEffect(() => {
-    if (discountedPrice < 40 || (discountedPrice >= 30 && discountedPrice <= 40)) {
+    if (discountedPrice >= 35 && discountedPrice <= 40) {
       setShowPopup(true);
     } else {
       setShowPopup(false);
@@ -106,28 +106,15 @@ function PageComponent() {
 
 
 
-  const [selected, setSelected] = useState("250g"); // Default olaraq "250g" seçili
 
-
-
-
-
-
-
+  const [selected, setSelected] = useState("250g");
   const [count, setCount] = useState(1);
 
-
-
-
-
   const addToBasket1 = (id, img, price, name, discountedPrice, quantity, marka, sku, count) => {
-    // Yerli yaddaşa səbəti yazın və ya global state istifadə edin
     const basket = JSON.parse(localStorage.getItem("basket")) || [];
 
-    // Yeni məhsulu səbətə əlavə et
     const newItem = { id, img, price, name, discountedPrice, quantity, marka, sku, count };
 
-    // Əgər məhsul artıq səbətdədirsə, miqdarını artırın
     const existingItemIndex = basket.findIndex(item => item.id === id);
     if (existingItemIndex !== -1) {
       basket[existingItemIndex].count += count;
@@ -135,13 +122,28 @@ function PageComponent() {
       basket.push(newItem);
     }
 
-    // Səbəti yerli yaddaşa yenidən yaz
     localStorage.setItem("basket", JSON.stringify(basket));
   };
 
   const [deliveryOpen, setDeliveryOpen] = useState(false);
   const [returnPolicyOpen, setReturnPolicyOpen] = useState(false);
   const [infoOpen, setInfoOpen] = useState(false);
+
+
+  const [zoom, setZoom] = useState({ x: 0, y: 0 });
+  const [isZoomActive, setIsZoomActive] = useState(false);
+
+  const handleMouseMove = (e) => {
+    if (!isZoomActive) return;
+    const { left, top, width, height } = e.target.getBoundingClientRect();
+    const x = ((e.clientX - left) / width) * 100;
+    const y = ((e.clientY - top) / height) * 100;
+    setZoom({ x, y });
+  };
+
+  const toggleZoom = () => {
+    setIsZoomActive((prev) => !prev);
+  };
 
 
   return (
@@ -158,28 +160,57 @@ function PageComponent() {
           <Link to="/favorit">
             <p className="inline text-[18px] ml-[10px] hover:text-[#b3b93d]">{getPageTitle()}</p>
           </Link>
-
-
         </div>
       </div>
 
-
-
       <div>
 
-
-
-
-        {/* choice page funksionalligi */}
+        {/* choice page  */}
         {location.pathname === "/choice" && product && (
           <>
-            <div className="flex flex-row md:mx-[8%] mx-[2%] h-[600px] ">
-              <div className="w-[100%] h-[500px] p-[20px] border border-[#f0f0f0] flex justify-center items-center overflow-hidden">
-                <img src={product.img} alt={product.name} className="w-[480px] h-[450px] object-cover" />
+            <div className="flex flex-col sm:flex-col md:flex-col lg:flex-row xlg:flex-row md:mx-[8%] mx-[2%] lg:h-[600px] xlg:h-[600px] ">
+              <div
+                className="w-[100%] sm:h-[400px] md:h-[500px] lg:h-[500px] xlg:h-[500px] p-[20px] border border-[#f0f0f0] flex justify-center items-center overflow-hidden"
+                onMouseMove={handleMouseMove}
+              >
+
+                <div className="relative w-full sm:h-[400px] md:h-[500px] lg:h-[500px] xlg:h-[500px] p-[20px] border border-[#f0f0f0] flex justify-center items-center overflow-hidden">
+                  <div
+                    className={`absolute w-full h-full transition-all ${isZoomActive ? "z-20" : "z-10"
+                      }`}
+                    style={{
+                      backgroundImage: `url(${product.img})`,
+                      backgroundPosition: `${zoom.x}% ${zoom.y}%`,
+                      backgroundSize: isZoomActive ? "200%" : "100%",
+                      backgroundRepeat: "no-repeat",
+                      visibility: isZoomActive ? "visible" : "hidden",
+                      transition: "background-position 0.2s ease-out",
+                    }}
+                    onMouseMove={handleMouseMove}
+                  />
+                  <img
+                    src={product.img}
+                    alt={product.name}
+                    className={`xlg:w-[480px] xlg:h-[450px] object-cover transition-all ${isZoomActive ? "opacity-0" : "opacity-100" 
+                      }`}
+                  />
+                  <div
+                    onClick={toggleZoom}
+                    className="absolute top-4 right-4 p-2 bg-white rounded-full shadow-lg cursor-pointer z-30"
+                  >
+                    <MdOutlineZoomIn size={30} color="#333" />
+                  </div>
+                  {isZoomActive && (
+                    <div className="absolute bottom-4 left-4 p-2 bg-black text-white text-sm rounded">
+                      Zoom Aktivdir
+                    </div>
+                  )}
+                </div>
               </div>
 
+
               <div className="pl-[20px] my-[20px]">
-                <p className="uppercase text-[22px]">{product.name}</p>
+                <p className="uppercase text-[16px] lg:text-[22px] xlg:text-[22px]">{product.name}</p>
 
                 <div className="flex gap-[20px]">
                   {product.discountedPrice ? (
@@ -192,31 +223,30 @@ function PageComponent() {
                   )}
                 </div>
 
-                <p className="pb-[20px] border-b-[2px] border-b-[#f0f0f0]">
-            <span className="uppercase">{product.marka}</span> brendinin <span className="uppercase">{product.name}</span> məhsulunu indi əldə etmək üçün alış-verişə başlaya bilərsiniz.
-          </p>
+                <p className="pb-[20px] border-b-[2px] border-b-[#f0f0f0] sm:text:[14px] md:text-[16px] lg:[18px] xlg:[20px] text-[12px]">
+                  <span className="uppercase">{product.marka}</span> brendinin <span className="uppercase">{product.name}</span> məhsulunu indi əldə etmək üçün alış-verişə başlaya bilərsiniz.
+                </p>
 
 
                 <div className="flex gap-[30px] my-[20px]">
                   <div>
-                    <p className="font-bold text-[18px] my-[5px]">Marka</p>
-                    <p className="font-bold text-[18px] my-[5px]">Sku</p>
-                    <p className="font-bold text-[18px] my-[5px]">Mövcudluq</p>
+                    <p className="font-bold sm:text:[14px] md:text-[16px] lg:[18px] xlg:[18px] text-[12px] my-[5px]">Marka</p>
+                    <p className="font-bold sm:text:[14px] md:text-[16px] lg:[18px] xlg:[18px] text-[12px] my-[5px]">Sku</p>
+                    <p className="font-bold sm:text:[14px] md:text-[16px] lg:[18px] xlg:[18px] text-[12px] my-[5px]">Mövcudluq</p>
                   </div>
                   <div>
-                    <p className="text-[18px] my-[5px]">: {product.marka}</p>
-                    <p className="text-[18px] my-[5px]">: {product.sku}</p>
-                    <p className="text-[18px] my-[5px]">: Mövcuddur</p>
+                    <p className="sm:text:[14px] md:text-[16px] lg:[18px] xlg:[18px] text-[12px] my-[5px]">: {product.marka}</p>
+                    <p className="sm:text:[14px] md:text-[16px] lg:[18px] xlg:[18px] text-[12px] my-[5px]">: {product.sku}</p>
+                    <p className="sm:text:[14px] md:text-[16px] lg:[18px] xlg:[18px] text-[12px] my-[5px]">: Mövcuddur</p>
                   </div>
                 </div>
 
-                {/* Delivery and Payment Section */}
                 <div className="border-b border-[#e1e1e1] rounded w-full mt-[20px] py-[10px]">
                   <p
                     onClick={() => setDeliveryOpen(!deliveryOpen)}
                     className="flex items-center justify-between cursor-pointer text-lg"
                   >
-                    <span className="flex items-center">
+                    <span className="flex items-center sm:text:[16px] md:text-[20px] lg:[25px] xlg:[25px] text-[12px]">
                       <CiDeliveryTruck className="mr-4 text-[25px]" /> Çatdırılma və Ödəniş
                     </span>
                     <RiArrowDropDownLine
@@ -232,13 +262,12 @@ function PageComponent() {
                   </div>
                 </div>
 
-                {/* Return Policy Section */}
                 <div className="border-b border-[#e1e1e1] rounded w-full py-[10px] my-[20px]">
                   <p
                     onClick={() => setReturnPolicyOpen(!returnPolicyOpen)}
                     className="flex items-center justify-between cursor-pointer text-lg"
                   >
-                    <span className="flex items-center">
+                    <span className="flex items-center sm:text:[16px] md:text-[20px] lg:[25px] xlg:[25px] text-[10px]">
                       <IoReturnDownBack className="mr-4 text-[25px]" /> Geri Qaytarma Şərtləri
                     </span>
                     <RiArrowDropDownLine
@@ -257,13 +286,12 @@ function PageComponent() {
                   </div>
                 </div>
 
-                {/* Information and Rules Section */}
                 <div className="border-b border-[#e1e1e1] rounded w-full py-[10px] my-[20px]">
                   <p
                     onClick={() => setInfoOpen(!infoOpen)}
                     className="flex items-center justify-between cursor-pointer text-lg"
                   >
-                    <span className="flex items-center">
+                    <span className="flex items-center sm:text:[16px] md:text-[20px] lg:[25px] xlg:[25px] text-[12px]">
                       <IoIosInformationCircleOutline className="mr-4 text-[25px]" /> Məlumat Və Qaydalar
                     </span>
                     <RiArrowDropDownLine
@@ -279,11 +307,11 @@ function PageComponent() {
                   </div>
                 </div>
               </div>
-              
+
             </div>
             <div className='md:mx-[8%] mx-[2%] mb-[40px]'>
               <div className='bg-[#b3b93d] w-[100px] text-[20px] text-center text-white py-[10px] rounded-top'>Təsvir</div>
-              <div className= ' border-[2px] border-[#f0f0f0] p-[15px] rounded-[8px]'>
+              <div className=' border-[2px] border-[#f0f0f0] p-[15px] rounded-[8px]'>
                 <p className="p-[20px] ">
                   <span className="uppercase">{product.marka}</span> brendinin <span className="uppercase">{product.name}</span> məhsulunu indi əldə etmək üçün alış-verişinizi başlaya bilərsiniz.
                 </p>
@@ -292,105 +320,95 @@ function PageComponent() {
                 </p>
               </div>
             </div>
-            
+
           </>
-          )}
+        )}
 
 
-
-
-
-
-
-
-
-
-        {/* basket page funksionalligi */}
+        {/* basket page  */}
         {location.pathname === "/basket" && (
           <>
             <div className="md:mx-[8%] mx-[2%]  ">
               {basket && basket.length > 0 ? (
-                <table className="w-full text-center border-collapse my-[20px] mt-[50px] ">
+                <table className="w-full text-center border-collapse my-5 mt-12">
                   <thead>
-                    <tr className='border-b '>
-                      <th className="w-[40%] py-4">Məhsul</th>
-                      <th className="w-[15%] py-4">Qiymət</th>
-                      <th className="w-[30%] py-4">Miqdar</th>
-                      <th className="w-[15%] py-4">Ümumi</th>
+                    <tr className="border-b">
+                      <th className="w-1/2 py-4 sm:w-1/2 md:w-1/2 lg:w-2/5">Məhsul</th>
+                      <th className="w-1/2 py-4 sm:w-1/2 md:w-1/2 lg:w-1/6">Qiymət</th>
+                      <th className="hidden lg:table-cell lg:w-3/10 py-4">Miqdar</th>
+                      <th className="hidden lg:table-cell lg:w-1/6 py-4">Ümumi</th>
                     </tr>
                   </thead>
-
                   <tbody>
                     {basket.map((item, index) => (
-                      <tr key={item.id} className="bg-white  hover:bg-gray-100 border-b">
+                      <tr key={item.id} className="bg-white hover:bg-gray-100 border-b">
                         <td className="py-4">
-                          <div className="flex justify-start items-center">
-                            <img className="w-[80px] inline rounded-[5px]" src={item.img} alt={item.name} />
-                            <p className="inline text-[15px] uppercase">{item.price}</p>
+                          <div className="flex flex-col md:flex-row justify-start items-center md:items-start">
+                            <img className="w-[80px] rounded-[5px] mb-2 md:mb-0" src={item.img} alt={item.name} />
+                            <div className="md:ml-4 text-center md:text-left">
+                              <p className="text-[15px] uppercase">{item.name}</p>
+                              <p className="text-[15px]">{item.price}</p>
+                            </div>
                           </div>
                         </td>
-
                         <td className="py-4">
                           {item.discountedPrice ? (
-                            <div className="flex flex-col">
-                              <p className=" text-[14px] text-[#9b9b9b] line-through">{item.name}</p>
-                              <p className=" text-[14px] text-[#439e4a]">{item.discountedPrice}</p>
+                            <div className="flex flex-col text-center md:text-left">
+                              <p className="text-[14px] text-[#9b9b9b] line-through">{item.name}</p>
+                              <p className="text-[14px] text-[#439e4a]">{item.discountedPrice}</p>
                             </div>
                           ) : (
-                            <p className="font-bold text-[14px]">{item.name}</p>
+                            <p className="font-bold text-[14px] text-center md:text-left">{item.name}</p>
                           )}
                         </td>
-
-
-                        {/* Bu basketPagede cixan hissedir  */}
                         <td className="py-4">
-                          <div className="flex justify-center items-center">
-                            <div className="mb-[20px] flex justify-center items-center border-[1px] border-[#e8e8e8] w-[100px] h-[40px]">
+                          <div className="flex flex-col md:flex-row justify-center items-center">
+                            <div className="flex justify-center items-center border-[1px] border-[#e8e8e8] w-[100px] h-[40px] mb-2 md:mb-0">
                               <button
                                 onClick={() => {
-                                  const newQuantity = item.quantity > 1 ? item.quantity - 1 : 0; // Miqdarı sıfıra endiririk
-                                  updateCount(index, newQuantity); // Miqdarı azaldırıq və sıfır olduqda silirik
+                                  const newQuantity = item.quantity > 1 ? item.quantity - 1 : 0;
+                                  updateCount(index, newQuantity);
                                 }}
-                                // onClick={() => updateCount(index, item.quantity > 1 ? item.quantity - 1 : 1)}
                                 className="cursor-pointer p-[13px]"
                               >
                                 -
                               </button>
                               <p className="mx-[10px]">{item.quantity}</p>
                               <button
-                                onClick={() => updateCount(index, item.quantity + 1)} // Miqdarı artırırıq
+                                onClick={() => updateCount(index, item.quantity + 1)}
                                 className="cursor-pointer p-[13px]"
-
-                              // onClick={() => updateCount(index, item.quantity + 1)} className="cursor-pointer p-[13px]"
                               >
                                 +
                               </button>
                             </div>
-                            <div className="p-2">
-                              <button className="p-2 bg-[#b3b93d] hover:bg-[#1e1e1e] rounded mb-[20px]">
-                                <FaRegTrashCan
-                                  onClick={() => removeFromBasket(item.id)}
-                                  className="text-white text-[20px] m-[2px]" />
-                              </button>
-                            </div>
+                            <button className="p-2 bg-[#b3b93d] hover:bg-[#1e1e1e] rounded">
+                              <FaRegTrashCan
+                                onClick={() => removeFromBasket(item.id)}
+                                className="text-white text-[20px] m-[2px]"
+                              />
+                            </button>
                           </div>
                         </td>
-
-                        <td className="py-4">
+                        <td className="py-4 hidden lg:table-cell">
                           {item.discountedPrice ? (
                             <div className="flex flex-col">
-                              <p className="font-bold text-[14px] text-[#9b9b9b] line-through">{((parseFloat(item.name) || 0) * (parseInt(item.quantity) || 1)).toFixed(2)} ₼</p>
+                              <p className="font-bold text-[14px] text-[#9b9b9b] line-through">
+                                {((parseFloat(item.name) || 0) * (parseInt(item.quantity) || 1)).toFixed(2)} ₼
+                              </p>
                               <p className="font-bold text-[14px] text-[#439e4a]">
                                 {((parseFloat(item.discountedPrice) || 0) * (parseInt(item.quantity) || 1)).toFixed(2)} ₼
                               </p>
                             </div>
                           ) : (
-                            <p className="font-bold text-[14px]">{((parseFloat(item.name) || 0) * (parseInt(item.quantity) || 1)).toFixed(2)} ₼</p>
+                            <p className="font-bold text-[14px]">
+                              {((parseFloat(item.name) || 0) * (parseInt(item.quantity) || 1)).toFixed(2)} ₼
+                            </p>
                           )}
                         </td>
                       </tr>
                     ))}
                   </tbody>
+
                 </table>
               ) : (
                 <div className="my-[140px] w-full mx-auto text-center">
@@ -432,18 +450,18 @@ function PageComponent() {
                 </div>
               )}
             </div>
-            <div className="md:mx-[8%] mx-[2%] flex justify-between text-[#1e1e1e]">
+            <div className="md:mx-[8%] mx-[2%] flex  xlg:justify-between lg:justify-between text-[#1e1e1e] md:flex-col  sm:flex-col flex-col lg:flex-row xlg:flex-row">
 
 
               <div>
-                <p className='my-[20px]'> 📑 Sifariş üçün xüsusi təlimatlar varmı?</p>
-                <div className='my-[5px]'>
+                <p className='my-[20px] '> 📑 Sifariş üçün xüsusi təlimatlar varmı?</p>
+                <div className='my-[5px] '>
                   <textarea
-                    className='border-[#7e7e7e] border w-[80%]  h-[100px] p-2 resize-none outline-none'
+                    className='border-[#7e7e7e] border xlg:w-[80%] lg:w-[80%] md:w-[100%] sm:w-[100%] w-[100%] h-[100px] p-2 resize-none outline-none'
                     placeholder='Your note here'
                   ></textarea>
                 </div>
-                <div className='border-[#7e7e7e] border my-[10px] p-[10px] w-[80%]'>
+                <div className='border-[#7e7e7e] border my-[10px] p-[10px] xlg:w-[80%] lg:w-[80%] md:w-[100%] sm:w-[100%] w-[100%]'>
                   <p className='p-[5px] mb-[25px] px-[10px] font-bold'>Almaq istədiyiniz məhsullardan hər hansı biri bitmişsə nə etməliyik? Zəhmət olmasa seçin.</p>
                   <div className="my-[5px]">
                     <p className="mb-[10px] px-[10px]">
@@ -463,7 +481,7 @@ function PageComponent() {
                     </p>
                   </div>
                 </div>
-                <div className='border-[#7e7e7e] border mb-[50px] p-[10px]  w-[80%]'>
+                <div className='border-[#7e7e7e] border mb-[50px] p-[10px]  xlg:w-[80%] lg:w-[80%] md:w-[100%] sm:w-[100%] w-[100%] '>
                   <p className='px-[10px]'>
                     Bonuslarınızdan istifadə etmək istəyirsinizsə, aşağıdakı qutunu işarələyərək bonuslarınızı bu qaydada istifadə edə bilərsiniz.
                     <p className=' my-[15px] '>Bonuslarınız üçün
@@ -471,14 +489,10 @@ function PageComponent() {
                     </p>
                   </p>
                 </div>
-
               </div>
 
-
-
-
-              <div className='w-[90%]'>
-                <div className='w-[100%] flex flex-col items-end'>
+              <div className='xlg:w-[90%] lg:w-[90%] md:w-[100%] sm:w-[100%] w-[100%] mb-[40px]'>
+                <div className='w-[100%] flex flex-col items-center sm:items-center md:items-center lg:items-end xlg:items-end'>
                   <div className='flex  gap-[30px] my-[20px]'>
                     <p className='text-[20px]'> Ara cəmi </p>
                     <p className='font-bold text-[20px] text-gray-500 line-through'>{totalPrice.toFixed(2)} ₼</p>
@@ -491,27 +505,27 @@ function PageComponent() {
                       if (discountedPrice >= 30 && discountedPrice <= 40) {
                         setShowPopup(true);
                       } else if (discountedPrice > 40) {
-                        navigate("/login"); // Login səhifəsinə yönləndirin
+                        navigate("/login");
                       }
                     }}
-                    className="w-[400px] bg-[#b3b93d] hover:bg-[#1e1e1e] text-white py-[15px] px-[50px] font-bold rounded-[5px] mb-[20px]"
+                    className="w-[100%] sm:w-[100%] md:[100%] lg:w-[400px] xlg:w-[400px] bg-[#b3b93d] hover:bg-[#1e1e1e] text-white py-[15px] px-[50px] font-bold rounded-[5px] mb-[20px]"
                   >
                     {discountedPrice > 40 ? "Ödəniş" : "Redaktə Gözlənilir"}
                   </button>
 
                   {showPopup && (
                     <div className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 flex justify-center items-center">
-                      <div className="bg-white p-5 rounded shadow-lg">
-                        <p className="text-[20px] font-bold">
+                      <div className="bg-white p-5 rounded shadow-lg w-[90%] sm:w-[80%] md:w-[60%] lg:w-[40%] xl:w-[30%]">
+                        <p className="text-[16px] sm:text-[18px] md:text-[20px] font-bold text-center">
                           ⚠️ Zəhmət olmasa qeyd edilən dəyişiklikləri səbətinizə tətbiq edin:
                         </p>
-                        <p className="p-[30px]">
+                        <p className="p-[20px] sm:p-[25px] md:p-[30px] text-[14px] sm:text-[16px] md:text-[18px] text-center">
                           • Səbətinizin məbləği ən azı 40 ₼ olmalıdır.
                         </p>
                         <div className="flex items-end justify-end">
                           <button
                             onClick={() => setShowPopup(false)}
-                            className="mt-3 text-white py-2 px-4 rounded bg-[#b3b93d]"
+                            className="mt-3 text-white py-2 px-4 rounded bg-[#b3b93d] hover:bg-[#9aa832] transition-all"
                           >
                             OK
                           </button>
@@ -519,52 +533,53 @@ function PageComponent() {
                       </div>
                     </div>
                   )}
-
-
-
                   <Link to="/" >
                     <p className=" text-center cursor-pointer underline underline-offset-4 hover:decoration-[#b3b93d]  hover:text-[#b3b93d]  text-[18px]"> Alış-verişə Davam Edin </p>
                   </Link>
-
-
-
                 </div>
-
               </div>
-
-
-
             </div>
           </>
         )}
 
 
-
-
-
-
-
-
-        {/* favori page funksionallifi */}
+        {/* favori page  */}
         {location.pathname === "/favorit" && (
           <>
-
             <div className="md:mx-[8%] flex flex-col lg:flex-row justify-between">
-
-
-              <div className="w-full lg:w-[23%] ">
-                <Advertising />
+              <div className="w-full lg:w-[25%] hidden sm:hidden md:hidden lg:block xlg:block">
+                <div className="rounded-[5px] flex flex-col mb-[50px] border border-[#eee]">
+                  <div className="bg-[#f0f0f0] rounded-t-lg">
+                    <p className="font-bold text-[20px] p-[20px]">Həftənin endirimləri🎯</p>
+                  </div>
+                  <div>
+                    {meat.map((item) => (
+                      <div key={item.id} className="flex p-[15px]">
+                        <div className="w-[80px] h-[60px] mx-[10px]">
+                          <img className="object-cover w-full h-full rounded-md" src={item.img} alt={item.name} />
+                        </div>
+                        <div className='ml-[15px]'>
+                          <p className="">{item.name}</p>
+                          <p className="my-[10px] text-[#439e4a] font-bold">{item.price}</p>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                  <div className='mx-[10px] mb-[5px]'>
+                    <p className="px-[20px] py-[10px] underline hover:text-[#b3b93d] hover:unde cursor-pointer">
+                      Hamısına Bax
+                    </p>
+                  </div>
+                </div>
               </div>
-
-              <div className=" w-full lg:w-[75%] h-[500px] flex flex-wrap gap-[10px]">
+              <div className="w-full lg:w-[73%] flex flex-wrap gap-[10px] justify-center items-center ">
                 {favorites && favorites.length > 0 ? favorites.map((item, index) => {
                   return (
-                    <div key={item.id} className="group relative border-[1px] border-[#e5e5e5 rounded-[10px] w-[210px] h-[500px] m-[5px] mb-[20px] ">
+                    <div key={item.id} className="group relative border-[1px] border-[#e5e5e5] rounded-[10px] w-[210px] h-[500px] m-[5px] mb-[20px]">
                       <img className="rounded-[5px] p-[5px]" src={item.img} alt={item.name} />
-                      <div className="absolute top-0 right-0 z-20 icon ">
+                      <div className="absolute top-0 right-0 z-20 icon">
                         <IoMdClose
                           onClick={() => removeFromFavorit(item.id)}
-
                           className="text-black hover:text-[#b3b93d] rounded-full w-[35px] h-[35px] p-[5px] m-[3px] cursor-pointer"
                         />
                       </div>
@@ -587,7 +602,7 @@ function PageComponent() {
                       </div>
 
                       {item.quantity > 0 ? (
-                        <div className="block  mt-[100px] m-[10px]">
+                        <div className="block mt-[100px] m-[10px]">
                           <p className="text-[14px] text-left mb-[8px]">Miqdar</p>
                           <div className="mb-[20px] flex justify-center items-center border-[1px] border-[#e8e8e8] w-[100px] h-[40px]">
                             <button onClick={() => updateCount(index, item.quantity > 1 ? item.quantity - 1 : 1)} className="cursor-pointer p-[13px]">-</button>
@@ -595,9 +610,7 @@ function PageComponent() {
                             <button onClick={() => updateCount(index, item.quantity + 1)} className="cursor-pointer p-[13px]">+</button>
                           </div>
                           <div className="flex justify-start">
-                            <button
-                              className="flex justify-center items-center bg-[#e8e8e8] font-bold text-[14px] rounded-[6px] py-[8px] px-[30px] group-hover:text-white group-hover:bg-[#b3b93d]"
-                            >
+                            <button className="flex justify-center items-center bg-[#e8e8e8] font-bold text-[14px] rounded-[6px] py-[8px] px-[30px] group-hover:text-white group-hover:bg-[#b3b93d]">
                               <SlBasket className="inline-block" /> <p className="inline-block ml-[10px]">Səbətə At</p>
                             </button>
                           </div>
@@ -614,7 +627,6 @@ function PageComponent() {
                     </div>
                   );
                 }) :
-
                   <div className="mt-[150px] w-full mx-auto">
                     <p className="text-center font-bold text-[26px] mb-[20px]" >Sevimli məhsul tapılmadı 💔</p>
                     <Link to="/" >
@@ -622,36 +634,27 @@ function PageComponent() {
                     </Link>
                   </div>
                 }
-
               </div>
-
-
-
-
             </div>
+
+
+
           </>
         )}
 
 
-
-
-
         {/* login page */}
         {location.pathname === "/login" && (
-          <div className=" flex flex-col justify-center items-center w-[500px] mx-auto my-[100px] border border-[#e5e5e5] rounded-[5px]">
-            <p className="text-[24px] my-[20px]">🔐 Daxil Olun</p>
-            <input className="w-[70%] p-[6px] my-[8px] border border-[#5e5e5e] rounded-[5px] outline-none" type="email" placeholder="E-poçt" />
-            <input className="w-[70%] p-[6px] my-[8px] border border-[#5e5e5e] rounded-[5px] outline-none" type="parol" placeholder="Parol" />
-            <div className="flex justify-between gap-[30px] my-[30px]">
-              <button className=" bg-[#b3b93d] hover:bg-[#1e1e1e] text-white font-bold rounded-[5px] px-[10px] p-[8px] ">Daxil Olun</button>
-              <button className=" bg-[#e7e7e7]  text-black  rounded-[5px] px-[10px] p-[8px] ">Hesab Yarat</button>
+          <div className="flex flex-col justify-center items-center w-[90%] sm:w-[500px] mx-auto my-[50px] sm:my-[100px] border border-[#e5e5e5] rounded-[5px]">
+            <p className="text-[20px] sm:text-[24px] my-[15px] sm:my-[20px]">🔐 Daxil Olun</p>
+            <input className="w-[80%] sm:w-[70%] p-[6px] my-[8px] border border-[#5e5e5e] rounded-[5px] outline-none" type="email" placeholder="E-poçt" />
+            <input className="w-[80%] sm:w-[70%] p-[6px] my-[8px] border border-[#5e5e5e] rounded-[5px] outline-none" type="password" placeholder="Parol" />
+            <div className="flex flex-col sm:flex-row justify-between gap-[20px] sm:gap-[30px] my-[20px] sm:my-[30px]">
+              <button className="bg-[#b3b93d] hover:bg-[#1e1e1e] text-white font-bold rounded-[5px] px-[10px] p-[8px]">Daxil Olun</button>
+              <button className="bg-[#e7e7e7] text-black rounded-[5px] px-[10px] p-[8px]">Hesab Yarat</button>
             </div>
           </div>
         )}
-
-
-
-
 
       </div>
     </>
