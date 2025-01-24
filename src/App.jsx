@@ -37,7 +37,7 @@ function App() {
           zIndex: 9999,
         }}
       >
-        <img src="/src/assets/loading/loading.gif" alt="Yüklənir" />
+        <img src="https://bazarstore.az/cdn/shop/files/urek-qara.gif?v=1682603721" alt="Yüklənir" />
       </div>
     )
   }
