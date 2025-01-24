@@ -10,7 +10,7 @@ function Main() {
       <div className="md:mx-[8%] flex flex-col lg:flex-row justify-between">
         <div className="w-full lg:w-[75%]">
           <Popup />
-        </div>  
+        </div>
       </div>
     </main>
   );

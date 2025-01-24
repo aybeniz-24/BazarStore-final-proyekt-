@@ -66,24 +66,46 @@ function ProductCarousel({ title, apiFunction, categoryIcon }) {
       </div>
 
       <Swiper
+        onResize={() => swiperRef.current?.swiper.update()} // Yenilənmə funksiyası
         ref={swiperRef}
-        slidesPerView={4}
-        spaceBetween={20}
-        freeMode={true}
-        navigation={false}
+        slidesPerView={1}
+        spaceBetween={5}
         autoplay={{
-          delay: 10000, // Slaydlar arasında 3 saniyə gözləmə
-          disableOnInteraction: false, // İstifadəçi ilə qarşılıqlı təsirdən sonra autoplay davam etsin
+          delay: 10000,
+          disableOnInteraction: false,
         }}
         modules={[FreeMode, Navigation, Autoplay]}
         className="mySwiper"
+        breakpoints={{
+          200: {
+            slidesPerView: 1,
+            spaceBetween: 5,
+          },
+          320: {
+            slidesPerView: 1,
+            spaceBetween: 10,
+          },
+          480: {
+            slidesPerView: 2,
+            spaceBetween: 15,
+          },
+          768: {
+            slidesPerView: 3,
+            spaceBetween: 20,
+          },
+          1024: {
+            slidesPerView: 4,
+            spaceBetween: 20,
+          },
+        }}
+
       >
         {products.map((item, index) => (
-          <SwiperSlide key={item.id} className="w-56 border border-gray-300 my-2 p-3 rounded-lgh-[450px]">
+          <SwiperSlide key={item.id} className="w-full sm:w-56 md:w-64 lg:w-72 xl:w-80 border border-gray-300 my-2 p-3 rounded-lgh-[450px]">
             <div className="w-[100%] group relative">
               <div className="relative group mb-4">
                 <img
-                  className="rounded-[5px]"
+                  className="rounded-[5px] w-full h-auto"
                   src={item.img}
                   alt={item.name}
                 />
@@ -95,14 +117,13 @@ function ProductCarousel({ title, apiFunction, categoryIcon }) {
                   />
                 )}
               </div>
-
               <div className="absolute top-0 right-0 z-20 icon">
-                <CiHeart 
+                <CiHeart
                   onClick={(e) => {
                     e.preventDefault();
                     addToFavorit(item.id, item.img, item.price, item.name, item.discountedPrice, item.quantity, item.marka, item.sku, item.count);
                   }}
-                  className="bg-gray-200 hover:bg-[#b3b93d] hover:text-white rounded-full w-[30px] h-[30px] p-[5px] m-[3px] cursor-pointer" 
+                  className="bg-gray-200 hover:bg-[#b3b93d] hover:text-white rounded-full w-[30px] h-[30px] p-[5px] m-[3px] cursor-pointer"
                 />
                 <FaRegEye
                   className="bg-gray-200 hover:bg-[#b3b93d] hover:text-white rounded-full w-[30px] h-[30px] p-[5px] m-[3px] cursor-pointer"
@@ -117,7 +138,7 @@ function ProductCarousel({ title, apiFunction, categoryIcon }) {
             </div>
             <div className="mt-[30px] h-28 text-left">
               <div className="h-[40px]">
-              <p className="text-[14px] uppercase">{item.name}</p>
+                <p className="text-[14px] uppercase">{item.name}</p>
               </div>
               <div className="flex flex-row gap-[10px] mt-[10px]">
                 {item.discountedPrice ? (
@@ -149,7 +170,7 @@ function ProductCarousel({ title, apiFunction, categoryIcon }) {
                   </button>
                 </div>
                 <div className="flex justify-start">
-                  <button 
+                  <button
                     onClick={(e) => {
                       e.preventDefault();
                       addToBasket(
@@ -179,7 +200,9 @@ function ProductCarousel({ title, apiFunction, categoryIcon }) {
             )}
           </SwiperSlide>
         ))}
+
       </Swiper>
+
 
       <Popup isVisible={isPopupVisible} onClose={closePopup} product={selectedProduct} />
     </div>
