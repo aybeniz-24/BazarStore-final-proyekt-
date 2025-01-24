@@ -101,6 +101,8 @@ function PageComponent() {
     return acc + price * quantity;
   }, 0);
 
+  const hasDiscountedItems = basket.some(item => item.discountedPrice && !isNaN(parseFloat(item.discountedPrice)));
+
 
   const [showPopup, setShowPopup] = useState(false);
 
@@ -187,7 +189,7 @@ function PageComponent() {
                   <img
                     src={product.img}
                     alt={product.name}
-                    className={`xlg:w-[480px] xlg:h-[450px] object-cover transition-all ${isZoomActive ? "opacity-0" : "opacity-100" 
+                    className={`xlg:w-[480px] xlg:h-[450px] object-cover transition-all ${isZoomActive ? "opacity-0" : "opacity-100"
                       }`}
                   />
                   <div
@@ -341,9 +343,8 @@ function PageComponent() {
                         <td className="py-4">
                           <div className="flex flex-col md:flex-row justify-start items-center md:items-start">
                             <img className="w-[80px] rounded-[5px] mb-2 md:mb-0" src={item.img} alt={item.name} />
-                            <div className="md:ml-4 text-center md:text-left">
-                              <p className="text-[15px] uppercase">{item.name}</p>
-                              <p className="text-[15px]">{item.price}</p>
+                            <div className="md:ml-4 text-center md:text-left xlg:mt-[30px]">
+                              <p className="text-[15px]">{item.price} </p>
                             </div>
                           </div>
                         </td>
@@ -377,7 +378,7 @@ function PageComponent() {
                                 +
                               </button>
                             </div>
-                            <button className="p-2 bg-[#b3b93d] hover:bg-[#1e1e1e] rounded">
+                            <button className="p-[8px]   m-2 bg-[#b3b93d] hover:bg-[#1e1e1e] rounded">
                               <FaRegTrashCan
                                 onClick={() => removeFromBasket(item.id)}
                                 className="text-white text-[20px] m-[2px]"
@@ -489,10 +490,16 @@ function PageComponent() {
 
               <div className='xlg:w-[90%] lg:w-[90%] md:w-[100%] sm:w-[100%] w-[100%] mb-[40px]'>
                 <div className='w-[100%] flex flex-col items-center sm:items-center md:items-center lg:items-end xlg:items-end'>
-                  <div className='flex  gap-[30px] my-[20px]'>
-                    <p className='text-[20px]'> Ara cəmi </p>
-                    <p className='font-bold text-[20px] text-gray-500 line-through'>{totalPrice.toFixed(2)} ₼</p>
-                    <p className='font-bold text-[20px] text-green-500'>{discountedPrice.toFixed(2)} ₼</p>
+                  <div className='flex gap-[30px] my-[20px]'>
+                    <p className='text-[20px]'>Ara cəmi</p>
+                    {hasDiscountedItems ? (
+                      <>
+                        <p className='font-bold text-[20px] text-gray-500 line-through'>{totalPrice.toFixed(2)} ₼</p>
+                        <p className='font-bold text-[20px] text-green-500'>{discountedPrice.toFixed(2)} ₼</p>
+                      </>
+                    ) : (
+                      <p className='font-bold text-[20px] text-green-500'>{totalPrice.toFixed(2)} ₼</p>
+                    )}
                   </div>
                   <p className='text-right my-[20px] mb-[30px] '> Vergi daxildir. Çatdırılma xərci ödəniş səhifəsində hesablanır.</p>
 

@@ -23,13 +23,13 @@ function ProductSelect() {
   const { addToBasket } = useContext(BASKET);
   const [totalPages, setTotalPages] = useState(1);
 
-  const [columns, setColumns] = useState(4); 
-  const [activeColumn, setActiveColumn] = useState(4); 
+  const [columns, setColumns] = useState(4);
+  const [activeColumn, setActiveColumn] = useState(4);
 
   const handleColumnChange = (newColumns) => {
     if (newColumns >= 1 && newColumns <= 4) {
       setColumns(newColumns);
-      setActiveColumn(newColumns); 
+      setActiveColumn(newColumns);
     }
   };
 
@@ -37,16 +37,16 @@ function ProductSelect() {
     const updateColumns = () => {
       const width = window.innerWidth;
       if (width <= 600) {
-        setColumns(1); 
+        setColumns(1);
         setActiveColumn(1);
       } else if (width <= 900) {
-        setColumns(2); 
+        setColumns(2);
         setActiveColumn(2);
       } else if (width <= 1200) {
         setColumns(3);
         setActiveColumn(3);
       } else {
-        setColumns(4); 
+        setColumns(4);
         setActiveColumn(4);
       }
     };
@@ -112,7 +112,7 @@ function ProductSelect() {
     setProductData((prevProducts) =>
       prevProducts.map((item) =>
         item.id === id
-          ? { ...item, count: Math.max(1, item.count + increment) } 
+          ? { ...item, count: Math.max(1, item.count + increment) }
           : item
       )
     );
@@ -131,6 +131,14 @@ function ProductSelect() {
     );
   };
 
+  function getImageUrl(img) {
+    const replaceImage =
+      "https://neptun.az/image/cache/logo-270x270.png?v=9";
+    const fallbackImage =
+      "https://lezzetaa.az/uploads/posts/2020-01/1580131325_1580130962_1569417010_bazarstore.png";
+
+    return img?.includes(replaceImage) ? fallbackImage : img;
+  }
 
 
   return (
@@ -180,19 +188,9 @@ function ProductSelect() {
         </div>
         <div className=" md:px-[15px] w-full ">
           <div className=" mdl:flex gap-2 w-full">
-
-
             <div className="content">
-
-
               <div className="products-category ">
-
-
-
-
                 <div className="product-filter md:flex mdl:justify-end md:gap-3 justify-between  my-[15px] ">
-
-
                   <div>
 
                     <form className="flex items-center mb-[15px]">
@@ -212,7 +210,6 @@ function ProductSelect() {
                       </select>
                     </form>
                   </div>
-
 
                   <div className='flex flex-wrap justify-center items-center '>
                     <form className="flex items-center mb-[15px]">
@@ -235,11 +232,6 @@ function ProductSelect() {
                     </form>
 
 
-
-
-
-
-
                     <div className="flex gap-3 ml-[30px]">
                       <HiBars4
                         className={`rotate-90 cursor-pointer text-[28px] sm:text-[30px] md:text-[30px] lg:text-[35px] xlg:text-[35px] bg-[#f0f0f0] p-[5px] border border-[#e5e5e5] rounded-[4px] ${activeColumn === 4 ? 'bg-gray-300 ' : ''}`}
@@ -254,15 +246,7 @@ function ProductSelect() {
                         onClick={() => handleColumnChange(2)} // 2 sütun
                       />
                     </div>
-
-
-
                   </div>
-
-
-
-
-
                 </div>
 
 
@@ -278,7 +262,7 @@ function ProductSelect() {
                           <div className="w-full min-h-[150px] relative">
                             <img
                               className="object-cover w-full"
-                              src={item.img}
+                              src={getImageUrl(item.img)}
                               alt=""
                             />
                           </div>
@@ -288,53 +272,30 @@ function ProductSelect() {
                           <h2 className="text-[20px] text-[#439e4a] font-bold px-[25px] text-left">
                             {item.price.toFixed(2)} ₼
                           </h2>
-
-
-
-
-
-
-
-
                           <div className="flex justify-start">
-
-
 
                             <button
                               onClick={(e) => {
                                 e.preventDefault();
-                                addToBasketHandler(item); // Basketə əlavə et
+                                addToBasketHandler(item);
                               }}
                               className="bg-gray-200 font-bold text-sm rounded-md mx-[25px] my-[20px] py-2 px-6 flex items-center hover:text-white hover:bg-[#b3b93d]"
                             >
                               <SlBasket className="mr-2" /> Səbətə At
                             </button>
-
-
-
-
                           </div>
-
-
-
-
-
                         </Link>
                       )
                     })
                     : new Array(8).fill("").map((item, i) =>
                       <div className="flex flex-col m-6 rounded-lg shadow-lg w-48 animate-pulse h-64 bg-[#e3e89c]" key={i}>
-                        {/* Header Section */}
                         <div className="h-28 rounded-t-lg bg-[#c9cf75]"></div>
-
-                        {/* Content Section */}
                         <div className="flex-1 px-4 py-6 space-y-3 bg-[#f5f7d6]">
                           <div className="w-full h-5 rounded-md bg-[#d9df87]"></div>
                           <div className="w-5/6 h-5 rounded-md bg-[#d9df87]"></div>
                           <div className="w-2/3 h-5 rounded-md bg-[#d9df87]"></div>
                         </div>
                       </div>
-
                     )}
                 </div>
 
