@@ -9,7 +9,6 @@ import { BASKET } from "../context/BasketContext";
 import { FAVORIT } from "../context/FavoritContext";
 import '../../App.css'
 import { Link, useNavigate } from 'react-router-dom'
-import MainSlider from "./MainSlider";
 
 function ProductCarousel({ title, apiFunction, categoryIcon }) {
   const [products, setProducts] = useState([]);
@@ -21,7 +20,7 @@ function ProductCarousel({ title, apiFunction, categoryIcon }) {
   const { addToFavorit } = useContext(FAVORIT);
 
   const swiperRef = useRef(null);
-  const navigate = useNavigate(); // useNavigate hook-u çağırılır
+  const navigate = useNavigate();
 
   useEffect(() => {
     apiFunction().then((data) => {
@@ -66,7 +65,7 @@ function ProductCarousel({ title, apiFunction, categoryIcon }) {
       </div>
 
       <Swiper
-        onResize={() => swiperRef.current?.swiper.update()} // Yenilənmə funksiyası
+        onResize={() => swiperRef.current?.swiper.update()} 
         ref={swiperRef}
         slidesPerView={1}
         spaceBetween={5}
@@ -202,8 +201,6 @@ function ProductCarousel({ title, apiFunction, categoryIcon }) {
         ))}
 
       </Swiper>
-
-
       <Popup isVisible={isPopupVisible} onClose={closePopup} product={selectedProduct} />
     </div>
   );

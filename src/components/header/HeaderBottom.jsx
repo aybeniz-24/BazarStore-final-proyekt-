@@ -16,7 +16,6 @@ import { BASKET } from '../context/BasketContext'
 import { FAVORIT } from '../context/FavoritContext'
 import { PiShoppingCartSimpleBold } from 'react-icons/pi'
 import { RiArrowDropUpLine } from 'react-icons/ri'
-import { IoIosArrowUp } from 'react-icons/io'
 
 
 function HeaderBottom() {
@@ -39,8 +38,6 @@ function HeaderBottom() {
       window.removeEventListener('scroll', handleScroll)
     }
   }, [])
-
-
 
 
   const [showNotification, setShowNotification] = useState(false)
@@ -68,14 +65,11 @@ function HeaderBottom() {
     })
   }
 
-
   const [isOpen, setIsOpen] = useState(false)
 
   const toggleDropdown = () => {
     setIsOpen(!isOpen)
   }
-
-
 
   const basketBadge = basket.reduce((total, item) => total + (item.quantity || 0), 0)
 
@@ -125,12 +119,10 @@ function HeaderBottom() {
     }
   }
 
-
   function handleButtonClick() {
     handleConfirm()
     togglePopup()
   }
-
 
   const navigate = useNavigate()
 
@@ -142,13 +134,9 @@ function HeaderBottom() {
     navigate('/basket')
   }
 
-
-
   const handleLoginClick = () => {
     navigate('/login')
   }
-
-
 
   return (
     <>
@@ -291,51 +279,45 @@ function HeaderBottom() {
         <div className="fixed bottom-[60px] right-10 bg-[#b3b93d] p-[25px] rounded-full shadow-lg z-50 transition-opacity duration-2000 ease-in-out opacity-100">
           <Badge className="px-[8px] right-[-10px] top-[-15px] text-[10px] bg-[#3e3b3a]" content={basketBadge}>
             <Link to="/basket" className="p-0 m-0 block">
-                <PiShoppingCartSimpleBold className="text-white text-[28px]" />
+              <PiShoppingCartSimpleBold className="text-white text-[28px]" />
             </Link>
           </Badge>
         </div>
       )}
-      
-<div className="relative">
-      {/* Button - Sağ aşağı küncdə */}
-      <button
-        onClick={toggleDropdown}
-        className="fixed bottom-4 right-[50px] p-[5px] px-[10px] bg-[#b3b93d] text-white rounded-full shadow-lg z-50">
-        <p><IoChatboxEllipsesOutline className='inline text-[24px] pr-[5px]'  />Buyurun...</p>
-      </button>
-      {/* Dropdown Menyu */}
-    <div
-        className={`fixed right-[50px] bottom-[60px] shadow-lg transition-all duration-300 z-20 transform ${
-          isOpen ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
-        }`}>
-          
-            <div className='p-[20px] bg-gradient-to-r from-[#b2b83d] via-[#808526] to-[#525410] rounded-[15px]'>
-              <p className='text-white text-[24px]'>🤍 Buyurun...</p>
-              <p className='text-[#ebebeb] p-[10px]'>
-                Sifarişinizin statusunu izləyin və ya ən çox <br /> verilən suallara baxın, dəstək üçün bizimlə <br /> əlaqə saxlayın.
-              </p>
-              <div className='my-[20px]'>
-                  <a className='text-[16px] mr-[15px] bg-[#ccc] p-[10px] pt-[5px] rounded-full ' href="https://facebook.com/bazarstore"><FaFacebookF className='inline' /></a>
-                  <a className='text-[16px] mr-[15px] bg-[#ccc] p-[10px] pt-[5px] rounded-full ' href="https://instagram.com/bazarstore"><FaInstagram className='inline' /></a>
-                  <a className='text-[16px] mr-[15px] bg-[#ccc] p-[10px] pt-[5px] rounded-full ' href="https://tiktok.com/@bazarstore"><FaTiktok className='inline' /></a>
-                  <a className='text-[16px] mr-[15px] bg-[#ccc] p-[10px] pt-[5px] rounded-full ' href="https://youtube.com/bazarstore"><FiYoutube className='inline' /></a>
-              </div>
+
+      <div className="relative">
+        <button
+          onClick={toggleDropdown}
+          className="fixed bottom-4 right-[50px] p-[5px] px-[10px] bg-[#b3b93d] text-white rounded-full shadow-lg z-50">
+          <p><IoChatboxEllipsesOutline className='inline text-[24px] pr-[5px]' />Buyurun...</p>
+        </button>
+        <div
+          className={`fixed right-[50px] bottom-[60px] shadow-lg transition-all duration-300 z-20 transform ${isOpen ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
+            }`}>
+
+          <div className='p-[20px] bg-gradient-to-r from-[#b2b83d] via-[#808526] to-[#525410] rounded-[15px]'>
+            <p className='text-white text-[24px]'>🤍 Buyurun...</p>
+            <p className='text-[#ebebeb] p-[10px]'>
+              Sifarişinizin statusunu izləyin və ya ən çox <br /> verilən suallara baxın, dəstək üçün bizimlə <br /> əlaqə saxlayın.
+            </p>
+            <div className='my-[20px]'>
+              <a className='text-[16px] mr-[15px] bg-[#ccc] p-[10px] pt-[5px] rounded-full ' href="https://facebook.com/bazarstore"><FaFacebookF className='inline' /></a>
+              <a className='text-[16px] mr-[15px] bg-[#ccc] p-[10px] pt-[5px] rounded-full ' href="https://instagram.com/bazarstore"><FaInstagram className='inline' /></a>
+              <a className='text-[16px] mr-[15px] bg-[#ccc] p-[10px] pt-[5px] rounded-full ' href="https://tiktok.com/@bazarstore"><FaTiktok className='inline' /></a>
+              <a className='text-[16px] mr-[15px] bg-[#ccc] p-[10px] pt-[5px] rounded-full ' href="https://youtube.com/bazarstore"><FiYoutube className='inline' /></a>
             </div>
-            
+          </div>
+
+        </div>
+        {showNotification && (
+          <span
+            className="fixed bottom-4 right-[-5px] transform -translate-x-1/2 bg-[#b3b93d] text-white rounded-[100%] shadow-lg cursor-pointer z-50 transition-opacity duration-2000 ease-in-out opacity-100"
+            onClick={scrollToTop}
+          >
+            <RiArrowDropUpLine className="text-[35px]" />
+          </span>
+        )}
       </div>
-      {showNotification && (
-        <span
-          className="fixed bottom-4 right-[-5px] transform -translate-x-1/2 bg-[#b3b93d] text-white rounded-[100%] shadow-lg cursor-pointer z-50 transition-opacity duration-2000 ease-in-out opacity-100"
-          onClick={scrollToTop}
-        >
-          <RiArrowDropUpLine className="text-[35px]" />
-        </span>
-      )}
-    </div>
-
-      
-
 
 
       <Offcanvas show={show} onHide={handleClose} id="custom-offcanvas" >

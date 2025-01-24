@@ -8,16 +8,16 @@ function DataContext({ children }) {
   const [data, setData] = useState(null)
   const [discounted, setDiscounted] = useState(null)
 
-  
+
   useEffect(() => {
     getAllCategories().then(res => setCategory(res))
     getAllProducts().then(res => setData(res))
     getDiscounted().then(res => setDiscounted(res))
   }, [])
-  
+
 
   return (
-    <DATA.Provider value={{ category, setCategory, data, setData, discounted, setDiscounted}}>
+    <DATA.Provider value={{ category, setCategory, data, setData, discounted, setDiscounted }}>
       {children}
     </DATA.Provider>
   )

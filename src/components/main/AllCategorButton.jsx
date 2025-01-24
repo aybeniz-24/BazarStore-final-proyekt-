@@ -1,5 +1,4 @@
 import menuData from '../../data/headerMenuData.json'
-import productData from '../../data/productCategoriesData.json'
 import '../../App.css'
 import { FaBars } from "react-icons/fa"
 import { FaLongArrowAltRight } from "react-icons/fa"
@@ -30,7 +29,6 @@ function AllCategorButton() {
     }, [])
 
   
-  
   const toggleMenu = () => {
     setIsCategoriesOpen((prevState) => !prevState);
   };
@@ -45,7 +43,6 @@ function AllCategorButton() {
     <section className="border-t-[1px] border-[#eee]">
 
       <div className="md:mx-[8%] mx-[2%] xlg:flex xlg:justify-between">
-        {/* Sol tərəf - Kateqoriyalar */}
 
         <div className="relative w-[100%] md:w-[100%] lg:w-[100%] xlg:w-[25%]">
           <button
@@ -88,31 +85,23 @@ function AllCategorButton() {
                         >
                           <Link to={`/category/${item.categoryName}/${sub.id}`} className="block hover:text-[#b3b93d]">
                             <div className="pb-[10px] px-[15px] flex justify-between items-center">
-                              <div className="mr-auto first-letter:uppercase">{sub.categoryName}</div> {/* sub.name - data2.name düzəlişi */}
-                              {/* <IoIosArrowForward className="inline mt-[5px] text-[#5e5e5e]" /> */}
+                              <div className="mr-auto first-letter:uppercase">{sub.categoryName}</div> 
                             </div>
                           </Link>
                         </li>
                       ))}
                     </ul>
-
-                 
                   </li>
                 ))}
               </ul>
             </div>
           )}
 
-        <div className="mt-[50px] ">
+        <div className="mt-[50px] hidden sm:hidden md:hidden lg:hidden xlg:block">
           <Advertising />
         </div>
-        </div>
+        </div>       
 
-
-
-       
-
-        {/* Sağ tərəf - Menyu və Slayder */}
         <div className="flex-col justify-between h-full  lg:block xlg:w-[75%] xlg:ml-[20px]">
           <ul className="m-[12px] hidden justify-between lg:flex xlg:flex">
             {menuData.map((menu, menuIndex) => (
@@ -143,10 +132,12 @@ function AllCategorButton() {
               title="Bol Ət, ağzınıza layiq ləzzət!"
               apiFunction={ProductMeats}
             />
-
             <CombinedComponent />
-
           </div>
+        </div>
+        
+        <div className="mt-[50px] block sm:block md:block lg:block xlg:hidden">
+          <Advertising />
         </div>
       </div>
     </section>

@@ -10,10 +10,13 @@ import { Link } from 'react-router-dom';
 import { DATA } from '../context/DataContext'
 
 function ButtonSections() {
-    const [isCategoriesOpen, setIsCategoriesOpen] = useState(false);
-    const location = useLocation();
+  const { category } = useContext(DATA)
+  
+  const [isCategoriesOpen, setIsCategoriesOpen] = useState(false);
+  const location = useLocation();
+  
+  const icon = ["🍉", "🍗", "🥖", "🥣", "🍰", "🥃", "🥛", "👶", "🧺", "💄", "🔪", "✏️", "🐕", "💚", "📻", "🏷️", "👚"]
 
-    
     useEffect(() => {
       const handleResize = () => {
         const screenWidth = window.innerWidth;
@@ -24,24 +27,16 @@ function ButtonSections() {
       window.addEventListener('resize', handleResize); 
       return () => window.removeEventListener('resize', handleResize)
     }, [])
-
-  
   
   const toggleMenu = () => {
     setIsCategoriesOpen((prevState) => !prevState);
   };
-
-
-
-
-  const { category } = useContext(DATA)
-  const icon = ["🍉", "🍗", "🥖", "🥣", "🍰", "🥃", "🥛", "👶", "🧺", "💄", "🔪", "✏️", "🐕", "💚", "📻", "🏷️", "👚"]
-  
+ 
 
   return (
     <section className="border-t-[1px] border-[#eee] ">
       <div className="md:mx-[8%] mx-[2%] xlg:flex xlg:justify-between">
-        {/* Sol tərəf - Kateqoriyalar */}
+
         <div className="relative w-[100%] md:w-[100%] lg:w-[100%] xlg:w-[25%]">
           <button
             onClick={toggleMenu}
@@ -100,7 +95,6 @@ function ButtonSections() {
           )}
         </div>
 
-        {/* Sağ tərəf - Menyu və Slayder */}
         <div className="flex-col justify-between h-full lg:block xlg:w-[75%] xlg:ml-[20px]">
           <ul className="m-[12px] hidden justify-between lg:flex xlg:flex">
             {menuData.map((menu, menuIndex) => (
@@ -109,8 +103,6 @@ function ButtonSections() {
               </li>
             ))}
           </ul>
-
-          
         </div>
       </div>
     </section>

@@ -1,5 +1,3 @@
-// update Title And Favicon
-
 export const updateTitleAndFavicon = () => {
   const titles = [
     "Salam, bir dəqiqə...",

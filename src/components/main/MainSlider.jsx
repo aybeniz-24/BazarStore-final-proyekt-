@@ -54,9 +54,6 @@ function MainSlider() {
         <div className="swiper-button-next !right-2 sm:!right-4"></div>
       </Swiper>
 
-
-
-
       <div className='sliderBtn my-[10px] py-[10px] flex flex-wrap justify-between gap-2'>
         <div className='cursor-pointer border-r-[1px] pr-[20px] flex flex-col sm:flex-row justify-center items-center gap-2 w-full sm:w-auto'>
           <div className="spriteTurnk sprite"></div>

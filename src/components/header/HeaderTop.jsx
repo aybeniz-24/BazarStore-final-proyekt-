@@ -25,8 +25,6 @@ function HeaderTop() {
 
   const remainingForFreeDelivery = 40 - discountedPrice;
 
-
-
   return (
     <>
       <section className='fixed w-full z-20 overflow-hidden'>
@@ -38,8 +36,6 @@ function HeaderTop() {
           </p>
         </div>
       </section>
-
-
 
       <section className='bg-[#eff5ef] w-[100%] pt-[50px] '>
         <div className=' flex flex-col md:flex-row lg:flex-row md:justify-between lg:justify-between items-center p-[10px] md:mx-[8%] '>

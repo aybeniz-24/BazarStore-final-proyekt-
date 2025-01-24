@@ -15,7 +15,7 @@ function FavoritContext({ children }) {
                 { id, img, name, price, discountedPrice, quantity, marka, sku },
             ];
             setFavorites(newFavorites);
-            cook.set("favorites", JSON.stringify(newFavorites)); // Yalnız yeni massiv saxlanılır
+            cook.set("favorites", JSON.stringify(newFavorites));
         }
     }
 

@@ -6,17 +6,10 @@ import { Link, useParams } from "react-router-dom";
 import { getProductsBySubId } from "../../services/api";
 import { FaRegEye, FaSearch } from "react-icons/fa";
 import { BASKET } from "../context/BasketContext";
-import Loading from "./Loading";
 import { Pagination } from "antd";
 import ButtonSections from "./ButtonSections";
-import Advertising from "./Advertising";
-import data from '../../data/data.json'
-import advertisingImage1 from '../../assets/advertising/advertising1.webp';
-import advertisingImage2 from '../../assets/advertising/advertising2.webp';
-import { CiHeart } from "react-icons/ci";
 import { SlBasket } from "react-icons/sl";
 import { GoHome } from "react-icons/go";
-import { DATA } from '../context/DataContext';
 import { HiBars2, HiBars3, HiBars4 } from "react-icons/hi2";
 
 
@@ -25,55 +18,46 @@ function ProductSelect() {
   const [productData, setProductData] = useState(null);
   const [page, setPage] = useState(1);
   const [limit, setLimit] = useState(12);
-  // const { catname, subId } = useParams();
   const { catname, subname, subId, categoryName } = useParams();
 
   const { addToBasket } = useContext(BASKET);
   const [totalPages, setTotalPages] = useState(1);
 
-
-
-  const [columns, setColumns] = useState(4); // Default olaraq 4 sütun
-  const [activeColumn, setActiveColumn] = useState(4); // Varsayılan olaraq 4 sütun aktiv
+  const [columns, setColumns] = useState(4); 
+  const [activeColumn, setActiveColumn] = useState(4); 
 
   const handleColumnChange = (newColumns) => {
     if (newColumns >= 1 && newColumns <= 4) {
       setColumns(newColumns);
-      setActiveColumn(newColumns); // Yeni sütun aktiv edirik
+      setActiveColumn(newColumns); 
     }
   };
 
-  // Ekran ölçüsünə görə avtomatik sütun dəyişməsi
   useEffect(() => {
     const updateColumns = () => {
       const width = window.innerWidth;
       if (width <= 600) {
-        setColumns(1); // Kiçik ekranlarda 1 sütun
+        setColumns(1); 
         setActiveColumn(1);
       } else if (width <= 900) {
-        setColumns(2); // Orta ekranlarda 2 sütun
+        setColumns(2); 
         setActiveColumn(2);
       } else if (width <= 1200) {
-        setColumns(3); // Böyük ekranlarda 3 sütun
+        setColumns(3);
         setActiveColumn(3);
       } else {
-        setColumns(4); // Ən böyük ekranlarda 4 sütun
+        setColumns(4); 
         setActiveColumn(4);
       }
     };
 
-    // Səhifə yükləndikdə və pəncərə ölçüsü dəyişdikdə sütunları yeniləyirik
     updateColumns();
     window.addEventListener('resize', updateColumns);
 
-    // Təmizləmə
     return () => {
       window.removeEventListener('resize', updateColumns);
     };
   }, []);
-
-
-
 
   const meat = [
     { id: 1, name: "SİYƏZƏN D.T TƏZƏ FİLE AÇIQ KQ", price: "7.19 ₼", img: "https://bazarstore.az/cdn/shop/files/98b514e78a7eb3d82323968ccc908758_100x.jpg?v=1736156000" },
@@ -82,15 +66,9 @@ function ProductSelect() {
     { id: 4, name: "SİYƏZƏN D.T TƏZƏ YAŞIL PAKET KQ", price: "4.99 ₼", img: "https://bazarstore.az/cdn/shop/files/07586faac76777e91d272f3296018b9e_100x.webp?v=1736147009" },
   ]
 
-
-
-
-
-
-  const [sortOption, setSortOption] = useState("asc"); // Default olaraq "Ucuzdan Bahaya"
+  const [sortOption, setSortOption] = useState("asc");
 
   useEffect(() => {
-    // Məhsulları API-dən alarkən qiymətə və ada görə sıralamaq
     getProductsBySubId(subId, page, limit).then((res) => {
       const sortedProducts = res.products.map((item) => ({
         ...item,
@@ -98,16 +76,12 @@ function ProductSelect() {
       }));
 
       if (sortOption === "asc") {
-        // Qiymətə görə artan (ucuzdan bahaya)
         sortedProducts.sort((a, b) => a.price - b.price);
       } else if (sortOption === "desc") {
-        // Qiymətə görə azalan (bahadan ucuza)
         sortedProducts.sort((a, b) => b.price - a.price);
       } else if (sortOption === "a-z") {
-        // Adlara görə artan (A-dan Z-yə)
         sortedProducts.sort((a, b) => a.name.localeCompare(b.name));
       } else if (sortOption === "z-a") {
-        // Adlara görə azalan (Z-dən A-ya)
         sortedProducts.sort((a, b) => b.name.localeCompare(a.name));
       }
 
@@ -134,31 +108,16 @@ function ProductSelect() {
     setPage(1);
   }, [catname]);
 
-  // const updateCount = (id, increment) => {
-  //   setProductData((prevProducts) =>
-  //     prevProducts.map((item) =>
-  //       item.id === id
-  //         ? { ...item, count: Math.max(1, item.count + increment) }
-  //         : item
-  //     )
-  //   );
-  // }
-
-
-
-
-  // Miqdarı artırıb-azaltmaq üçün funksiya
   const updateCount = (id, increment) => {
     setProductData((prevProducts) =>
       prevProducts.map((item) =>
         item.id === id
-          ? { ...item, count: Math.max(1, item.count + increment) } // Miqdar 1-dən az olmur
+          ? { ...item, count: Math.max(1, item.count + increment) } 
           : item
       )
     );
   };
 
-  // Səbətə əlavə etmək
   const addToBasketHandler = (item) => {
     addToBasket(
       item.id,
@@ -166,12 +125,11 @@ function ProductSelect() {
       item.price,
       item.name,
       item.discountedPrice,
-      item.count, // Miqdar burada istifadə olunur
+      item.count,
       item.marka,
       item.sku
     );
   };
-
 
 
 
@@ -194,12 +152,7 @@ function ProductSelect() {
         </div>
       </>
 
-
-
-
       <div className="md:mx-[8%] flex flex-col lg:flex-row ">
-
-
         <div className="w-full lg:w-[30%] hidden sm:hidden md:hidden lg:block xlg:block">
           <div className="rounded-[5px] flex flex-col mb-[50px] border border-[#eee]">
             <div className="bg-[#f0f0f0] rounded-t-lg">
@@ -225,9 +178,6 @@ function ProductSelect() {
             </div>
           </div>
         </div>
-
-
-
         <div className=" md:px-[15px] w-full ">
           <div className=" mdl:flex gap-2 w-full">
 
@@ -290,20 +240,20 @@ function ProductSelect() {
 
 
 
-<div className="flex gap-3 ml-[30px]">
-      <HiBars4
-        className={`rotate-90 cursor-pointer text-[28px] sm:text-[30px] md:text-[30px] lg:text-[35px] xlg:text-[35px] bg-[#f0f0f0] p-[5px] border border-[#e5e5e5] rounded-[4px] ${activeColumn === 4 ? 'bg-gray-300 ' : ''}`}
-        onClick={() => handleColumnChange(4)} // 4 sütun
-      />
-      <HiBars3
-        className={`rotate-90 cursor-pointer text-[28px] sm:text-[30px] md:text-[30px] lg:text-[35px] xlg:text-[35px] bg-[#f0f0f0] p-[5px] border border-[#e5e5e5] rounded-[4px] ${activeColumn === 3 ? 'bg-gray-300' : ''}`}
-        onClick={() => handleColumnChange(3)} // 3 sütun
-      />
-      <HiBars2
-        className={`rotate-90 cursor-pointer text-[28px] sm:text-[30px] md:text-[30px] lg:text-[35px] xlg:text-[35px] bg-[#f0f0f0] p-[5px] border border-[#e5e5e5] rounded-[4px] ${activeColumn === 2 ? 'bg-gray-300' : ''}`}
-        onClick={() => handleColumnChange(2)} // 2 sütun
-      />
-    </div>
+                    <div className="flex gap-3 ml-[30px]">
+                      <HiBars4
+                        className={`rotate-90 cursor-pointer text-[28px] sm:text-[30px] md:text-[30px] lg:text-[35px] xlg:text-[35px] bg-[#f0f0f0] p-[5px] border border-[#e5e5e5] rounded-[4px] ${activeColumn === 4 ? 'bg-gray-300 ' : ''}`}
+                        onClick={() => handleColumnChange(4)} // 4 sütun
+                      />
+                      <HiBars3
+                        className={`rotate-90 cursor-pointer text-[28px] sm:text-[30px] md:text-[30px] lg:text-[35px] xlg:text-[35px] bg-[#f0f0f0] p-[5px] border border-[#e5e5e5] rounded-[4px] ${activeColumn === 3 ? 'bg-gray-300' : ''}`}
+                        onClick={() => handleColumnChange(3)} // 3 sütun
+                      />
+                      <HiBars2
+                        className={`rotate-90 cursor-pointer text-[28px] sm:text-[30px] md:text-[30px] lg:text-[35px] xlg:text-[35px] bg-[#f0f0f0] p-[5px] border border-[#e5e5e5] rounded-[4px] ${activeColumn === 2 ? 'bg-gray-300' : ''}`}
+                        onClick={() => handleColumnChange(2)} // 2 sütun
+                      />
+                    </div>
 
 
 
@@ -318,8 +268,6 @@ function ProductSelect() {
 
 
                 <div className={`grid gap-8 lg:gap-9 xlg:gap-11 grid-cols-${columns} flex-wrap justify-center items-center overflow-hidden`}>
-
-
                   {productData && productData.length > 0
                     ? productData.map((item) => {
                       return (
@@ -327,21 +275,12 @@ function ProductSelect() {
                           to={`${item.id}`}
                           className=" border-[1px] h-full rounded-md flex flex-col  justify-center w-[95%] lgx:w-[200px]"
                         >
-
                           <div className="w-full min-h-[150px] relative">
-
                             <img
                               className="object-cover w-full"
                               src={item.img}
                               alt=""
                             />
-
-
-
-
-
-
-
                           </div>
                           <h3 className="text-[14px] mb-4 mt-[15px] px-[25px] text-left ">
                             {item.name}
@@ -351,74 +290,14 @@ function ProductSelect() {
                           </h2>
 
 
-                          <p className="text-left text-[14px] my-[8px] px-[25px] mx-[5px]">Miqdar</p>
-                          {/* <div className="mb-2 flex justify-center mx-[25px] items-center border border-gray-300 w-28 h-10">
-                                          <button
-                                             onClick={() => updateCount(index, item.quantity > 1 ? item.quantity - 1 : 1)} className="cursor-pointer p-[13px]"
-                                           
-                                          >
-                                            -
-                                          </button>
-                                          <p className="mx-2">{item.count}</p>
-                                          <p className="mx-2">{counts[index]}</p>
-                                          <button
-                                            onClick={() => updateCount(index, counts[index] + 1)}
-                                            className="cursor-pointer px-3"
-                                          >
-                                            +
-                                          </button>
-                                        </div> */}
 
-
-                          <div className="mb-2 flex justify-center mx-[25px] items-center border border-gray-300 w-28 h-10">
-                            <button
-                              onClick={() => updateCount(item.id, -1)} // Decrement the quantity
-                              className="cursor-pointer p-[13px]"
-                            >
-                              -
-                            </button>
-                            <p className="mx-2">{item.count}</p>
-                            <button
-                              onClick={() => updateCount(item.id, 1)} // Increment the quantity
-                              className="cursor-pointer px-3"
-                            >
-                              +
-                            </button>
-                          </div>
-
-
-                          {/* 
-
-<div className="mb-2 flex justify-center mx-[25px] items-center border border-gray-300 w-28 h-10">
-  <button onClick={() => updateCount(item.id, -1)} className="cursor-pointer p-[13px]">-</button>
-  <p className="mx-2">{item.count}</p>
-  <button onClick={() => updateCount(item.id, 1)} className="cursor-pointer px-3">+</button>
-</div> */}
 
 
 
 
 
                           <div className="flex justify-start">
-                            {/* <button 
-                                            onClick={(e) => {
-                                              e.preventDefault();
-                                              addToBasket(
-                                                item.id,
-                                                item.img,
-                                                item.price,
-                                                item.name,
-                                                item.discountedPrice,
-                                                item.quantity,
-                                                item.marka,
-                                                item.sku,
-                                                counts[index]
-                                              );
-                                            }}
-                                            className="bg-gray-200 font-bold text-sm rounded-md mx-[25px] my-[20px] py-2 px-6 flex items-center hover:text-white hover:bg-[#b3b93d]"
-                                          >
-                                            <SlBasket className="mr-2" /> Səbətə At
-                                          </button> */}
+
 
 
                             <button
@@ -441,9 +320,22 @@ function ProductSelect() {
 
 
                         </Link>
-                      );
+                      )
                     })
-                    : new Array(8).fill("").map((item, i) => <Loading key={i} />)}
+                    : new Array(8).fill("").map((item, i) =>
+                      <div className="flex flex-col m-6 rounded-lg shadow-lg w-48 animate-pulse h-64 bg-[#e3e89c]" key={i}>
+                        {/* Header Section */}
+                        <div className="h-28 rounded-t-lg bg-[#c9cf75]"></div>
+
+                        {/* Content Section */}
+                        <div className="flex-1 px-4 py-6 space-y-3 bg-[#f5f7d6]">
+                          <div className="w-full h-5 rounded-md bg-[#d9df87]"></div>
+                          <div className="w-5/6 h-5 rounded-md bg-[#d9df87]"></div>
+                          <div className="w-2/3 h-5 rounded-md bg-[#d9df87]"></div>
+                        </div>
+                      </div>
+
+                    )}
                 </div>
 
                 <div className="flex gap-3 justify-center py-10 overflow-hidden">
@@ -459,10 +351,32 @@ function ProductSelect() {
             </div>
           </div>
         </div>
+      </div>
 
-
-
-
+      <div className="w-full  block sm:block md:block lg:hidden xlg:hidden">
+        <div className="rounded-[5px] flex flex-col mb-[50px] border border-[#eee]">
+          <div className="bg-[#f0f0f0] rounded-t-lg">
+            <p className="font-bold text-[20px] p-[20px]">Həftənin endirimləri🎯</p>
+          </div>
+          <div>
+            {meat.map((item) => (
+              <div key={item.id} className="flex p-[15px]">
+                <div className="w-[80px] h-[60px] mx-[10px]">
+                  <img className="object-cover w-full h-full rounded-md" src={item.img} alt={item.name} />
+                </div>
+                <div className='ml-[15px]'>
+                  <p className="">{item.name}</p>
+                  <p className="my-[10px] text-[#439e4a] font-bold">{item.price}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+          <div className='mx-[10px] mb-[5px]'>
+            <p className="px-[20px] py-[10px] underline hover:text-[#b3b93d] hover:unde cursor-pointer">
+              Hamısına Bax
+            </p>
+          </div>
+        </div>
       </div>
     </div>
   );

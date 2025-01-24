@@ -1,34 +1,3 @@
-import axiosInstance from "./intances"
-
-async function getAllCategories() {
-  const res = await axiosInstance.get("/categories")
-  return res.data
-}
-
-async function getAllProducts() {
-  const res = await axiosInstance.get("/products")
-  return res.data
-}
-
-async function getDiscounted() {
-  const res = await axiosInstance.get('/products/discounted')
-  return res.data
-}
-async function getProductsBySubId(id, page = 1, limit) {
-  const res = await axiosInstance.get(`/products/subcategory/${id}?page=${page}&limit=${limit}`)
-  return res.data
-}
-async function getDetailById(id) {
-  const res = await axiosInstance.get(`/products/${id}`)
-  return res.data
-}
-
-export { getAllCategories, getAllProducts, getDiscounted, getProductsBySubId, getDetailById }
-
-
-
-
-
 
 async function OnlineOrder(){
     const data = await fetch("http://localhost:3005/OnlineOrderExclusive")
@@ -37,7 +6,6 @@ async function OnlineOrder(){
 export {
     OnlineOrder
 }
-
 
 
 async function NewYear(){
@@ -49,7 +17,6 @@ export{
 }
 
 
-
 async function PineTree(){
     const data= await fetch("http://localhost:3005/PineTrees")
     return data.json()
@@ -57,7 +24,6 @@ async function PineTree(){
 export{
     PineTree
 }
-
 
 
 async function ProductMeats(){
@@ -107,5 +73,32 @@ export {
 
 
 
+
+import axiosInstance from "./intances"
+
+async function getAllCategories() {
+  const res = await axiosInstance.get("/categories")
+  return res.data
+}
+
+async function getAllProducts() {
+  const res = await axiosInstance.get("/products")
+  return res.data
+}
+
+async function getDiscounted() {
+  const res = await axiosInstance.get('/products/discounted')
+  return res.data
+}
+async function getProductsBySubId(id, page = 1, limit) {
+  const res = await axiosInstance.get(`/products/subcategory/${id}?page=${page}&limit=${limit}`)
+  return res.data
+}
+async function getDetailById(id) {
+  const res = await axiosInstance.get(`/products/${id}`)
+  return res.data
+}
+
+export { getAllCategories, getAllProducts, getDiscounted, getProductsBySubId, getDetailById }
 
 

@@ -6,10 +6,8 @@ import { FAVORIT } from "../context/FavoritContext"
 import { SlBasket } from "react-icons/sl";
 import ButtonSections from "./ButtonSections";
 import { GoHome } from "react-icons/go";
-import Advertising from "./Advertising";
 import { IoIosInformationCircleOutline, IoMdClose } from "react-icons/io";
 import data from '../../data/data.json'
-import productData from '../../data/productCategoriesData.json';
 import { CiDeliveryTruck } from 'react-icons/ci';
 import { RiArrowDropDownLine } from 'react-icons/ri';
 import { IoReturnDownBack } from 'react-icons/io5';
@@ -23,6 +21,17 @@ function PageComponent() {
   const navigate = useNavigate();
   const location = useLocation();
 
+  const [deliveryOpen, setDeliveryOpen] = useState(false);
+  const [returnPolicyOpen, setReturnPolicyOpen] = useState(false);
+  const [infoOpen, setInfoOpen] = useState(false);
+
+
+  const [zoom, setZoom] = useState({ x: 0, y: 0 });
+  const [isZoomActive, setIsZoomActive] = useState(false);
+
+  const [selected, setSelected] = useState("250g");
+  const [count, setCount] = useState(1);
+
 
   const meat = [
     { id: 1, name: "SİYƏZƏN D.T TƏZƏ FİLE AÇIQ KQ", price: "7.19 ₼", img: "https://bazarstore.az/cdn/shop/files/98b514e78a7eb3d82323968ccc908758_100x.jpg?v=1736156000" },
@@ -30,7 +39,6 @@ function PageComponent() {
     { id: 3, name: "MƏRCAN TƏZƏ TOYUQ FİLE KQ", price: "2.39 ₼", img: "https://bazarstore.az/cdn/shop/files/ad3e3dd6af6f217f66f4b596bdb5dbb4_100x.webp?v=1736146273" },
     { id: 4, name: "SİYƏZƏN D.T TƏZƏ YAŞIL PAKET KQ", price: "4.99 ₼", img: "https://bazarstore.az/cdn/shop/files/07586faac76777e91d272f3296018b9e_100x.webp?v=1736147009" },
   ]
-
 
   const titles = {
     "/favorit": "Seçilmişlər",
@@ -105,11 +113,6 @@ function PageComponent() {
   }, [discountedPrice]);
 
 
-
-
-  const [selected, setSelected] = useState("250g");
-  const [count, setCount] = useState(1);
-
   const addToBasket1 = (id, img, price, name, discountedPrice, quantity, marka, sku, count) => {
     const basket = JSON.parse(localStorage.getItem("basket")) || [];
 
@@ -125,13 +128,6 @@ function PageComponent() {
     localStorage.setItem("basket", JSON.stringify(basket));
   };
 
-  const [deliveryOpen, setDeliveryOpen] = useState(false);
-  const [returnPolicyOpen, setReturnPolicyOpen] = useState(false);
-  const [infoOpen, setInfoOpen] = useState(false);
-
-
-  const [zoom, setZoom] = useState({ x: 0, y: 0 });
-  const [isZoomActive, setIsZoomActive] = useState(false);
 
   const handleMouseMove = (e) => {
     if (!isZoomActive) return;
@@ -627,7 +623,7 @@ function PageComponent() {
                     </div>
                   );
                 }) :
-                  <div className="mt-[150px] w-full mx-auto">
+                  <div className="mb-[150px] w-full mx-auto">
                     <p className="text-center font-bold text-[26px] mb-[20px]" >Sevimli məhsul tapılmadı 💔</p>
                     <Link to="/" >
                       <p className=" text-center cursor-pointer underline underline-offset-4 hover:decoration-[#b3b93d] text-[18px]"> Alış-verişə Davam Edin </p>

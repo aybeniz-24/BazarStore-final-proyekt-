@@ -14,14 +14,13 @@ function CombinedComponent() {
     newsData().then(data => setNews(data));
   }, []);
 
-  // Fərqli referanslar yaratmaq
   const swiperProductRef = useRef(null);
   const swiperBlogRef = useRef(null);
   const swiperNewsRef = useRef(null);
 
   return (
     <div>
-      {/* Məhsul növləri bölməsi */}
+       {/* product */}
       <div className="relative my-[30px] mb-[60px]">
         <Swiper
           ref={swiperProductRef}
@@ -55,23 +54,22 @@ function CombinedComponent() {
         </Swiper>
       </div>
 
-      {/* Blog bölməsi */}
-      <div className="relative my-[30px] mb-[60px]">
-        <h2 className="text-[24px] font-bold mb-[20px] absolute left-[30px] top-0 z-10">Bazarcuisine Blog</h2>
+      {/* Blog */}
+      <div className="relative xlg:block lg:block md:block my-[20px] mb-[80px]">
+        <h2 className="text-[24px] font-bold mb-[20px] absolute left-[30px] top-0 z-10">Xəbərlər</h2>
 
         <div className="absolute top-0 right-[70px] flex items-center gap-2 z-10">
           <button
             className="swiper-button-prev bg-gray-200 p-2 rounded-full transform rotate-180 scale-[.8]"
-            onClick={() => swiperBlogRef.current.swiper.slideNext()}
+            onClick={() => swiperBlogRef.current.swiper.slidePrev()}
           >
           </button>
           <button
             className="swiper-button-next bg-gray-200 p-2 rounded-full transform rotate-180 scale-[.8]"
-            onClick={() => swiperBlogRef.current.swiper.slidePrev()}
+            onClick={() => swiperBlogRef.current.swiper.slideNext()}
           >
           </button>
         </div>
-
         <Swiper
           ref={swiperBlogRef}
           slidesPerView={3}
@@ -86,8 +84,23 @@ function CombinedComponent() {
             768: { slidesPerView: 1 },
             640: { slidesPerView: 1 },
             250: { slidesPerView: 1 },
+            220: { slidesPerView: 1 },
           }}
         >
+          <div className="absolute top-0 right-[70px] flex items-center gap-2 z-10">
+            <button
+              className="swiper-button-prev bg-gray-200 p-2 rounded-full transform rotate-180 scale-[.8]"
+
+              onClick={() => swiperBlogRef.current.swiper.slideNext()}
+            >
+            </button>
+            <button
+              className="swiper-button-next bg-gray-200 p-2 rounded-full transform rotate-180 scale-[.8]"
+              onClick={() => swiperBlogRef.current.swiper.slidePrev()}
+            >
+            </button>
+          </div>
+
           {blog.map((item) => (
             <SwiperSlide key={item.id} className="mt-[20px]">
               <div className="p-4 flex flex-col items-center w-full h-full">
@@ -102,8 +115,8 @@ function CombinedComponent() {
         </Swiper>
       </div>
 
-      {/* Xəbərlər bölməsi */}
-      <div className="relative xlg:block lg:block md:block sm:hidden hidden my-[20px] mb-[80px]">
+      {/* news */}
+      <div className="relative xlg:block lg:block md:block  my-[20px] mb-[80px]">
         <h2 className="text-[24px] font-bold mb-[20px] absolute left-[30px] top-0 z-10">Xəbərlər</h2>
 
         <div className="absolute top-0 right-[70px] flex items-center gap-2 z-10">
@@ -114,6 +127,7 @@ function CombinedComponent() {
           </button>
           <button
             className="swiper-button-next bg-gray-200 p-2 rounded-full transform rotate-180 scale-[.8]"
+
             onClick={() => swiperNewsRef.current.swiper.slidePrev()}
           >
           </button>
@@ -132,6 +146,7 @@ function CombinedComponent() {
             1024: { slidesPerView: 2 },
             768: { slidesPerView: 1 },
             640: { slidesPerView: 1 },
+            250: { slidesPerView: 1 }, 
           }}
         >
           {news.map((item) => (
@@ -147,6 +162,7 @@ function CombinedComponent() {
           ))}
         </Swiper>
       </div>
+      
     </div>
   );
 }
