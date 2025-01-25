@@ -27,7 +27,7 @@ function HeaderTop() {
 
   return (
     <>
-      <section className='fixed w-full z-20 overflow-hidden'>
+      <section className='fixed w-full z-40 overflow-hidden'>
         <div style={{ backgroundImage: `url(${headerTopBg})` }}>
           <p className='text-white text-center py-[12px] px-[10px] text-[16px] sm:text-[14px] md:text-[16px] lg:text-[18px] xlg:text-[18px] sm:py-[10px] sm:px-[8px] md:py-[12px] md:px-[10px] lg:py-[14px] lg:px-[12px] xlg:py-[16px] xlg:px-[14px]'>
             {remainingForFreeDelivery > 0

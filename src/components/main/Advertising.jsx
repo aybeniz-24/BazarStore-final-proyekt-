@@ -87,14 +87,6 @@ function Advertising() {
             ))}
           </div>
 
-          <div className="mx-[10px] mb-[5px]">
-            <p
-              onClick={handleSeeAllClick}
-              className="px-[20px] py-[10px] underline hover:text-[#b3b93d] hover:underline cursor-pointer"
-            >
-              Hamısına Bax
-            </p>
-          </div>
         </div>
 
         <div className="h-[450px] w-[100%] sm:w-[30%] md:w-[40%] lg:w-[70%] xlg:w-[100%] mb-[50px] mx-auto">
