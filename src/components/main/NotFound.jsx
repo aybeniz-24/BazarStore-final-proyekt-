@@ -14,7 +14,7 @@ const NotFound = () => {
         href="/"
         className="mt-6 px-6 py-3 bg-[#b3b93d] text-[#f0f0f0] font-medium text-lg rounded-lg transition-colors duration-300 max-w-[200px] sm:max-w-[250px]"
       >
-        Go Back Home
+       Ana Sehifə
       </a>
     </div>
   );
