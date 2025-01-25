@@ -101,6 +101,7 @@ function PageComponent() {
     return acc + price * quantity;
   }, 0);
 
+  // Yoxlayırıq ki, səbətdə endirimli məhsullar varmı
   const hasDiscountedItems = basket.some(item => item.discountedPrice && !isNaN(parseFloat(item.discountedPrice)));
 
 
@@ -613,17 +614,12 @@ function PageComponent() {
                             <button onClick={() => updateCount(index, item.quantity + 1)} className="cursor-pointer p-[13px]">+</button>
                           </div>
                           <div className="flex justify-start">
-                            <button className="flex justify-center items-center bg-[#e8e8e8] font-bold text-[14px] rounded-[6px] py-[8px] px-[30px] group-hover:text-white group-hover:bg-[#b3b93d]">
-                              <SlBasket className="inline-block" /> <p className="inline-block ml-[10px]">Səbətə At</p>
-                            </button>
                           </div>
                         </div>
                       ) : (
                         <div className="block">
                           <div className="mt-[100px] mb-[40px] m-[5px] flex justify-start">
-                            <button className="bg-[#e8e8e8] mt-[90px] font-bold text-[14px] rounded-[6px] py-[8px] px-[20px] group-hover:text-white group-hover:bg-[#b3b93d]">
-                              Seçim Et
-                            </button>
+
                           </div>
                         </div>
                       )}

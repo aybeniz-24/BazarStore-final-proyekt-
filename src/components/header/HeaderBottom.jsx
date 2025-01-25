@@ -179,16 +179,7 @@ function HeaderBottom() {
               </button>
             </div>
 
-            <div className="flex justify-center rounded-full p-[5px]">
-              <input
-                className="outline-none w-[200px] border-[1px] p-[6px] px-[10px] border-r-[0] rounded-l-full"
-                type="search"
-                placeholder="Məhsul Axtar"
-              />
-              <button className="border-[1px] p-[10px] rounded-r-full bg-white">
-                <IoSearch className="text-[18px]" />
-              </button>
-            </div>
+            
           </div>
 
 
@@ -318,7 +309,6 @@ function HeaderBottom() {
           </span>
         )}
       </div>
-
 
       <Offcanvas show={show} onHide={handleClose} id="custom-offcanvas" >
         <Offcanvas.Header closeButton>

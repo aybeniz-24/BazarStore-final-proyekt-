@@ -9,6 +9,7 @@ import { BASKET } from "../context/BasketContext";
 import { FAVORIT } from "../context/FavoritContext";
 import '../../App.css'
 import { Link, useNavigate } from 'react-router-dom'
+import { FaHeart } from "react-icons/fa";
 
 function ProductCarousel({ title, apiFunction, categoryIcon }) {
   const [products, setProducts] = useState([]);
@@ -17,7 +18,7 @@ function ProductCarousel({ title, apiFunction, categoryIcon }) {
   const [isPopupVisible, setIsPopupVisible] = useState(false);
 
   const { addToBasket } = useContext(BASKET);
-  const { addToFavorit } = useContext(FAVORIT);
+  const { addToFavorit, removeFromFavorit } = useContext(FAVORIT);
 
   const swiperRef = useRef(null);
   const navigate = useNavigate();
@@ -44,6 +45,12 @@ function ProductCarousel({ title, apiFunction, categoryIcon }) {
     setIsPopupVisible(false);
   };
 
+  const [isLiked, setIsLiked] = useState(false);
+
+  const toggleHeart = () => {
+    setIsLiked(!isLiked);
+  };
+
   return (
     <div className="mx-8 my-4">
       <div className="relative flex sm:flex-col justify-between">
@@ -65,7 +72,7 @@ function ProductCarousel({ title, apiFunction, categoryIcon }) {
       </div>
 
       <Swiper
-        onResize={() => swiperRef.current?.swiper.update()} 
+        onResize={() => swiperRef.current?.swiper.update()}
         ref={swiperRef}
         slidesPerView={1}
         spaceBetween={5}
@@ -117,13 +124,23 @@ function ProductCarousel({ title, apiFunction, categoryIcon }) {
                 )}
               </div>
               <div className="absolute top-0 right-0 z-20 icon">
-                <CiHeart
-                  onClick={(e) => {
-                    e.preventDefault();
-                    addToFavorit(item.id, item.img, item.price, item.name, item.discountedPrice, item.quantity, item.marka, item.sku, item.count);
-                  }}
-                  className="bg-gray-200 hover:bg-[#b3b93d] hover:text-white rounded-full w-[30px] h-[30px] p-[5px] m-[3px] cursor-pointer"
-                />
+                <div onClick={toggleHeart} className="cursor-pointer">
+                  {isLiked ?
+                    <FaHeart onClick={(e) => {
+                      e.preventDefault();
+                      removeFromFavorit(item.id)
+                    }}
+                      className="bg-gray-200 hover:bg-[#b3b93d] hover:text-white rounded-full w-[30px] h-[30px] p-[5px] m-[3px] cursor-pointer"
+                    /> :
+                    <CiHeart
+                      onClick={(e) => {
+                        e.preventDefault();
+                        addToFavorit(item.id, item.img, item.price, item.name, item.discountedPrice, item.quantity, item.marka, item.sku, item.count);
+                      }}
+                      className="bg-gray-200 hover:bg-[#b3b93d] hover:text-white rounded-full w-[30px] h-[30px] p-[5px] m-[3px] cursor-pointer"
+                    />}
+                </div>
+
                 <FaRegEye
                   className="bg-gray-200 hover:bg-[#b3b93d] hover:text-white rounded-full w-[30px] h-[30px] p-[5px] m-[3px] cursor-pointer"
                   onClick={() => handleIconClick(item)}
