@@ -280,7 +280,6 @@
       "choose": true
     }
     ],
-
     "ProductMeat": [
         {
         "id": 30,
@@ -391,7 +390,6 @@
         "sku": "23456789"
         }
     ],   
-    
     "ProductTypes": [
         { "id": 42, "img": "https://bazarstore.az/cdn/shop/files/indirim-anasayfa-link_100x92.jpg?v=1692349846", "title": "Endirimli Məhsullar", "productCount": "(2123 Çeşidlər)" },
         { "id": 43, "img": "https://bazarstore.az/cdn/shop/files/cok-satan-anasayfa_100x92.jpg?v=1692363270", "title": "Çox Satanlar", "productCount": "(91 Çeşidlər)" },

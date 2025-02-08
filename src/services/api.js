@@ -1,6 +1,6 @@
 
 async function OnlineOrder(){
-    const data = await fetch("http://localhost:3005/OnlineOrderExclusive")
+    const data = await fetch("https://localhost:3005/OnlineOrderExclusive")
     return data.json()
 }
 export {
@@ -9,7 +9,7 @@ export {
 
 
 async function NewYear(){
-    const data = await fetch("http://localhost:3005/NewYearGifts") 
+    const data = await fetch("https://localhost:3005/NewYearGifts") 
     return data.json()   
 }
 export{
@@ -18,7 +18,7 @@ export{
 
 
 async function PineTree(){
-    const data= await fetch("http://localhost:3005/PineTrees")
+    const data= await fetch("https://localhost:3005/PineTrees")
     return data.json()
 }
 export{
@@ -27,7 +27,7 @@ export{
 
 
 async function ProductMeats(){
-    const data = await fetch("http://localhost:3005/ProductMeat")
+    const data = await fetch("https://localhost:3005/ProductMeat")
     return data.json()
 }
 export{
@@ -36,7 +36,7 @@ export{
 
 
 async function ProductType(){
-    const data = await fetch("http://localhost:3005/ProductTypes")
+    const data = await fetch("https://localhost:3005/ProductTypes")
     return data.json()
 }
 export{
@@ -45,7 +45,7 @@ export{
 
 
 async function blogData(){
-    const data = await fetch("http://localhost:3005/blogData")
+    const data = await fetch("https://localhost:3005/blogData")
     return data.json()
 }
 export{
@@ -54,7 +54,7 @@ export{
 
 
 async function newsData(){
-    const data = await fetch("http://localhost:3005/newsData")
+    const data = await fetch("https://localhost:3005/newsData")
     return data.json()
 }
 export{
@@ -64,7 +64,7 @@ export{
 
 
 async function getAllDiscount(){
-    const data = await fetch("http://localhost:3005/OnlineOrderExclusive")
+    const data = await fetch("https://localhost:3005/OnlineOrderExclusive")
     return data.json()
 }
 export {
